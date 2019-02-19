@@ -21,17 +21,17 @@ wire irq;
 triand  [NUM_I2C_SLAVES-1:0] scl;
 triand  [NUM_I2C_SLAVES-1:0] sda;
 
-typedef enum {READ, WRITE} i2c_op_t;
-i2c_op_t op;
+extern i2c_op_t op;
 bit [I2C_DATA_WIDTH-1:0] write_data [];
 
-
 // ****************************************************************************
+
 // Clock generator
 initial clk_gen: begin
       clk = 0;
       forever #5 clk = ~clk;
-  end
+end
+
 // ****************************************************************************
 // Reset generator
 initial rst_gen: begin
@@ -45,7 +45,7 @@ end
 
 initial wait_for_i2c_transfer: begin
 	i2c_bus.wait_for_i2c_transfer(
-			op,
+		//	op,
 			write_data
 		);
 end
