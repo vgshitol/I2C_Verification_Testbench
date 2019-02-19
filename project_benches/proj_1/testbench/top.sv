@@ -46,7 +46,7 @@ end
 initial wait_for_i2c_transfer: begin
 	i2c_bus.wait_for_i2c_transfer(
 			op,
-			ref write_data
+			write_data
 		);
 end
 
@@ -168,7 +168,7 @@ end
 // ****************************************************************************
 // Instantiate the Wishbone master Bus Functional Model
 i2c_if #(
-	.I2C_DATA_WIDTH8(),
+	.I2C_DATA_WIDTH8(I2),
 	.I2C_ADDR_WIDTH()
 ) i2c_bus
 (

@@ -10,9 +10,9 @@ interface i2c_if       #(
 typedef enum {READ, WRITE} i2c_op_t;
 
 // *****************************************************************************
-	task wait_for_i2c_transfer (
+	task automatic wait_for_i2c_transfer (
 		output i2c_op_t op,
-		output bit [I2C_DATA_WIDTH-1:0] write_data []
+		ref bit [I2C_DATA_WIDTH-1:0] write_data []
 	);
 		bit [I2C_ADDR_WIDTH-1:0] addr_slave;
 		bit [I2C_DATA_WIDTH-1:0] data_slave;
