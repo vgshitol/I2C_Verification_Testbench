@@ -4,6 +4,8 @@ module top();
 
 parameter int WB_ADDR_WIDTH = 2;
 parameter int WB_DATA_WIDTH = 8;
+parameter int I2C_ADDR_WIDTH = 8;
+parameter int I2C_DATA_WIDTH = 8;
 parameter int NUM_I2C_SLAVES = 1;
 
 bit  clk;
@@ -16,8 +18,13 @@ wire [WB_ADDR_WIDTH-1:0] adr;
 wire [WB_DATA_WIDTH-1:0] dat_wr_o;
 wire [WB_DATA_WIDTH-1:0] dat_rd_i;
 wire irq;
-tri  [NUM_I2C_SLAVES-1:0] scl;
-tri  [NUM_I2C_SLAVES-1:0] sda;
+triand  [NUM_I2C_SLAVES-1:0] scl;
+triand  [NUM_I2C_SLAVES-1:0] sda;
+
+typedef enum {READ, WRITE} i2c_op_t;
+i2c_op_t op;
+bit [I2C_DATA_WIDTH-1:0] write_data [];
+
 
 // ****************************************************************************
 // Clock generator
@@ -30,7 +37,24 @@ initial clk_gen: begin
 initial rst_gen: begin
 	rst = 1'b1;
 	#113 rst = 1'b0;
-end     
+end
+
+initial monitor_i2c_bus: begin
+
+end
+
+initial wait_for_i2c_transfer: begin
+	i2c_bus.wait_for_i2c_transfer(
+			op,
+			ref write_data
+		);
+end
+
+initial rst_gen: begin
+	rst = 1'b1;
+	#113 rst = 1'b0;
+end
+
 
 
 // ****************************************************************************
@@ -141,6 +165,16 @@ $display("DONE");
 #1000 $finish;
 	
 end
+// ****************************************************************************
+// Instantiate the Wishbone master Bus Functional Model
+i2c_if #(
+	.I2C_DATA_WIDTH8(),
+	.I2C_ADDR_WIDTH()
+) i2c_bus
+(
+	.scl(scl),
+	.sda(sda)
+);
 
 // ****************************************************************************
 // Instantiate the Wishbone master Bus Functional Model
