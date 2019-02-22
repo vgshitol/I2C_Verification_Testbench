@@ -33,9 +33,18 @@ begin
 		check_start=0;
 		$display("STOP!!!!!");
 	end
+
+	if (error==1 && check_stop==1)
+	begin
+		stop=1;
+		start=0;
+		check_stop=0;
+		check_start=0;
+		$display("STOP!!!!!");
+	end
 end
 
-
+/*
 always @(negedge scl)
 begin
 	if (check_stop==1 && error==1)
@@ -47,6 +56,7 @@ begin
 		$display("STOP!!!!!");
 	end
 end
+*/
 
 always @(negedge sda)
 begin
@@ -56,6 +66,7 @@ begin
 		
 		start=1;
 		stop=0;	
+		error=0;
 		check_start=0;
 		check_stop=0;
 		$display("START!!!!!");
@@ -75,7 +86,7 @@ task wait_for_i2c_transfer
 	while(start == 0);
 	
 /******************************************/
-while(!stop) 
+while(!stop && !error) 
 begin
 	while(check_stop==1 || check_start==1);
 	$display("IN WHILE " );
@@ -113,13 +124,13 @@ begin
 		$display("size%d",size);
 		write_data=new[size + 1](write_data);
 
-		$display("after write data");
+		//$display("after write data");
 		for(k=0;k<DATA_WIDTH;k++) 
 		begin
 			@(posedge scl or stop or start);
 			if(start==1 || stop==1) return;
 			write_data[size][7-k]=sda;
-			$display("WRITE BIT : %b", sda);		
+			//$display("WRITE BIT : %b", sda);		
 		end
 
 		$display("write_data=%h",write_data[size]);
@@ -139,24 +150,24 @@ task provide_read_data( input bit [DATA_WIDTH-1:0] read_data []);
 
 		size = read_data.size();
 
-	while(!stop)
+	while(!stop && !error)
 	begin
 		$display("size%d",size);
 		// every time read 8 bits of data into temp array
 		for(i=0;i<size;++i)
 		begin
-
+		
 			temp_read_data = read_data[i];
 			$display("temp_read_data = %h",temp_read_data);
 			
 			// post the read 8 bits onto sda  
 			for( j=0;j<8;j++)
 			begin
-				
+				//$display("in inside For i:%d",i);
 				sda_o=temp_read_data[j];
 				@(negedge scl or error or stop);
 				if(error || stop) return;				
-				$display("SDA ::::::%d" , sda_o);
+				//$display("SDA ::::::%d" , sda_o);
 			end
 			check_stop=1;
 			check_start=1;

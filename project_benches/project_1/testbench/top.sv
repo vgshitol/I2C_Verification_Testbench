@@ -70,7 +70,6 @@ initial
 begin:i2c_test_flow
 	forever begin
 	#1 i2c_bus.wait_for_i2c_transfer(operation, write_data_i2c);
-	$display("operation:%d",operation);
 	if (operation == 1)
 	begin
 		i2c_bus.provide_read_data(read_data_i2c);
@@ -134,7 +133,7 @@ begin:test_flow
 	while(irq == 1'b0) @(posedge clk);	
 	wb_bus.master_read(2'b10,data);
 
-	#1000000 $finish;
+	#1000 $finish;
 
 end
 /*
