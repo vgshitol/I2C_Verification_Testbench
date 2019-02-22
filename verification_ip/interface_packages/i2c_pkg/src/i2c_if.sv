@@ -1,4 +1,4 @@
-interface i2c_if       #(
+interface i2c_if #(
       int ADDR_WIDTH = 7,                                
       int DATA_WIDTH = 8                                
       )
@@ -15,6 +15,8 @@ bit op_check;
 integer size=0;
 integer k,i,j;
 bit check_stop=0;
+bit check_start=0;
+bit restart = 0;
 bit temp=0;
 bit error=0;
 
@@ -23,11 +25,40 @@ bit [DATA_WIDTH-1:0] temp_read_data;
 
 always @(posedge sda)
 begin
-	if (scl == 1 && start==1)
+	if (scl == 1 && check_stop==1)
 	begin
-		stop=1;check_stop=0;
+		stop=1;
+		start=0;
+		check_stop=0;
+		check_start=0;
 		$display("STOP!!!!!");
+	end
+end
+
+
+always @(negedge scl)
+begin
+	if (check_stop==1 && error==1)
+	begin
+		stop=1;
+		start=0;
+		check_stop=0;
+		check_start=0;
+		$display("STOP!!!!!");
+	end
+end
+
+always @(negedge sda)
+begin
+	if (scl == 1 && (check_start==1 || check_stop==1))
+	begin
+		if(check_stop==1) $display("RESTART!!!!!");
 		
+		start=1;
+		stop=0;	
+		check_start=0;
+		check_stop=0;
+		$display("START!!!!!");
 	end
 end
 
@@ -39,72 +70,68 @@ task wait_for_i2c_transfer
 	output bit op, 
 	output bit [DATA_WIDTH-1:0] write_data []
 	);
-	start =0;stop=0;op_check=0;
-
-	do
-	 @(negedge sda)
-		if (scl ==1)start=1;	
-	while(start == 0);
-
-	$display("start %d",start);
 	
-	if(op_check==0)
+	check_start = 1;
+	while(start == 0);
+	
+/******************************************/
+while(!stop) 
+begin
+	while(check_stop==1 || check_start==1);
+	$display("IN WHILE " );
+
+	if(start==1 && stop==0) 
 	begin
+	$display("ADDRESS FETCH" );
+		start=0; // Indicating that it is inside start
 		for( i=0;i<8;i++) 
-			begin
-				@(posedge scl);
-				my_addr[7-i]=sda;
-				
-			end
+		begin
+			@(posedge scl);
+			my_addr[7-i]=sda;	
+		end
+
 		$display("ADDRESS:%h",my_addr);
 			
-		if (my_addr[0]==1)op=1;
+		if (my_addr[0]==1) op=1;
 		else op=0;
-		
-	//	op_check=1;
-		
+			
 		@(negedge scl);
 		sda_o=0;
+	
+		@(negedge scl);
+		sda_o=1;
+		
 	end
 
-	@(negedge scl);
-	sda_o=1;
+	if(op==1) return;
 	
-	while (start==1 && stop ==0 && op == 0)
+	if (start==0 && stop==0 && op == 0)
 	begin
-	$display("in while"); 
-		$display("op=%d",op);
-		if(op == 0 && stop==0)
-		begin
-			size = write_data.size();
-			$display("size%d",size);
-			write_data=new[size + 1](write_data);
-			$display("after write data");
-			for(k=0;k<DATA_WIDTH;k++) 
-			begin
-				@(posedge scl or stop);
-				if(stop)
-				begin
-				return;
-				end
-				write_data[size][7-k]=sda;
-				
-			end
-			$display("write_data=%h",write_data[size]);
-			//check_stop=1;
+	$display("DATA FETCH" );
+		$display("in while"); 
+		size = write_data.size();
+		$display("size%d",size);
+		write_data=new[size + 1](write_data);
 
-			//@(posedge scl);
-			@(negedge scl);
-			sda_o=0;
-			//@(posedge scl);
-			
-			@(negedge scl);
-			sda_o=1;
-			
-			//stop=1;
+		$display("after write data");
+		for(k=0;k<DATA_WIDTH;k++) 
+		begin
+			@(posedge scl or stop or start);
+			if(start==1 || stop==1) return;
+			write_data[size][7-k]=sda;
+			$display("WRITE BIT : %b", sda);		
 		end
-	end	
+
+		$display("write_data=%h",write_data[size]);
+		check_stop=1;
+		check_start=1;
+		@(negedge scl);
+		sda_o=0;			
+		@(negedge scl);
+		sda_o=1;
 		
+	end
+end		
 endtask
 
 /*****************************************************************************************************************************/
@@ -112,12 +139,13 @@ task provide_read_data( input bit [DATA_WIDTH-1:0] read_data []);
 
 		size = read_data.size();
 
-	while(error!=1 && stop==0)
+	while(!stop)
 	begin
-		
+		$display("size%d",size);
 		// every time read 8 bits of data into temp array
-		for(i=0;i<size;i++)
+		for(i=0;i<size;++i)
 		begin
+
 			temp_read_data = read_data[i];
 			$display("temp_read_data = %h",temp_read_data);
 			
@@ -126,25 +154,23 @@ task provide_read_data( input bit [DATA_WIDTH-1:0] read_data []);
 			begin
 				
 				sda_o=temp_read_data[j];
-				@(negedge scl);				
+				@(negedge scl or error or stop);
+				if(error || stop) return;				
 				$display("SDA ::::::%d" , sda_o);
-			//	@(posedge scl);
 			end
-			
+			check_stop=1;
+			check_start=1;
 			@(posedge scl);	
-				sda_o = 1;
+			sda_o = 1;
 
-			@(negedge scl);	
-			
-
-			//@(posedge scl); // Acknowledge or Nak
-				if(sda==1)
-				begin
-					error=1;
-				end
+			@(negedge scl);	  // Acknowledge or Nak
+			if(sda==1) error=1;
 		end
-		if(error) $display( "error!!!!!!!!!!!!!!!!!!!!!");
+	
+		if(error) $display( "ERROR!!!!!!!!!!!!!!!!!!!!!");
 		else $display( "NO ERROR");
+
+	
 	
 	end
 

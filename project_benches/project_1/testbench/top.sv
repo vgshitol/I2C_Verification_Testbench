@@ -106,20 +106,9 @@ begin:test_flow
 		wb_bus.master_read(2'b10,data);
 	end
 		
-	wb_bus.master_write(2'b10,8'bxxxxx101);//Write byte “xxxxx101” to the CMDR. This is Stop command.
-	while(irq == 1'b0) @(posedge clk);	
-	wb_bus.master_read(2'b10,data);
-
 // Read 
 
 // Start
-	#1100
-	wb_bus.master_write(2'b0,8'b11xxxxxx); //
-	wb_bus.master_write(2'b01,8'h01);	//Write byte 0x05 to the DPR. This is the ID of desired I 2 C bus.
-	wb_bus.master_write(2'b10,8'bxxxxx110); //Write byte “xxxxx110” to the CMDR. This is Set Bus command.
-	while(irq == 1'b0);	//Wait for interrupt or until DON bit of CMDR reads '1'.
-	wb_bus.master_read(2'b10,data);	
-
 	wb_bus.master_write(2'b10,8'bxxxxx100); //Write byte “xxxxx100” to the CMDR. This is Start command.
 	while(irq == 1'b0) @(posedge clk);
 	wb_bus.master_read(2'b10,data);
@@ -129,14 +118,13 @@ begin:test_flow
 	wb_bus.master_write(2'b10,8'bxxxxx001); //Write byte “xxxxx001” to the CMDR. This is Write command.
 	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
 	wb_bus.master_read(2'b10,data);
-
 	for(byte i = 0; i < 31; i++) begin
 		wb_bus.master_write(2'b10,8'bxxxxx010); //Write byte “xxxxx011” to the CMDR. This is read with nack command
 		while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
 		wb_bus.master_read(2'b10,data);
 		wb_bus.master_read(2'b01,data);// read dpr
 	end
-
+	
 	wb_bus.master_write(2'b10,8'bxxxxx011); //Write byte “xxxxx011” to the CMDR. This is read with nack command
 	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
 	wb_bus.master_read(2'b10,data);

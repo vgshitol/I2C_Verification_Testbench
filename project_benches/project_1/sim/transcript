@@ -1,6 +1,6 @@
-# //  ModelSim SE-64 10.6c Jul 25 2017Linux 3.10.0-957.5.1.el7.x86_64
+# //  ModelSim SE-64 10.7c Aug 17 2018Linux 3.10.0-957.5.1.el7.x86_64
 # //
-# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  Copyright 1991-2018 Mentor Graphics Corporation
 # //  All Rights Reserved.
 # //
 # //  ModelSim SE-64 and its associated documentation contain trade
@@ -12,7 +12,7 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -i -classdebug -msgmode both -do "set NoQuitOnFinish 1; do wave.do" optimized_debug_top_tb 
-# Start time: 23:46:15 on Feb 20,2019
+# Start time: 01:27:50 on Feb 22,2019
 # Loading sv_std.std
 # Loading work.top(fast)
 # Loading work.wb_if(fast)
@@ -69,292 +69,586 @@ run -all
 # Read DATA ::::129
 # Read DATA ::::130
 # Read DATA ::::131
+# IN WHILE 
+# DATA FETCH
+# in while
+# size          0
+# after write data
 # address 0 data c0 enable 1
 # address 1 data 01 enable 1
 # address 2 data 06 enable 1
 # address 2 data 16 enable 0
 # address 2 data 04 enable 1
-# start 1
+# START!!!!!
+# operation:0
+# IN WHILE 
+# ADDRESS FETCH
 # address 2 data 84 enable 0
 # address 1 data 44 enable 1
 # address 2 data 01 enable 1
 # ADDRESS:44
+# DATA FETCH
 # in while
-# op=0
-# size          0
+# size          1
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 00 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=00
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          1
+# size          2
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 01 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=01
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          2
+# size          3
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 02 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=02
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          3
+# size          4
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 03 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=03
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          4
+# size          5
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 04 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=04
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          5
+# size          6
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 05 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=05
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          6
+# size          7
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 06 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=06
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          7
+# size          8
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 07 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=07
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          8
+# size          9
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 08 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=08
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size          9
+# size         10
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 09 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=09
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         10
+# size         11
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 0a enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=0a
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         11
+# size         12
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 0b enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=0b
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         12
+# size         13
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 0c enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=0c
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         13
+# size         14
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 0d enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=0d
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         14
+# size         15
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 0e enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=0e
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         15
+# size         16
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 0f enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=0f
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         16
+# size         17
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 10 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=10
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         17
+# size         18
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 11 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=11
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         18
+# size         19
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 12 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=12
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         19
+# size         20
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 13 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=13
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         20
+# size         21
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 14 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=14
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         21
+# size         22
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 15 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=15
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         22
+# size         23
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 16 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=16
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         23
+# size         24
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 17 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=17
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         24
+# size         25
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 18 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=18
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         25
+# size         26
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 19 enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=19
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         26
+# size         27
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 1a enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=1a
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         27
+# size         28
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 1b enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=1b
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         28
+# size         29
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 1c enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 0
 # write_data=1c
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         29
+# size         30
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 1d enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
+# WRITE BIT : 1
 # write_data=1d
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         30
+# size         31
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 1e enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 0
 # write_data=1e
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         31
+# size         32
 # after write data
 # address 2 data 81 enable 0
 # address 1 data 1f enable 1
 # address 2 data 01 enable 1
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 0
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
+# WRITE BIT : 1
 # write_data=1f
+# IN WHILE 
+# DATA FETCH
 # in while
-# op=0
-# size         32
+# size         33
 # after write data
 # address 2 data 81 enable 0
-# address 2 data 05 enable 1
-# STOP!!!!!
-# operation:0
-# address 2 data 85 enable 0
-# address 0 data c0 enable 1
-# address 1 data 01 enable 1
-# address 2 data 06 enable 1
-# address 2 data 16 enable 0
 # address 2 data 04 enable 1
-# start 1
+# WRITE BIT : 1
+# RESTART!!!!!
+# START!!!!!
+# operation:0
+# IN WHILE 
+# ADDRESS FETCH
 # address 2 data 84 enable 0
 # address 1 data 45 enable 1
 # address 2 data 01 enable 1
 # ADDRESS:45
 # operation:1
+# size         32
 # temp_read_data = 64
 # address 2 data 81 enable 0
 # address 2 data 02 enable 1
@@ -738,12 +1032,16 @@ run -all
 # SDA ::::::0
 # SDA ::::::0
 # SDA ::::::1
-# error!!!!!!!!!!!!!!!!!!!!!
+# ERROR!!!!!!!!!!!!!!!!!!!!!
+# size         32
+# temp_read_data = 64
 # address 2 data 83 enable 0
 # address 1 data c1 enable 0
 # address 2 data 05 enable 1
 # address 2 data 85 enable 0
-# ** Note: $finish    : ../testbench/top.sv(149)
-#    Time: 6992115 ns  Iteration: 0  Instance: /top
+# ** Note: $finish    : ../testbench/top.sv(137)
+#    Time: 6988815 ns  Iteration: 0  Instance: /top
 # 1
-# Break in NamedBeginStat test_flow at ../testbench/top.sv line 149
+# Break in NamedBeginStat test_flow at ../testbench/top.sv line 137
+# End time: 01:33:36 on Feb 22,2019, Elapsed time: 0:05:46
+# Errors: 0, Warnings: 0
