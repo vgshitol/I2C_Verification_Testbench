@@ -1,0 +1,749 @@
+# //  ModelSim SE-64 10.6c Jul 25 2017Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -i -classdebug -msgmode both -do "set NoQuitOnFinish 1; do wave.do" optimized_debug_top_tb 
+# Start time: 23:46:15 on Feb 20,2019
+# Loading sv_std.std
+# Loading work.top(fast)
+# Loading work.wb_if(fast)
+# Loading work.i2c_if(fast)
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.iicmb_m_wb(str)#1
+# Loading work.wishbone(rtl)#1
+# Loading ieee.numeric_std(body)
+# Loading work.iicmb_pkg(body)
+# Loading work.regblock(rtl)#1
+# Loading work.iicmb_int_pkg(body)
+# Loading work.iicmb_m(str)#1
+# Loading work.mbyte(rtl)#1
+# Loading work.mbit(rtl)#1
+# Loading work.conditioner_mux(str)#1
+# Loading work.conditioner(str)#1
+# Loading work.filter(rtl)#1
+# Loading work.bus_state(rtl)#1
+# set NoQuitOnFinish 1
+# 1
+#  do wave.do
+run -all
+# Read DATA ::::100
+# Read DATA ::::101
+# Read DATA ::::102
+# Read DATA ::::103
+# Read DATA ::::104
+# Read DATA ::::105
+# Read DATA ::::106
+# Read DATA ::::107
+# Read DATA ::::108
+# Read DATA ::::109
+# Read DATA ::::110
+# Read DATA ::::111
+# Read DATA ::::112
+# Read DATA ::::113
+# Read DATA ::::114
+# Read DATA ::::115
+# Read DATA ::::116
+# Read DATA ::::117
+# Read DATA ::::118
+# Read DATA ::::119
+# Read DATA ::::120
+# Read DATA ::::121
+# Read DATA ::::122
+# Read DATA ::::123
+# Read DATA ::::124
+# Read DATA ::::125
+# Read DATA ::::126
+# Read DATA ::::127
+# Read DATA ::::128
+# Read DATA ::::129
+# Read DATA ::::130
+# Read DATA ::::131
+# address 0 data c0 enable 1
+# address 1 data 01 enable 1
+# address 2 data 06 enable 1
+# address 2 data 16 enable 0
+# address 2 data 04 enable 1
+# start 1
+# address 2 data 84 enable 0
+# address 1 data 44 enable 1
+# address 2 data 01 enable 1
+# ADDRESS:44
+# in while
+# op=0
+# size          0
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 00 enable 1
+# address 2 data 01 enable 1
+# write_data=00
+# in while
+# op=0
+# size          1
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 01 enable 1
+# address 2 data 01 enable 1
+# write_data=01
+# in while
+# op=0
+# size          2
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 02 enable 1
+# address 2 data 01 enable 1
+# write_data=02
+# in while
+# op=0
+# size          3
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 03 enable 1
+# address 2 data 01 enable 1
+# write_data=03
+# in while
+# op=0
+# size          4
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 04 enable 1
+# address 2 data 01 enable 1
+# write_data=04
+# in while
+# op=0
+# size          5
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 05 enable 1
+# address 2 data 01 enable 1
+# write_data=05
+# in while
+# op=0
+# size          6
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 06 enable 1
+# address 2 data 01 enable 1
+# write_data=06
+# in while
+# op=0
+# size          7
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 07 enable 1
+# address 2 data 01 enable 1
+# write_data=07
+# in while
+# op=0
+# size          8
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 08 enable 1
+# address 2 data 01 enable 1
+# write_data=08
+# in while
+# op=0
+# size          9
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 09 enable 1
+# address 2 data 01 enable 1
+# write_data=09
+# in while
+# op=0
+# size         10
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 0a enable 1
+# address 2 data 01 enable 1
+# write_data=0a
+# in while
+# op=0
+# size         11
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 0b enable 1
+# address 2 data 01 enable 1
+# write_data=0b
+# in while
+# op=0
+# size         12
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 0c enable 1
+# address 2 data 01 enable 1
+# write_data=0c
+# in while
+# op=0
+# size         13
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 0d enable 1
+# address 2 data 01 enable 1
+# write_data=0d
+# in while
+# op=0
+# size         14
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 0e enable 1
+# address 2 data 01 enable 1
+# write_data=0e
+# in while
+# op=0
+# size         15
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 0f enable 1
+# address 2 data 01 enable 1
+# write_data=0f
+# in while
+# op=0
+# size         16
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 10 enable 1
+# address 2 data 01 enable 1
+# write_data=10
+# in while
+# op=0
+# size         17
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 11 enable 1
+# address 2 data 01 enable 1
+# write_data=11
+# in while
+# op=0
+# size         18
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 12 enable 1
+# address 2 data 01 enable 1
+# write_data=12
+# in while
+# op=0
+# size         19
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 13 enable 1
+# address 2 data 01 enable 1
+# write_data=13
+# in while
+# op=0
+# size         20
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 14 enable 1
+# address 2 data 01 enable 1
+# write_data=14
+# in while
+# op=0
+# size         21
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 15 enable 1
+# address 2 data 01 enable 1
+# write_data=15
+# in while
+# op=0
+# size         22
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 16 enable 1
+# address 2 data 01 enable 1
+# write_data=16
+# in while
+# op=0
+# size         23
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 17 enable 1
+# address 2 data 01 enable 1
+# write_data=17
+# in while
+# op=0
+# size         24
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 18 enable 1
+# address 2 data 01 enable 1
+# write_data=18
+# in while
+# op=0
+# size         25
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 19 enable 1
+# address 2 data 01 enable 1
+# write_data=19
+# in while
+# op=0
+# size         26
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 1a enable 1
+# address 2 data 01 enable 1
+# write_data=1a
+# in while
+# op=0
+# size         27
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 1b enable 1
+# address 2 data 01 enable 1
+# write_data=1b
+# in while
+# op=0
+# size         28
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 1c enable 1
+# address 2 data 01 enable 1
+# write_data=1c
+# in while
+# op=0
+# size         29
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 1d enable 1
+# address 2 data 01 enable 1
+# write_data=1d
+# in while
+# op=0
+# size         30
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 1e enable 1
+# address 2 data 01 enable 1
+# write_data=1e
+# in while
+# op=0
+# size         31
+# after write data
+# address 2 data 81 enable 0
+# address 1 data 1f enable 1
+# address 2 data 01 enable 1
+# write_data=1f
+# in while
+# op=0
+# size         32
+# after write data
+# address 2 data 81 enable 0
+# address 2 data 05 enable 1
+# STOP!!!!!
+# operation:0
+# address 2 data 85 enable 0
+# address 0 data c0 enable 1
+# address 1 data 01 enable 1
+# address 2 data 06 enable 1
+# address 2 data 16 enable 0
+# address 2 data 04 enable 1
+# start 1
+# address 2 data 84 enable 0
+# address 1 data 45 enable 1
+# address 2 data 01 enable 1
+# ADDRESS:45
+# operation:1
+# temp_read_data = 64
+# address 2 data 81 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 65
+# address 2 data 82 enable 0
+# address 1 data 26 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 66
+# address 2 data 82 enable 0
+# address 1 data a6 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 67
+# address 2 data 82 enable 0
+# address 1 data 66 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 68
+# address 2 data 82 enable 0
+# address 1 data e6 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 69
+# address 2 data 82 enable 0
+# address 1 data 16 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 6a
+# address 2 data 82 enable 0
+# address 1 data 96 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 6b
+# address 2 data 82 enable 0
+# address 1 data 56 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 6c
+# address 2 data 82 enable 0
+# address 1 data d6 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 6d
+# address 2 data 82 enable 0
+# address 1 data 36 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 6e
+# address 2 data 82 enable 0
+# address 1 data b6 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 6f
+# address 2 data 82 enable 0
+# address 1 data 76 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 70
+# address 2 data 82 enable 0
+# address 1 data f6 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 71
+# address 2 data 82 enable 0
+# address 1 data 0e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 72
+# address 2 data 82 enable 0
+# address 1 data 8e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 73
+# address 2 data 82 enable 0
+# address 1 data 4e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 74
+# address 2 data 82 enable 0
+# address 1 data ce enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 75
+# address 2 data 82 enable 0
+# address 1 data 2e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 76
+# address 2 data 82 enable 0
+# address 1 data ae enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 77
+# address 2 data 82 enable 0
+# address 1 data 6e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 78
+# address 2 data 82 enable 0
+# address 1 data ee enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 79
+# address 2 data 82 enable 0
+# address 1 data 1e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 7a
+# address 2 data 82 enable 0
+# address 1 data 9e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 7b
+# address 2 data 82 enable 0
+# address 1 data 5e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 7c
+# address 2 data 82 enable 0
+# address 1 data de enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 7d
+# address 2 data 82 enable 0
+# address 1 data 3e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 7e
+# address 2 data 82 enable 0
+# address 1 data be enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 7f
+# address 2 data 82 enable 0
+# address 1 data 7e enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# temp_read_data = 80
+# address 2 data 82 enable 0
+# address 1 data fe enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# temp_read_data = 81
+# address 2 data 82 enable 0
+# address 1 data 01 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# temp_read_data = 82
+# address 2 data 82 enable 0
+# address 1 data 81 enable 0
+# address 2 data 02 enable 1
+# SDA ::::::0
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# temp_read_data = 83
+# address 2 data 82 enable 0
+# address 1 data 41 enable 0
+# address 2 data 03 enable 1
+# SDA ::::::1
+# SDA ::::::1
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::0
+# SDA ::::::1
+# error!!!!!!!!!!!!!!!!!!!!!
+# address 2 data 83 enable 0
+# address 1 data c1 enable 0
+# address 2 data 05 enable 1
+# address 2 data 85 enable 0
+# ** Note: $finish    : ../testbench/top.sv(149)
+#    Time: 6992115 ns  Iteration: 0  Instance: /top
+# 1
+# Break in NamedBeginStat test_flow at ../testbench/top.sv line 149

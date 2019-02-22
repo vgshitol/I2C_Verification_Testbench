@@ -4,6 +4,7 @@ module top();
 
 parameter int WB_ADDR_WIDTH = 2;
 parameter int WB_DATA_WIDTH = 8;
+// parameter int NUM_I2C_SLAVES = 10;
 parameter int NUM_I2C_SLAVES = 1;
 
 bit  clk;
@@ -19,127 +20,67 @@ wire irq;
 tri  [NUM_I2C_SLAVES-1:0] scl;
 tri  [NUM_I2C_SLAVES-1:0] sda;
 
+bit [WB_ADDR_WIDTH-1:0] address;
+bit [WB_DATA_WIDTH-1:0] data;
+bit enable;
+
 // ****************************************************************************
 // Clock generator
-initial clk_gen: begin
-      clk = 0;
-      forever #5 clk = ~clk;
-  end
+initial
+begin:clk_gen
+	forever
+	begin
+		#5 clk=~clk;
+	end 
+	// #500 $finish;
+end
+
 // ****************************************************************************
 // Reset generator
-initial rst_gen: begin
-	rst = 1'b1;
-	#113 rst = 1'b0;
-end     
-
+initial
+begin:rst_gen
+	#113 rst=1'b0;
+end
 
 // ****************************************************************************
 // Monitor Wishbone bus and display transfers in the transcript
-initial wb_monitoring: begin
-	logic [WB_ADDR_WIDTH-1:0] addr;
-	logic [WB_DATA_WIDTH-1:0] data;	
-	logic w_en;
-
-	forever begin
-			#1 wb_bus.master_monitor(addr, data, w_en); 
-			$display("Addr:0x%x | Data:0x%x | W_En:%x \n", addr,data,w_en );			
-		
+initial
+begin:wb_monitoring
+	
+	forever 
+	begin
+	#1 wb_bus.master_monitor(address,data,enable);
+	$display("address %d",address);
+	$display("data %h",data);
+	$display("enable %b",enable);
 	end
 end
+
 // ****************************************************************************
 // Define the flow of the simulation
-initial test_flow: begin
-	logic [WB_ADDR_WIDTH-1:0] addr_w;
-	logic [WB_DATA_WIDTH-1:0] data_w;	
-
-	logic [WB_ADDR_WIDTH-1:0] addr_r;
-	logic [WB_DATA_WIDTH-1:0] data_r;	
-	
-//example 1 csr	 
-	#400 addr_w = 8'h00;
-	     data_w = 8'b11xxxxxx;	 
-	     wb_bus.master_write(addr_w, data_w); 	
-	
-//example 3 dpr
-	 addr_w = 8'h01;
-	 data_w = 8'h05;	 
-	 wb_bus.master_write(addr_w, data_w);
-
-//cmdr set bus command
-	 addr_w = 8'h02;
-         data_w = 8'bxxxxx110;	 
-	 wb_bus.master_write(addr_w, data_w);
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
-	
-//cmdr start
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx100;	 
-	wb_bus.master_write(addr_w, data_w);
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
-	
-//0x44 dpr
-	addr_w = 8'h01;
-	data_w = 8'h44;	 
-	wb_bus.master_write(addr_w, data_w);
-
-//cmdr write
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx001;	 
-	wb_bus.master_write(addr_w, data_w);
-
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	if(data_r[7]==0 && data_r[6]==1) begin
-		$display("NAK Bit is High \n" );
-	end
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
-
-//0x78 dpr
-	addr_w = 8'h01;
-	data_w = 8'h78;	 
-	wb_bus.master_write(addr_w, data_w);
-
-//cmdr write
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx001;	 
-	wb_bus.master_write(addr_w, data_w);
-
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
-	
-//cmdr stop
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx101;	 
-	wb_bus.master_write(addr_w, data_w);
-
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
-
-$display("DONE");
-
-#1000 $finish;
-	
+initial
+begin:test_flow
+	#1100
+	wb_bus.master_write(2'b0,8'b11xxxxxx);
+	wb_bus.master_write(2'b01,8'h05);
+	wb_bus.master_write(2'b10,8'bxxxxx110);
+	while(irq == 1'b0);
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_write(2'b10,8'bxxxxx100);
+	while(irq == 1'b0) @(posedge clk);
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_write(2'b01,8'h44);
+	wb_bus.master_write(2'b10,8'bxxxxx001);
+	while(irq == 1'b0) @(posedge clk);
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_write(2'b01,8'h78);
+	wb_bus.master_write(2'b10,8'bxxxxx001);
+	while(irq == 1'b0) @(posedge clk);
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_write(2'b10,8'bxxxxx101);
+	while(irq == 1'b0) @(posedge clk);	
+	wb_bus.master_read(2'b10,data);
+	#100 $finish;
 end
 
 // ****************************************************************************

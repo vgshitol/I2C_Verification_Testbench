@@ -1,6 +1,6 @@
-# //  ModelSim SE-64 10.7c Aug 17 2018Linux 3.10.0-957.5.1.el7.x86_64
+# //  ModelSim SE-64 10.6c Jul 25 2017Linux 3.10.0-957.5.1.el7.x86_64
 # //
-# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  Copyright 1991-2017 Mentor Graphics Corporation
 # //  All Rights Reserved.
 # //
 # //  ModelSim SE-64 and its associated documentation contain trade
@@ -12,7 +12,7 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -i -classdebug -msgmode both -do "set NoQuitOnFinish 1; do wave.do" optimized_debug_top_tb 
-# Start time: 19:12:53 on Feb 16,2019
+# Start time: 15:28:12 on Feb 19,2019
 # Loading sv_std.std
 # Loading work.top(fast)
 # Loading work.wb_if(fast)
@@ -36,60 +36,51 @@
 # 1
 #  do wave.do
 run
-run
-run
-run
-run
-# Addr:0x0 | Data:0xc0 | W_En:1 
-# 
-# Addr:0x1 | Data:0x05 | W_En:1 
-# 
-run
-# Addr:0x2 | Data:0x06 | W_En:1 
-# 
-# Addr:0x2 | Data:0x16 | W_En:0 
-# 
-# Addr:0x2 | Data:0x04 | W_En:1 
-# 
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# End time: 19:13:40 on Feb 16,2019, Elapsed time: 0:00:47
+# address 0
+# data c0
+# enable 1
+# address 1
+# data 05
+# enable 1
+# address 2
+# data 06
+# enable 1
+# address 2
+# data 16
+# enable 0
+# address 2
+# data 04
+# enable 1
+# address 2
+# data 84
+# enable 0
+# address 1
+# data 44
+# enable 1
+# address 2
+# data 01
+# enable 1
+# address 2
+# data 41
+# enable 0
+# address 1
+# data 78
+# enable 1
+# address 2
+# data 01
+# enable 1
+# address 2
+# data 41
+# enable 0
+# address 2
+# data 05
+# enable 1
+# address 2
+# data 85
+# enable 0
+# ** Note: $finish    : ../testbench/top.sv(83)
+#    Time: 195245 ns  Iteration: 0  Instance: /top
+# 1
+# Break in NamedBeginStat test_flow at ../testbench/top.sv line 83
+# End time: 15:29:49 on Feb 19,2019, Elapsed time: 0:01:37
 # Errors: 0, Warnings: 0
