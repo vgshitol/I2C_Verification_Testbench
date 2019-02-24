@@ -19,14 +19,10 @@ add wave -noupdate /top/DUT/scl_o
 add wave -noupdate /top/DUT/sda_o
 add wave -noupdate /top/i2c_bus/scl
 add wave -noupdate /top/i2c_bus/sda
-add wave -noupdate /top/i2c_bus/start
-add wave -noupdate /top/i2c_bus/stop
 add wave -noupdate /top/i2c_bus/sda_o
 add wave -noupdate /top/i2c_bus/my_addr
 add wave -noupdate /top/i2c_bus/op_check
 add wave -noupdate /top/i2c_bus/size
-add wave -noupdate /top/i2c_bus/k
-add wave -noupdate /top/i2c_bus/i
 add wave -noupdate /top/i2c_bus/check_stop
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}

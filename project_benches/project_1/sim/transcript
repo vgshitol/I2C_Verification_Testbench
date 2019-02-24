@@ -12,7 +12,7 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -i -classdebug -msgmode both -do "set NoQuitOnFinish 1; do wave.do" optimized_debug_top_tb 
-# Start time: 02:28:17 on Feb 22,2019
+# Start time: 21:13:46 on Feb 23,2019
 # Loading sv_std.std
 # Loading work.top(fast)
 # Loading work.wb_if(fast)
@@ -69,428 +69,780 @@ run -all
 # Read DATA ::::129
 # Read DATA ::::130
 # Read DATA ::::131
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          0
-# address 0 data c0 enable 1
-# address 1 data 01 enable 1
-# address 2 data 06 enable 1
-# address 2 data 16 enable 0
-# address 2 data 04 enable 1
+# Addr:0x0 | Data:0xc0 | W_En:1
+# Addr:0x1 | Data:0x01 | W_En:1
+# Addr:0x2 | Data:0x06 | W_En:1
+# Addr:0x2 | Data:0x16 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
 # START!!!!!
-# IN WHILE 
-# ADDRESS FETCH
-# address 2 data 84 enable 0
-# address 1 data 44 enable 1
-# address 2 data 01 enable 1
-# ADDRESS:44
-# DATA FETCH
-# in while
-# size          1
-# address 2 data 81 enable 0
-# address 1 data 00 enable 1
-# address 2 data 01 enable 1
-# write_data=00
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          2
-# address 2 data 81 enable 0
-# address 1 data 01 enable 1
-# address 2 data 01 enable 1
-# write_data=01
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          3
-# address 2 data 81 enable 0
-# address 1 data 02 enable 1
-# address 2 data 01 enable 1
-# write_data=02
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          4
-# address 2 data 81 enable 0
-# address 1 data 03 enable 1
-# address 2 data 01 enable 1
-# write_data=03
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          5
-# address 2 data 81 enable 0
-# address 1 data 04 enable 1
-# address 2 data 01 enable 1
-# write_data=04
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          6
-# address 2 data 81 enable 0
-# address 1 data 05 enable 1
-# address 2 data 01 enable 1
-# write_data=05
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          7
-# address 2 data 81 enable 0
-# address 1 data 06 enable 1
-# address 2 data 01 enable 1
-# write_data=06
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          8
-# address 2 data 81 enable 0
-# address 1 data 07 enable 1
-# address 2 data 01 enable 1
-# write_data=07
-# IN WHILE 
-# DATA FETCH
-# in while
-# size          9
-# address 2 data 81 enable 0
-# address 1 data 08 enable 1
-# address 2 data 01 enable 1
-# write_data=08
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         10
-# address 2 data 81 enable 0
-# address 1 data 09 enable 1
-# address 2 data 01 enable 1
-# write_data=09
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         11
-# address 2 data 81 enable 0
-# address 1 data 0a enable 1
-# address 2 data 01 enable 1
-# write_data=0a
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         12
-# address 2 data 81 enable 0
-# address 1 data 0b enable 1
-# address 2 data 01 enable 1
-# write_data=0b
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         13
-# address 2 data 81 enable 0
-# address 1 data 0c enable 1
-# address 2 data 01 enable 1
-# write_data=0c
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         14
-# address 2 data 81 enable 0
-# address 1 data 0d enable 1
-# address 2 data 01 enable 1
-# write_data=0d
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         15
-# address 2 data 81 enable 0
-# address 1 data 0e enable 1
-# address 2 data 01 enable 1
-# write_data=0e
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         16
-# address 2 data 81 enable 0
-# address 1 data 0f enable 1
-# address 2 data 01 enable 1
-# write_data=0f
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         17
-# address 2 data 81 enable 0
-# address 1 data 10 enable 1
-# address 2 data 01 enable 1
-# write_data=10
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         18
-# address 2 data 81 enable 0
-# address 1 data 11 enable 1
-# address 2 data 01 enable 1
-# write_data=11
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         19
-# address 2 data 81 enable 0
-# address 1 data 12 enable 1
-# address 2 data 01 enable 1
-# write_data=12
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         20
-# address 2 data 81 enable 0
-# address 1 data 13 enable 1
-# address 2 data 01 enable 1
-# write_data=13
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         21
-# address 2 data 81 enable 0
-# address 1 data 14 enable 1
-# address 2 data 01 enable 1
-# write_data=14
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         22
-# address 2 data 81 enable 0
-# address 1 data 15 enable 1
-# address 2 data 01 enable 1
-# write_data=15
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         23
-# address 2 data 81 enable 0
-# address 1 data 16 enable 1
-# address 2 data 01 enable 1
-# write_data=16
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         24
-# address 2 data 81 enable 0
-# address 1 data 17 enable 1
-# address 2 data 01 enable 1
-# write_data=17
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         25
-# address 2 data 81 enable 0
-# address 1 data 18 enable 1
-# address 2 data 01 enable 1
-# write_data=18
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         26
-# address 2 data 81 enable 0
-# address 1 data 19 enable 1
-# address 2 data 01 enable 1
-# write_data=19
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         27
-# address 2 data 81 enable 0
-# address 1 data 1a enable 1
-# address 2 data 01 enable 1
-# write_data=1a
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         28
-# address 2 data 81 enable 0
-# address 1 data 1b enable 1
-# address 2 data 01 enable 1
-# write_data=1b
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         29
-# address 2 data 81 enable 0
-# address 1 data 1c enable 1
-# address 2 data 01 enable 1
-# write_data=1c
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         30
-# address 2 data 81 enable 0
-# address 1 data 1d enable 1
-# address 2 data 01 enable 1
-# write_data=1d
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         31
-# address 2 data 81 enable 0
-# address 1 data 1e enable 1
-# address 2 data 01 enable 1
-# write_data=1e
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         32
-# address 2 data 81 enable 0
-# address 1 data 1f enable 1
-# address 2 data 01 enable 1
-# write_data=1f
-# IN WHILE 
-# DATA FETCH
-# in while
-# size         33
-# address 2 data 81 enable 0
-# address 2 data 04 enable 1
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x00 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  0
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
 # RESTART!!!!!
-# START!!!!!
-# IN WHILE 
-# ADDRESS FETCH
-# address 2 data 84 enable 0
-# address 1 data 45 enable 1
-# address 2 data 01 enable 1
-# ADDRESS:45
-# size         32
-# temp_read_data = 64
-# address 2 data 81 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 65
-# address 2 data 82 enable 0
-# address 1 data 26 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 66
-# address 2 data 82 enable 0
-# address 1 data a6 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 67
-# address 2 data 82 enable 0
-# address 1 data 66 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 68
-# address 2 data 82 enable 0
-# address 1 data e6 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 69
-# address 2 data 82 enable 0
-# address 1 data 16 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 6a
-# address 2 data 82 enable 0
-# address 1 data 96 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 6b
-# address 2 data 82 enable 0
-# address 1 data 56 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 6c
-# address 2 data 82 enable 0
-# address 1 data d6 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 6d
-# address 2 data 82 enable 0
-# address 1 data 36 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 6e
-# address 2 data 82 enable 0
-# address 1 data b6 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 6f
-# address 2 data 82 enable 0
-# address 1 data 76 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 70
-# address 2 data 82 enable 0
-# address 1 data f6 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 71
-# address 2 data 82 enable 0
-# address 1 data 0e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 72
-# address 2 data 82 enable 0
-# address 1 data 8e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 73
-# address 2 data 82 enable 0
-# address 1 data 4e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 74
-# address 2 data 82 enable 0
-# address 1 data ce enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 75
-# address 2 data 82 enable 0
-# address 1 data 2e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 76
-# address 2 data 82 enable 0
-# address 1 data ae enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 77
-# address 2 data 82 enable 0
-# address 1 data 6e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 78
-# address 2 data 82 enable 0
-# address 1 data ee enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 79
-# address 2 data 82 enable 0
-# address 1 data 1e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 7a
-# address 2 data 82 enable 0
-# address 1 data 9e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 7b
-# address 2 data 82 enable 0
-# address 1 data 5e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 7c
-# address 2 data 82 enable 0
-# address 1 data de enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 7d
-# address 2 data 82 enable 0
-# address 1 data 3e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 7e
-# address 2 data 82 enable 0
-# address 1 data be enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 7f
-# address 2 data 82 enable 0
-# address 1 data 7e enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 80
-# address 2 data 82 enable 0
-# address 1 data fe enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 81
-# address 2 data 82 enable 0
-# address 1 data 01 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 82
-# address 2 data 82 enable 0
-# address 1 data 81 enable 0
-# address 2 data 02 enable 1
-# temp_read_data = 83
-# address 2 data 82 enable 0
-# address 1 data 41 enable 0
-# address 2 data 03 enable 1
-# ERROR!!!!!!!!!!!!!!!!!!!!!
-# address 2 data 83 enable 0
-# address 1 data c1 enable 0
-# address 2 data 05 enable 1
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
 # STOP!!!!!
-# address 2 data 85 enable 0
-# ** Note: $finish    : ../testbench/top.sv(136)
-#    Time: 5989815 ns  Iteration: 0  Instance: /top
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:100
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x26 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x01 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  1
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:101
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xa6 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x02 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  2
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:102
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x66 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x03 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  3
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:103
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xe6 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x04 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  4
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:104
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x16 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x05 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  5
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:105
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x96 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x06 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  6
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:106
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x56 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x07 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  7
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:107
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xd6 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x08 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  8
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:108
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x36 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x09 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data:  9
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:109
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xb6 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x0a | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 10
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:110
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x76 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x0b | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 11
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:111
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xf6 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x0c | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 12
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:112
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x0e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x0d | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 13
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:113
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x8e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x0e | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 14
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:114
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x4e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x0f | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 15
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:115
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xce | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x10 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 16
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:116
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x2e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x11 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 17
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:117
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xae | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x12 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 18
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:118
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x6e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x13 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 19
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:119
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xee | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x14 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 20
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:120
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x1e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x15 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 21
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:121
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x9e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x16 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 22
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:122
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x5e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x17 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 23
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:123
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xde | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x18 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 24
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:124
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x3e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x19 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 25
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:125
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xbe | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x1a | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 26
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:126
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x7e | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x1b | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 27
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# STOP!!!!!
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:127
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xfe | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# START!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x1c | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 28
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:128
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x01 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x1d | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 29
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:129
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x1e | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 30
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:130
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0x41 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x44 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x1 | Data:0x1f | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION: WRITE | Data: 31
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x04 | W_En:1
+# RESTART!!!!!
+# Addr:0x2 | Data:0x84 | W_En:0
+# Addr:0x1 | Data:0x45 | W_En:1
+# Addr:0x2 | Data:0x01 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ
+# Addr:0x2 | Data:0x81 | W_En:0
+# Addr:0x2 | Data:0x03 | W_En:1
+# SLAVE ADDRESS: 0x22 | OPERATION:  READ | Data:131
+# READ WTIH NACK 
+# Addr:0x2 | Data:0x83 | W_En:0
+# Addr:0x1 | Data:0xc1 | W_En:0
+# Addr:0x2 | Data:0x05 | W_En:1
+# STOP!!!!!
+# Addr:0x2 | Data:0x85 | W_En:0
+# ** Note: $finish    : ../testbench/top.sv(197)
+#    Time: 12505395 ns  Iteration: 0  Instance: /top
 # 1
-# Break in NamedBeginStat test_flow at ../testbench/top.sv line 136
-# End time: 02:42:05 on Feb 22,2019, Elapsed time: 0:13:48
+# Break in NamedBeginStat test_flow at ../testbench/top.sv line 197
+# End time: 21:14:00 on Feb 23,2019, Elapsed time: 0:00:14
 # Errors: 0, Warnings: 0
