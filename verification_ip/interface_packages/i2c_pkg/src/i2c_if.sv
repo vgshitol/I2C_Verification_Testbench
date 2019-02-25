@@ -7,29 +7,30 @@ interface i2c_if #(
 	inout sda
 );
 
-typedef enum {WRITE=1'b0, READ=1'b1} i2c_op_t;
-
+// Start and Stop Detection Variables
 bit start_byte_transfer=0;
 bit stop_byte_transfer=0;
-bit sda_o=1; // Default set to 1 to read data from master
-
-bit [7:0] my_addr;
-bit op_check;
-integer size=0;
-integer k,i,j;
-integer r=0;
-
 bit check_stop=0;
 bit check_start=0;
+
+/**SDA_O = 1 High Impedance; 0 pulls it down to start writing data to master**/
+bit sda_o=1; 
+bit [ADDR_WIDTH-1:0] slave_addr;
+bit rw;
+
+integer size=0;
+
+integer bit_count;
+integer read_byte=0;
+
 bit error=0;
 
+/**Variables Required for Monitoring**/
 bit addr_rcvd;
-bit data_read;
-bit data_write;
-
-bit [DATA_WIDTH-1:0] temp_read_data;
-bit [DATA_WIDTH-1:0] temporary_read_data;
-bit [DATA_WIDTH-1:0] temp_write_data;
+bit is_read_monitor;
+bit is_write_monitor;
+bit [DATA_WIDTH-1:0] monitor_read_data;
+bit [DATA_WIDTH-1:0] monitor_write_data;
 
 always @(posedge sda )
 begin
@@ -80,17 +81,18 @@ task wait_for_i2c_transfer
 		if(start_byte_transfer==1 && stop_byte_transfer==0) 
 		begin
 			start_byte_transfer=0; // Indicating that it is inside start
-			for( i=0;i<8;i++) 
+			for( bit_count=0;bit_count<ADDR_WIDTH;bit_count++) 
 			begin
 				@(posedge scl);
-				my_addr[7-i]=sda;	
+				slave_addr[ADDR_WIDTH-1-bit_count]=sda;	
 			end
+
+			@(posedge scl);
+			op=sda;
+			rw =op;
 			
 			addr_rcvd=1;
-			
-			if (my_addr[0]==1) op=1;
-			else op=0;
-			
+					
 			@(negedge scl);
 			sda_o=0;
 	
@@ -105,15 +107,16 @@ task wait_for_i2c_transfer
 			size = write_data.size();
 			write_data=new[size + 1](write_data);
 
-			for(k=0;k<DATA_WIDTH;k++) 
+			for(bit_count=0;bit_count<DATA_WIDTH;bit_count++) 
 			begin
 				@(posedge scl or stop_byte_transfer or start_byte_transfer);
 				if(start_byte_transfer==1 || stop_byte_transfer==1) return;
-				temp_write_data[7-k]=sda;
-				write_data[size][7-k]=sda;	
+				write_data[size][7-bit_count]=sda;	
 			end
+			
+			monitor_write_data=write_data[size]; 
+			is_write_monitor=1;
 
-			data_write=1;
 			check_stop=1;
 			check_start=1;
 	
@@ -134,29 +137,28 @@ task provide_read_data
 
 	size = read_data.size();
 	
-	while(!stop_byte_transfer && !error && i<size)
+	while(!stop_byte_transfer && !error && read_byte<size)
 	begin
-		data_read=0;	
-		
+		is_read_monitor=0;	
+		monitor_read_data = read_data[read_byte];
 		// post the read 8 bits onto sda  
-		for( j=0;j<8;j++)
+		for( bit_count=0;bit_count<8;bit_count++)
 		begin
-			temp_read_data = read_data[r];
-			sda_o=temp_read_data[j];
-			temporary_read_data[j]=temp_read_data[j];
+			
+			sda_o=monitor_read_data[bit_count];
 			@(negedge scl or error or stop_byte_transfer);
 			if(error || stop_byte_transfer) return;
 		end	
-		r=r+1;
+		read_byte++;
 		
 		check_stop=1;
 		check_start=1;
 		
-		@(posedge scl);	
+		@(posedge scl);	 // Allow master to Send Ack or Nack
 		sda_o = 1;
-		data_read=1;
+		is_read_monitor=1;
 
-		@(negedge scl);	  // Acknowledge or Nak		
+		@(negedge scl);	  // Receive Ack or Nack		
 		if(sda==1) error=1;
 			
 		if(error) $display( "READ WTIH NACK ");
@@ -175,20 +177,20 @@ task monitor
 
 	if(addr_rcvd==1)
 	begin
-		addr=my_addr>>1;
-		op = my_addr[0];
+		addr=slave_addr;
+		op = rw;
 		$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s",addr,(op==1) ? "READ":"WRITE");
 		addr_rcvd=0;
 	end
 	
-	if(data_write==1 || data_read==1)
+	if(is_write_monitor==1 || is_read_monitor==1)
   	begin   
         	size = data.size();
         	data=new[size + 1](data);
-                data[size] = (op==0) ? temp_write_data : temporary_read_data;
-        	$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s | Data:%d", addr, (op==1) ? "READ":"WRITE" , data[size]);		
-		data_write=0;
-		data_read=0;
+                data[size] = (op==0) ? monitor_write_data : monitor_read_data;
+        	$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s | Data:%d", addr, (op==1) ? "READ":"WRITE" , data[size]);
+		is_write_monitor=0;
+		is_read_monitor=0;
     	end
    
 endtask

@@ -2,11 +2,13 @@
 
 module top();
 
+typedef enum {WRITE=1'b0, READ=1'b1} i2c_op_t;
+
 parameter int WB_ADDR_WIDTH = 2;
 parameter int WB_DATA_WIDTH = 8;
-parameter int I2C_ADDR_WIDTH = 8;
-parameter int I2C_DATA_WIDTH = 8;
 parameter int NUM_I2C_SLAVES = 1;
+parameter int I2C_ADDR_WIDTH=7;
+parameter int I2C_DATA_WIDTH=8;
 
 bit  clk;
 bit  rst = 1'b1;
@@ -18,44 +20,44 @@ wire [WB_ADDR_WIDTH-1:0] adr;
 wire [WB_DATA_WIDTH-1:0] dat_wr_o;
 wire [WB_DATA_WIDTH-1:0] dat_rd_i;
 wire irq;
-triand  [NUM_I2C_SLAVES-1:0] scl;
+tri  [NUM_I2C_SLAVES-1:0] scl;
 triand  [NUM_I2C_SLAVES-1:0] sda;
 
-extern i2c_op_t op;
-bit [I2C_DATA_WIDTH-1:0] write_data [];
+bit master_op;
+bit [I2C_DATA_WIDTH-1:0] write_data_i2c [];
+bit [I2C_DATA_WIDTH-1:0] read_data_i2c [64];
+bit [I2C_DATA_WIDTH-1:0] read_data_i2c2 [32];
+
+bit [WB_ADDR_WIDTH-1:0] address;
+bit [WB_DATA_WIDTH-1:0] data;
+bit enable;
+
+bit [I2C_ADDR_WIDTH-1:0] i2c_address;
+bit [I2C_DATA_WIDTH-1:0] i2c_data [];
+bit i2c_op;
+
+initial
+begin
+foreach(read_data_i2c2[i])begin
+	read_data_i2c2[i] = i+100;
+	$display( "Read DATA ::::" , read_data_i2c2[i]);
+end
+read_data_i2c = {read_data_i2c2, read_data_i2c2};
+end
+
 
 // ****************************************************************************
-
 // Clock generator
 initial clk_gen: begin
       clk = 0;
       forever #5 clk = ~clk;
-end
-
+  end
 // ****************************************************************************
 // Reset generator
 initial rst_gen: begin
 	rst = 1'b1;
 	#113 rst = 1'b0;
-end
-
-initial monitor_i2c_bus: begin
-
-end
-
-initial wait_for_i2c_transfer: begin
-	i2c_bus.wait_for_i2c_transfer(
-		//	op,
-			write_data
-		);
-end
-
-initial rst_gen: begin
-	rst = 1'b1;
-	#113 rst = 1'b0;
-end
-
-
+end     
 
 // ****************************************************************************
 // Monitor Wishbone bus and display transfers in the transcript
@@ -65,116 +67,178 @@ initial wb_monitoring: begin
 	logic w_en;
 
 	forever begin
-			#1 wb_bus.master_monitor(addr, data, w_en); 
-			$display("Addr:0x%x | Data:0x%x | W_En:%x \n", addr,data,w_en );			
-		
+		#1 wb_bus.master_monitor(addr, data, w_en); 
+		$display("Addr:0x%x | Data:0x%x | W_En:%x", addr,data,w_en );				
 	end
 end
+
+initial i2c_monitoring:
+begin
+	forever #1 i2c_bus.monitor(i2c_address,i2c_op,i2c_data);
+end
+
+initial i2c_test_flow: begin
+	forever begin
+		#1 i2c_bus.wait_for_i2c_transfer(master_op, write_data_i2c);
+		if (master_op == 1) i2c_bus.provide_read_data(read_data_i2c);//$display("abcd");
+	end
+end
+
 // ****************************************************************************
 // Define the flow of the simulation
 initial test_flow: begin
-	logic [WB_ADDR_WIDTH-1:0] addr_w;
-	logic [WB_DATA_WIDTH-1:0] data_w;	
+	#1100
+	wb_bus.master_write(2'b0,8'b11xxxxxx); //
+	wb_bus.master_write(2'b01,8'h01);	//Write byte 0x05 to the DPR. This is the ID of desired I 2 C bus.
+	wb_bus.master_write(2'b10,8'bxxxxx110); //Write byte “xxxxx110” to the CMDR. This is Set Bus command.
+	while(irq == 1'b0);	//Wait for interrupt or until DON bit of CMDR reads '1'.
+	wb_bus.master_read(2'b10,data);	
 
-	logic [WB_ADDR_WIDTH-1:0] addr_r;
-	logic [WB_DATA_WIDTH-1:0] data_r;	
+//start
+	wb_bus.master_write(2'b10,8'bxxxxx100); //Write byte “xxxxx100” to the CMDR. This is Start command.
+	while(irq == 1'b0) @(posedge clk);
+	wb_bus.master_read(2'b10,data);
 	
-//example 1 csr	 
-	#400 addr_w = 8'h00;
-	     data_w = 8'b11xxxxxx;	 
-	     wb_bus.master_write(addr_w, data_w); 	
+// Address
+	wb_bus.master_write(2'b01,8'h44); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0', which means writing.
+	wb_bus.master_write(2'b10,8'bxxxxx001); //Write byte “xxxxx001” to the CMDR. This is Write command.
+	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);
 	
-//example 3 dpr
-	 addr_w = 8'h01;
-	 data_w = 8'h05;	 
-	 wb_bus.master_write(addr_w, data_w);
-
-//cmdr set bus command
-	 addr_w = 8'h02;
-         data_w = 8'bxxxxx110;	 
-	 wb_bus.master_write(addr_w, data_w);
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
-	
-//cmdr start
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx100;	 
-	wb_bus.master_write(addr_w, data_w);
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
-	
-//0x44 dpr
-	addr_w = 8'h01;
-	data_w = 8'h44;	 
-	wb_bus.master_write(addr_w, data_w);
-
-//cmdr write
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx001;	 
-	wb_bus.master_write(addr_w, data_w);
-
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	if(data_r[7]==0 && data_r[6]==1) begin
-		$display("NAK Bit is High \n" );
+//Data
+	for(byte i = 0; i < 32; i++) begin
+		wb_bus.master_write(2'b01,i); //Write byte 0x78 to the DPR. This is the byte to be written.
+		wb_bus.master_write(2'b10,8'bxxxxx001);//Write byte “xxxxx001” to the CMDR. This is Write command.
+		while(irq == 1'b0) @(posedge clk);
+		wb_bus.master_read(2'b10,data);
 	end
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
 
-//0x78 dpr
-	addr_w = 8'h01;
-	data_w = 8'h78;	 
-	wb_bus.master_write(addr_w, data_w);
+//stop
+	wb_bus.master_write(2'b10,8'bxxxxx101);//Write byte “xxxxx101” to the CMDR. This is Stop command.
+	while(irq == 1'b0) @(posedge clk);	
+	wb_bus.master_read(2'b10,data);
+		
+// Read 
 
-//cmdr write
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx001;	 
-	wb_bus.master_write(addr_w, data_w);
+// Start
+	wb_bus.master_write(2'b10,8'bxxxxx100); //Write byte “xxxxx100” to the CMDR. This is Start command.
+	while(irq == 1'b0) @(posedge clk);
+	wb_bus.master_read(2'b10,data);
 
-
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
+// Address
+	wb_bus.master_write(2'b01,8'h45); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0', which means writing.
+	wb_bus.master_write(2'b10,8'bxxxxx001); //Write byte “xxxxx001” to the CMDR. This is Write command.
+	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);
+//Data
+	for(byte i = 0; i < 31; i++) begin
+		wb_bus.master_write(2'b10,8'bxxxxx010); //Write byte “xxxxx011” to the CMDR. This is read with nack command
+		while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+		wb_bus.master_read(2'b10,data);
+		wb_bus.master_read(2'b01,data);// read dpr
+	end
 	
-//cmdr stop
-	addr_w = 8'h02;
-	data_w = 8'bxxxxx101;	 
-	wb_bus.master_write(addr_w, data_w);
+	wb_bus.master_write(2'b10,8'bxxxxx011); //Write byte “xxxxx011” to the CMDR. This is read with nack command
+	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_read(2'b01,data);// read dpr
 
+//alternate read/write
 
-//wait for interrupt
-	addr_r = 8'h02;
-	wait(irq);
-	wb_bus.master_read(addr_r, data_r);
-	wait(!irq);
+	for(byte alt=0;alt<32;alt++)
+	begin
+//  start
 
-$display("DONE");
+		wb_bus.master_write(2'b10,8'bxxxxx100); //Write byte “xxxxx100” to the CMDR. This is Start command.
+		while(irq == 1'b0) @(posedge clk);
+		wb_bus.master_read(2'b10,data);
 
-#1000 $finish;
 	
+// Address
+		wb_bus.master_write(2'b01,8'h88); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0', which means writing.
+		wb_bus.master_write(2'b10,8'bxxxxx001); //Write byte “xxxxx001” to the CMDR. This is Write command.
+		while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+		wb_bus.master_read(2'b10,data);
+
+//data	
+		wb_bus.master_write(2'b01,(alt)); //Write byte 0x78 to the DPR. This is the byte to be written.
+		wb_bus.master_write(2'b10,8'bxxxxx001);//Write byte “xxxxx001” to the CMDR. This is Write command.
+		while(irq == 1'b0) @(posedge clk);
+		wb_bus.master_read(2'b10,data);
+
+//repeated start
+		wb_bus.master_write(2'b10,8'bxxxxx100); //Write byte “xxxxx100” to the CMDR. This is Start command.
+		while(irq == 1'b0) @(posedge clk);
+		wb_bus.master_read(2'b10,data);
+
+// Address
+		wb_bus.master_write(2'b01,8'h89); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0', which means writing.
+		wb_bus.master_write(2'b10,8'bxxxxx001); //Write byte “xxxxx001” to the CMDR. This is Write command.
+		while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+		wb_bus.master_read(2'b10,data);
+
+//data
+		wb_bus.master_write(2'b10,8'bxxxxx011); //Write byte “xxxxx011” to the CMDR. This is read with nack command
+		while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+		wb_bus.master_read(2'b10,data);
+		wb_bus.master_read(2'b01,data);// read dpr
+
+
+	end
+
+//stop
+	wb_bus.master_write(2'b10,8'bxxxxx101);//Write byte “xxxxx101” to the CMDR. This is Stop command.
+	while(irq == 1'b0) @(posedge clk);	
+	wb_bus.master_read(2'b10,data);
+
+	#1000 $finish;
 end
-// ****************************************************************************
-// Instantiate the Wishbone master Bus Functional Model
-i2c_if #(
-	.I2C_DATA_WIDTH8(I2),
-	.I2C_ADDR_WIDTH()
-) i2c_bus
-(
-	.scl(scl),
-	.sda(sda)
-);
+/*
+initial
+begin:test_flow
+	#1100
+	wb_bus.master_write(2'b0,8'b11xxxxxx); //
+	wb_bus.master_write(2'b01,8'h01);	//Write byte 0x05 to the DPR. This is the ID of desired I 2 C bus.
+	wb_bus.master_write(2'b10,8'bxxxxx110); //Write byte “xxxxx110” to the CMDR. This is Set Bus command.
+	while(irq == 1'b0);	//Wait for interrupt or until DON bit of CMDR reads '1'.
+	wb_bus.master_read(2'b10,data);	
+	
+	wb_bus.master_write(2'b10,8'bxxxxx100); //Write byte “xxxxx100” to the CMDR. This is Start command.
+	while(irq == 1'b0) @(posedge clk);
+	wb_bus.master_read(2'b10,data);
+	
+	wb_bus.master_write(2'b01,8'h89); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0', which means writing.
+	wb_bus.master_write(2'b10,8'bxxxxx001); //Write byte “xxxxx001” to the CMDR. This is Write command.
+	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);
+	
+	wb_bus.master_write(2'b10,8'bxxxxx010); //Write byte “xxxxx010” to the CMDR. This is read with ack command.
+	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);	
+	wb_bus.master_read(2'b01,data); // read dpr
+	
+	wb_bus.master_write(2'b10,8'bxxxxx010); //Write byte “xxxxx011” to the CMDR. This is read with nack command
+	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_read(2'b01,data);// read dpr
+
+	wb_bus.master_write(2'b10,8'bxxxxx010); //Write byte “xxxxx011” to the CMDR. This is read with nack command
+	while(irq == 1'bMakefile  t0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_read(2'b01,data);// read dpr
+
+	wb_bus.master_write(2'b10,8'bxxxxx011); //Write byte “xxxxx011” to the CMDR. This is read with nack command
+	while(irq == 1'b0) @(posedge clk); //Wait for interrupt or until DON bit of CMDR reads '1'. If instead of DON the NAK bit is '1', then slave doesn't respond.
+	wb_bus.master_read(2'b10,data);
+	wb_bus.master_read(2'b01,data);// read dpr
+
+	wb_bus.master_write(2'b10,8'bxxxxx101);//Write byte “xxxxx101” to the CMDR. This is Stop command.
+	while(irq == 1'b0) @(posedge clk);	
+	wb_bus.master_read(2'b10,data);
+	#1000000 $finish;
+	
+
+end*/
 
 // ****************************************************************************
 // Instantiate the Wishbone master Bus Functional Model
@@ -203,6 +267,14 @@ wb_bus (
   .dat_i(dat_rd_i)
   );
 
+i2c_if		#(
+		.ADDR_WIDTH(I2C_ADDR_WIDTH),
+		.DATA_WIDTH(I2C_DATA_WIDTH)
+		)
+i2c_bus (
+	.sda(sda),
+	.scl(scl)
+ );
 // ****************************************************************************
 // Instantiate the DUT - I2C Multi-Bus Controller
 \work.iicmb_m_wb(str) #(.g_bus_num(NUM_I2C_SLAVES)) DUT

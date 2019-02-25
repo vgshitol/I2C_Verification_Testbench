@@ -17,8 +17,17 @@ add wave -noupdate /top/DUT/scl_i
 add wave -noupdate /top/DUT/sda_i
 add wave -noupdate /top/DUT/scl_o
 add wave -noupdate /top/DUT/sda_o
+add wave -noupdate /top/i2c_bus/scl
+add wave -noupdate /top/i2c_bus/sda
+add wave -noupdate /top/i2c_bus/sda_o
+add wave -noupdate /top/i2c_bus/size
+add wave -noupdate /top/i2c_bus/slave_addr
+add wave -noupdate /top/i2c_bus/check_start
+add wave -noupdate /top/i2c_bus/start_byte_transfer
+add wave -noupdate /top/i2c_bus/check_stop
+add wave -noupdate /top/i2c_bus/stop_byte_transfer
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ns} 0}
+WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0
 configure wave -namecolwidth 263
 configure wave -valuecolwidth 100
@@ -34,4 +43,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {888 ns}
+WaveRestoreZoom {29999156400 ps} {30000044400 ps}
