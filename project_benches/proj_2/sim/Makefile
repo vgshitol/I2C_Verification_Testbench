@@ -1,4 +1,5 @@
 export ECE745_PROJECT_HOME ?= $(PWD)/../../..
+export ECE745_COMMON_HOME ?= $(PWD)/../../../verification_ip/interface_packages
 
 include $(ECE745_PROJECT_HOME)/verification_ip/interface_packages/wb_pkg/Makefile
 include $(ECE745_PROJECT_HOME)/verification_ip/interface_packages/i2c_pkg/Makefile
