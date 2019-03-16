@@ -1,9 +1,8 @@
-class i2c_agent extends ncsu_component#(.T(i2c_transaction_base));
+class i2c_agent extends ncsu_component#(.T(i2c_transaction));
 
     i2c_configuration configuration;
     i2c_driver        driver;
     i2c_monitor       monitor;
-    i2c_coverage      coverage;
     ncsu_component #(T) subscribers[$];
     virtual i2c_if    bus;
 
@@ -24,12 +23,6 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction_base));
         driver.set_configuration(configuration);
         driver.build();
         driver.bus = this.bus;
-        if ( configuration.collect_coverage) begin
-            coverage = new("coverage",this);
-            coverage.set_configuration(configuration);
-            coverage.build();
-            connect_subscriber(coverage);
-        end
         monitor = new("monitor",this);
         monitor.set_configuration(configuration);
         monitor.build();

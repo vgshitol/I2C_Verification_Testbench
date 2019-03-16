@@ -1,5 +1,5 @@
 class wb_transaction extends ncsu_transaction;
-  `ncsu_register_object(wb_transaction_base)
+  `ncsu_register_object(wb_transaction)
 
        bit [63:0] header, payload [8], trailer;
     rand bit [5:0]  delay;
