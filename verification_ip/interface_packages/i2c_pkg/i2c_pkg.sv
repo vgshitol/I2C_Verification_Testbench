@@ -1,5 +1,8 @@
 package i2c_pkg;
 
+  import ncsu_pkg::*;
+  `include "ncsu_macros.svh"
+
   `include "src/i2c_configuration.svh"
   `include "src/i2c_agent.svh"
   `include "src/i2c_driver.svh"
