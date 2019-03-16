@@ -16,8 +16,8 @@ class i2cmb_env_configuration extends ncsu_configuration;
         env_configuration_cg.sample();
     endfunction
 
-    abc_configuration p0_agent_config;
-    abc_configuration p1_agent_config;
+    i2c_configuration p0_agent_config;
+    i2c_configuration p1_agent_config;
 
     function new(string name="");
         super.new(name);

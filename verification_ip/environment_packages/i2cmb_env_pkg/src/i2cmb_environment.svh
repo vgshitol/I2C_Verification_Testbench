@@ -2,15 +2,15 @@ class i2cmb_environment extends ncsu_component#(.T(i2c_transaction));
 
     i2cmb_env_configuration configuration;
     i2c_agent         p0_agent,p1_agent;
-    predictor         pred;
-    scoreboard        scbd;
-    coverage          coverage;
+    i2cmb_predictor         pred;
+    i2cmb_scoreboard        scbd;
+    i2cmb_coverage          coverage;
 
     function new(string name = "", ncsu_component #(T) parent = null);
         super.new(name,parent);
     endfunction
 
-    function void set_configuration(env_configuration cfg);
+    function void set_configuration(i2cmb_env_configuration cfg);
         configuration = cfg;
     endfunction
 

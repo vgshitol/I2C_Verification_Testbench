@@ -8,7 +8,7 @@ class i2cmb_predictor extends ncsu_component#(.T(i2c_transaction));
         super.new(name,parent);
     endfunction
 
-    function void set_configuration(env_configuration cfg);
+    function void set_configuration(i2cmb_env_configuration cfg);
         configuration = cfg;
     endfunction
 
