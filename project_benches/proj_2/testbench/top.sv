@@ -2,6 +2,11 @@
 
 module top();
 
+  import ncsu_pkg::*;
+  import i2c_pkg::*;
+  import wb_pkg::*;
+  import i2cmb_pkg::*;
+  
 typedef enum {WRITE=1'b0, READ=1'b1} i2c_op_t;
 
 parameter int WB_ADDR_WIDTH = 2;
@@ -36,6 +41,72 @@ bit [I2C_ADDR_WIDTH-1:0] i2c_address;
 bit [I2C_DATA_WIDTH-1:0] i2c_data [];
 bit i2c_op;
 
+// ****************************************************************************
+// Instantiate the Wishbone master Bus Functional Model
+wb_if       #(
+      .ADDR_WIDTH(WB_ADDR_WIDTH),
+      .DATA_WIDTH(WB_DATA_WIDTH)
+      )
+wb_bus (
+  // System sigals
+  .clk_i(clk),
+  .rst_i(rst),
+  // Master signals
+  .cyc_o(cyc),
+  .stb_o(stb),
+  .ack_i(ack),
+  .adr_o(adr),
+  .we_o(we),
+  // Slave signals
+  .cyc_i(),
+  .stb_i(),
+  .ack_o(),
+  .adr_i(),
+  .we_i(),
+  // Shred signals
+  .dat_o(dat_wr_o),
+  .dat_i(dat_rd_i)
+  );
+
+i2c_if		#(
+		.ADDR_WIDTH(I2C_ADDR_WIDTH),
+		.DATA_WIDTH(I2C_DATA_WIDTH)
+		)
+i2c_bus (
+	.sda(sda),
+	.scl(scl)
+ );
+// ****************************************************************************
+// Instantiate the DUT - I2C Multi-Bus Controller
+\work.iicmb_m_wb(str) #(.g_bus_num(NUM_I2C_SLAVES)) DUT
+  (
+    // ------------------------------------
+    // -- Wishbone signals:
+    .clk_i(clk),         // in    std_logic;                            -- Clock
+    .rst_i(rst),         // in    std_logic;                            -- Synchronous reset (active high)
+    // -------------
+    .cyc_i(cyc),         // in    std_logic;                            -- Valid bus cycle indication
+    .stb_i(stb),         // in    std_logic;                            -- Slave selection
+    .ack_o(ack),         //   out std_logic;                            -- Acknowledge output
+    .adr_i(adr),         // in    std_logic_vector(1 downto 0);         -- Low bits of Wishbone address
+    .we_i(we),           // in    std_logic;                            -- Write enable
+    .dat_i(dat_wr_o),    // in    std_logic_vector(7 downto 0);         -- Data input
+    .dat_o(dat_rd_i),    //   out std_logic_vector(7 downto 0);         -- Data output
+    // ------------------------------------
+    // ------------------------------------
+    // -- Interrupt request:
+    .irq(irq),           //   out std_logic;                            -- Interrupt request
+    // ------------------------------------
+    // ------------------------------------
+    // -- I2C interfaces:
+    .scl_i(scl),         // in    std_logic_vector(0 to g_bus_num - 1); -- I2C Clock inputs
+    .sda_i(sda),         // in    std_logic_vector(0 to g_bus_num - 1); -- I2C Data inputs
+    .scl_o(scl),         //   out std_logic_vector(0 to g_bus_num - 1); -- I2C Clock outputs
+    .sda_o(sda)          //   out std_logic_vector(0 to g_bus_num - 1)  -- I2C Data outputs
+    // ------------------------------------
+  );
+
+// ****************************************************************************
 initial
 begin
 foreach(read_data_i2c2[i])begin
@@ -44,7 +115,6 @@ foreach(read_data_i2c2[i])begin
 end
 read_data_i2c = {read_data_i2c2, read_data_i2c2};
 end
-
 
 // ****************************************************************************
 // Clock generator
@@ -84,8 +154,20 @@ initial i2c_test_flow: begin
 	end
 end
 
+i2cmb_test tst;
+
+initial test_flow1: begin
+	ncsu_config_db#(virtual wb_if)::set("tst.env.wb_p0_agent", wb_bus);
+    	ncsu_config_db#(virtual i2c_if)::set("tst.env.i2c_p1_agent", i2c_bus);
+    	tst = new("tst",null);
+    	wait ( rst == 1);
+    	tst.run();
+    	#100ns $finish();
+end
+/*
 // ****************************************************************************
 // Define the flow of the simulation
+
 initial test_flow: begin
 	#1100
 	wb_bus.master_write(2'b0,8'b11xxxxxx); //
@@ -192,7 +274,7 @@ initial test_flow: begin
 	wb_bus.master_read(2'b10,data);
 
 	#1000 $finish;
-end
+end*/
 /*
 initial
 begin:test_flow
@@ -240,70 +322,6 @@ begin:test_flow
 
 end*/
 
-// ****************************************************************************
-// Instantiate the Wishbone master Bus Functional Model
-wb_if       #(
-      .ADDR_WIDTH(WB_ADDR_WIDTH),
-      .DATA_WIDTH(WB_DATA_WIDTH)
-      )
-wb_bus (
-  // System sigals
-  .clk_i(clk),
-  .rst_i(rst),
-  // Master signals
-  .cyc_o(cyc),
-  .stb_o(stb),
-  .ack_i(ack),
-  .adr_o(adr),
-  .we_o(we),
-  // Slave signals
-  .cyc_i(),
-  .stb_i(),
-  .ack_o(),
-  .adr_i(),
-  .we_i(),
-  // Shred signals
-  .dat_o(dat_wr_o),
-  .dat_i(dat_rd_i)
-  );
-
-i2c_if		#(
-		.ADDR_WIDTH(I2C_ADDR_WIDTH),
-		.DATA_WIDTH(I2C_DATA_WIDTH)
-		)
-i2c_bus (
-	.sda(sda),
-	.scl(scl)
- );
-// ****************************************************************************
-// Instantiate the DUT - I2C Multi-Bus Controller
-\work.iicmb_m_wb(str) #(.g_bus_num(NUM_I2C_SLAVES)) DUT
-  (
-    // ------------------------------------
-    // -- Wishbone signals:
-    .clk_i(clk),         // in    std_logic;                            -- Clock
-    .rst_i(rst),         // in    std_logic;                            -- Synchronous reset (active high)
-    // -------------
-    .cyc_i(cyc),         // in    std_logic;                            -- Valid bus cycle indication
-    .stb_i(stb),         // in    std_logic;                            -- Slave selection
-    .ack_o(ack),         //   out std_logic;                            -- Acknowledge output
-    .adr_i(adr),         // in    std_logic_vector(1 downto 0);         -- Low bits of Wishbone address
-    .we_i(we),           // in    std_logic;                            -- Write enable
-    .dat_i(dat_wr_o),    // in    std_logic_vector(7 downto 0);         -- Data input
-    .dat_o(dat_rd_i),    //   out std_logic_vector(7 downto 0);         -- Data output
-    // ------------------------------------
-    // ------------------------------------
-    // -- Interrupt request:
-    .irq(irq),           //   out std_logic;                            -- Interrupt request
-    // ------------------------------------
-    // ------------------------------------
-    // -- I2C interfaces:
-    .scl_i(scl),         // in    std_logic_vector(0 to g_bus_num - 1); -- I2C Clock inputs
-    .sda_i(sda),         // in    std_logic_vector(0 to g_bus_num - 1); -- I2C Data inputs
-    .scl_o(scl),         //   out std_logic_vector(0 to g_bus_num - 1); -- I2C Clock outputs
-    .sda_o(sda)          //   out std_logic_vector(0 to g_bus_num - 1)  -- I2C Data outputs
-    // ------------------------------------
-  );
 
 
 endmodule
