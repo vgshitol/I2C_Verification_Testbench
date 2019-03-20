@@ -51,7 +51,7 @@ class abc_coverage extends ncsu_component#(.T(abc_transaction_base));
   	  header_x_trailer: cross header_type, trailer_type;
   endgroup
 
-  function new(string name = "", ncsu_component #(T) parent = null); 
+  function new(string name = "", ncsu_component_base  parent = null); 
     super.new(name,parent);
     abc_transaction_cg = new;
   endfunction

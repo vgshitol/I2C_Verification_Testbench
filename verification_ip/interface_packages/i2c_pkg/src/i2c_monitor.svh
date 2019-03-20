@@ -4,13 +4,18 @@ class i2c_monitor extends ncsu_component#(.T(i2c_transaction));
     virtual i2c_if bus;
 
     T monitored_trans;
+    ncsu_component #(T) agent;
 
-    function new(string name = "", ncsu_component #(T) parent = null);
+    function new(string name = "", ncsu_component_base parent = null);
         super.new(name,parent);
     endfunction
 
     function void set_configuration(i2c_configuration cfg);
         configuration = cfg;
+    endfunction
+
+    function void set_agent(ncsu_component#(T) agent);
+        this.agent = agent;
     endfunction
 
     virtual task run ();
@@ -29,7 +34,7 @@ class i2c_monitor extends ncsu_component#(.T(i2c_transaction));
                 monitored_trans.trailer,
                 monitored_trans.delay
                 );
-            parent.nb_put(monitored_trans);
+            agent.nb_put(monitored_trans);
         end
     endtask
 

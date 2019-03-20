@@ -6,7 +6,7 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction));
     ncsu_component #(T) subscribers[$];
     virtual i2c_if    bus;
 
-    function new(string name = "", ncsu_component #(T) parent = null);
+    function new(string name = "", ncsu_component_base parent = null);
         super.new(name,parent);
         if ( !(ncsu_config_db#(virtual i2c_if)::get(get_full_name(), this.bus))) begin;
             $display("i2c_agent::ncsu_config_db::get() call for BFM handle failed for name: %s ",get_full_name());
@@ -25,6 +25,7 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction));
         driver.bus = this.bus;
         monitor = new("monitor",this);
         monitor.set_configuration(configuration);
+ 	monitor.set_agent(this);
         monitor.build();
         monitor.bus = this.bus;
     endfunction

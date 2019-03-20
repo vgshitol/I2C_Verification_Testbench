@@ -5,7 +5,7 @@ class i2cmb_test extends ncsu_component#(.T(i2c_transaction));
     i2cmb_generator          gen;
 
 
-    function new(string name = "", ncsu_component #(T) parent = null);
+    function new(string name = "", ncsu_component_base parent = null);
         super.new(name,parent);
         cfg = new("cfg");
         cfg.sample_coverage();

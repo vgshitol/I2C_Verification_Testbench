@@ -4,7 +4,7 @@ class predictor extends ncsu_component#(.T(abc_transaction_base));
   abc_transaction_base transport_trans;
   env_configuration configuration;
 
-  function new(string name = "", ncsu_component #(T) parent = null); 
+  function new(string name = "", ncsu_component_base  parent = null); 
     super.new(name,parent);
   endfunction
 

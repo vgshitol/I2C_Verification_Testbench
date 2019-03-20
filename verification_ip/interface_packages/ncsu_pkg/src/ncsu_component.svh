@@ -1,19 +1,8 @@
-class ncsu_component#(type T=ncsu_transaction) extends ncsu_object;
+class ncsu_component#(type T=ncsu_transaction) extends ncsu_component_base;
 
-  ncsu_component #(T) parent;
-
-  function new(string name="", ncsu_component #(T) parent=null); 
+  function new(string name="", ncsu_component_base  parent=null); 
     super.new(name);
     this.parent = parent;
-  endfunction
-
-  virtual function string get_name();
-    return(name);
-  endfunction
-
-  virtual function string get_full_name();
-    if ( parent == null ) return (name);
-    else                  return ({parent.get_full_name(),".",name});
   endfunction
 
   virtual function void build();

@@ -6,7 +6,7 @@ class environment extends ncsu_component#(.T(abc_transaction_base));
   scoreboard        scbd;
   coverage          coverage;
 
-  function new(string name = "", ncsu_component #(T) parent = null); 
+  function new(string name = "", ncsu_component_base  parent = null); 
     super.new(name,parent);
   endfunction 
 

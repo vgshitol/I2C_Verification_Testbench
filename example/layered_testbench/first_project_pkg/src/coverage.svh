@@ -20,7 +20,7 @@ class coverage extends ncsu_component#(.T(abc_transaction_base));
   	configuration = cfg;
   endfunction
 
-  function new(string name = "", ncsu_component #(T) parent = null); 
+  function new(string name = "", ncsu_component_base  parent = null); 
     super.new(name,parent);
     coverage_cg = new;
   endfunction

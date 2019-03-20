@@ -9,6 +9,7 @@ package ncsu_pkg;
   `include "src/ncsu_config_db.svh"
   `include "src/ncsu_configuration.svh"
   `include "src/ncsu_transaction.svh"
+  `include "src/ncsu_component_base.svh"
   `include "src/ncsu_component.svh"
   `include "src/ncsu_object_wrapper.svh"
   `include "src/ncsu_object_factory.svh"

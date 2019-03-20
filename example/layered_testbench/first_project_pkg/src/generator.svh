@@ -5,7 +5,7 @@ class generator extends ncsu_component#(.T(abc_transaction_base));
   ncsu_component #(T) agent;
   string trans_name;
 
-  function new(string name = "", ncsu_component #(T) parent = null); 
+  function new(string name = "", ncsu_component_base  parent = null); 
     super.new(name,parent);
     if ( !$value$plusargs("GEN_TRANS_TYPE=%s", trans_name)) begin
       $display("FATAL: +GEN_TRANS_TYPE plusarg not found on command line");

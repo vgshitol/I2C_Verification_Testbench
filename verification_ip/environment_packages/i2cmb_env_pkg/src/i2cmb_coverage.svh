@@ -16,7 +16,7 @@ class i2cmb_coverage extends ncsu_component#(.T(i2c_transaction));
         configuration = cfg;
     endfunction
 
-    function new(string name = "", ncsu_component #(T) parent = null);
+    function new(string name = "", ncsu_component_base parent = null);
         super.new(name,parent);
         coverage_cg = new;
     endfunction
