@@ -24,7 +24,8 @@ class i2cmb_generator extends ncsu_component#(.T(wb_transaction));
 //        end
         $cast(transaction,ncsu_object_factory::create(trans_name));
         //assert (transaction);
-       // transaction.
+        transaction.address = 2'b0;
+        transaction.data = 8'b11xxxxxx;
         agent.bl_put(transaction);
         $display({get_full_name()," ",transaction.convert2string()});
     endtask
