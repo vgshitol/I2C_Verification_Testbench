@@ -15,6 +15,7 @@ class wb_transaction extends ncsu_transaction;
 
     function bit compare(wb_transaction rhs);
         return ((this.address  == rhs.address ) &&
-            (this.data == rhs.data) );
+            (this.data == rhs.data) &&
+            (this.rw == rhs.rw) );
     endfunction
 endclass
