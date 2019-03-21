@@ -25,7 +25,7 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction));
         driver.bus = this.bus;
         monitor = new("monitor",this);
         monitor.set_configuration(configuration);
- 	monitor.set_agent(this);
+        monitor.set_agent(this);
         monitor.build();
         monitor.bus = this.bus;
     endfunction

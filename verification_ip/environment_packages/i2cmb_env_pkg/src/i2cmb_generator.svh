@@ -1,7 +1,8 @@
 // class generator #(type GEN_TRANS)  extends ncsu_component#(.T(abc_transaction_base));
-class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
+class i2cmb_generator extends ncsu_component#(.T(wb_transaction));
 
-    i2c_transaction transaction[10];
+   // wb_transaction transaction[10];
+    wb_transaction transaction;
     ncsu_component #(T) agent;
     string trans_name;
 
@@ -15,12 +16,17 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
     endfunction
 
     virtual task run();
-        foreach (transaction[i]) begin
-            $cast(transaction[i],ncsu_object_factory::create(trans_name));
-            assert (transaction[i].randomize());
-            agent.bl_put(transaction[i]);
-            $display({get_full_name()," ",transaction[i].convert2string()});
-        end
+//        foreach (transaction[i]) begin
+//            $cast(transaction[i],ncsu_object_factory::create(trans_name));
+//            assert (transaction[i].randomize());
+//            agent.bl_put(transaction[i]);
+//            $display({get_full_name()," ",transaction[i].convert2string()});
+//        end
+        $cast(transaction,ncsu_object_factory::create(trans_name));
+        //assert (transaction);
+        transaction.
+        agent.bl_put(transaction);
+        $display({get_full_name()," ",transaction.convert2string()});
     endtask
 
     function void set_agent(ncsu_component #(T) agent);

@@ -14,10 +14,8 @@ class wb_driver extends ncsu_component#(.T(wb_transaction));
 
     virtual task bl_put(T trans);
         $display({get_full_name()," ",trans.convert2string()});
-        bus.drive(trans.header,
-            trans.payload,
-            trans.trailer,
-            trans.delay
+        bus.write(trans.address,
+            trans.data
             );
     endtask
 
