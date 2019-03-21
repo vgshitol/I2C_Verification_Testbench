@@ -4,7 +4,10 @@ class wb_agent extends ncsu_component#(.T(wb_transaction));
     wb_driver        driver;
     wb_monitor       monitor;
     ncsu_component #(T) subscribers[$];
-    virtual wb_if    bus;
+    virtual wb_if   #(
+      .ADDR_WIDTH(2),
+      .DATA_WIDTH(8)
+      )  bus;
 
     function new(string name = "", ncsu_component_base parent = null);
         super.new(name,parent);

@@ -1,7 +1,10 @@
 class wb_monitor extends ncsu_component#(.T(wb_transaction));
 
     wb_configuration  configuration;
-    virtual wb_if bus;
+    virtual wb_if  #(
+      .ADDR_WIDTH(2),
+      .DATA_WIDTH(8)
+      ) bus;
 
     T monitored_trans;
     ncsu_component#(T) agent;
@@ -22,7 +25,7 @@ class wb_monitor extends ncsu_component#(.T(wb_transaction));
         bus.wait_for_reset();
         forever begin
             monitored_trans = new("monitored_trans");
-            bus.monitor(monitored_trans.address,
+            bus.master_monitor(monitored_trans.address,
                 monitored_trans.data,
                 monitored_trans.rw
                 );

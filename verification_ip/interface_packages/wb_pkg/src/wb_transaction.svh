@@ -1,7 +1,7 @@
 class wb_transaction extends ncsu_transaction;
   `ncsu_register_object(wb_transaction)
 
-    bit [7:0] address;
+    bit [1:0] address;
     bit [7:0] data;
     bit rw;
 

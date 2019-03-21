@@ -4,7 +4,10 @@ class wb_driver extends ncsu_component#(.T(wb_transaction));
         super.new(name,parent);
     endfunction
 
-    virtual wb_if bus;
+    virtual wb_if   #(
+      .ADDR_WIDTH(2),
+      .DATA_WIDTH(8)
+      ) bus ;
     wb_configuration configuration;
     wb_transaction wb_trans;
 
@@ -14,7 +17,7 @@ class wb_driver extends ncsu_component#(.T(wb_transaction));
 
     virtual task bl_put(T trans);
         $display({get_full_name()," ",trans.convert2string()});
-        bus.write(trans.address,
+        bus.master_write(trans.address,
             trans.data
             );
     endtask
