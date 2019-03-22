@@ -129,31 +129,6 @@ initial rst_gen: begin
 	#113 rst = 1'b0;
 end     
 
-// ****************************************************************************
-// Monitor Wishbone bus and display transfers in the transcript
-initial wb_monitoring: begin
-	logic [WB_ADDR_WIDTH-1:0] addr;
-	logic [WB_DATA_WIDTH-1:0] data;	
-	logic w_en;
-
-	forever begin
-		#1 wb_bus.master_monitor(addr, data, w_en); 
-		$display("Addr:0x%x | Data:0x%x | W_En:%x", addr,data,w_en );				
-	end
-end
-
-initial i2c_monitoring:
-begin
-	forever #1 i2c_bus.monitor(i2c_address,i2c_op,i2c_data);
-end
-
-initial i2c_test_flow: begin
-	forever begin
-		#1 i2c_bus.wait_for_i2c_transfer(master_op, write_data_i2c);
-		if (master_op == 1) i2c_bus.provide_read_data(read_data_i2c);//$display("abcd");
-	end
-end
-
 i2cmb_test tst;
 
 initial test_flow1: begin
@@ -162,7 +137,7 @@ initial test_flow1: begin
     	tst = new("tst",null);
     	wait ( rst == 1);
     	tst.run();
-    	#100ns $finish();
+    	//#100000 $finish();
 end
 /*
 // ****************************************************************************

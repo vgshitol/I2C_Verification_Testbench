@@ -1,4 +1,4 @@
-class i2cmb_test extends ncsu_component#(.T(i2c_transaction));
+class i2cmb_test extends ncsu_component#(.T(wb_transaction));
 
     i2cmb_env_configuration  cfg;
     i2cmb_environment        env;
