@@ -4,7 +4,7 @@ class i2c_transaction extends ncsu_transaction;
     bit [7:0] write_data [];
     bit [7:0] read_data [];
     bit [7:0] monitor_address;
-    bit [7:0] monitor_data;
+    bit [7:0] monitor_data [];
     bit monitor_op;
     bit op;
 
