@@ -1,6 +1,6 @@
 class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
 
-    ncsu_component_base scoreboard;
+    i2cmb_scoreboard scoreboard;
     i2c_transaction transport_trans;
     i2cmb_env_configuration configuration;
 
@@ -12,7 +12,7 @@ class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
         configuration = cfg;
     endfunction
 
-    virtual function void set_scoreboard(ncsu_component_base scoreboard);
+    virtual function void set_scoreboard(i2cmb_scoreboard scoreboard);
         this.scoreboard = scoreboard;
     endfunction
 
