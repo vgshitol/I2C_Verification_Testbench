@@ -13,7 +13,8 @@ class i2cmb_test extends ncsu_component#(.T(wb_transaction));
         env.set_configuration(cfg);
         env.build();
         gen = new("gen",this);
-        gen.set_agent(env.get_wb_p0_agent());
+        gen.set_wb_agent(env.get_wb_p0_agent());
+        gen.set_i2c_agent(env.get_i2c_p1_agent());
     endfunction
 
     virtual task run();
