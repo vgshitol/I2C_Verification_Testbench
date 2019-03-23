@@ -20,7 +20,7 @@ class i2c_monitor extends ncsu_component#(.T(i2c_transaction));
 
     virtual task run ();
         forever begin
-            monitored_trans = new("monitored_trans");
+           #10 monitored_trans = new("monitored_trans");
             bus.monitor(
                 monitored_trans.monitor_address,
                 monitored_trans.monitor_op,
