@@ -4,6 +4,7 @@ class wb_transaction extends ncsu_transaction;
     bit [1:0] address;
     bit [7:0] data;
     bit rw;
+    bit intr;
 
     function new(string name="");
         super.new(name);

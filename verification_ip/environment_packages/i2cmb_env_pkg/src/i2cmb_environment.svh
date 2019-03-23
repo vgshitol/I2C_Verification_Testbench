@@ -32,7 +32,7 @@ class i2cmb_environment extends ncsu_component#(.T(wb_transaction));
         coverage.build();
         wb_p0_agent.connect_subscriber(coverage);
         wb_p0_agent.connect_subscriber(pred);
-        pred.set_scoreboard(scbd);
+       // pred.set_scoreboard(scbd);
         i2c_p1_agent.connect_subscriber(scbd);
     endfunction
 
