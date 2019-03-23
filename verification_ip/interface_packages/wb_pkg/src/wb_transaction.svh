@@ -11,7 +11,7 @@ class wb_transaction extends ncsu_transaction;
     endfunction
 
     virtual function string convert2string();
-        return {super.convert2string(),$sformatf("Address:0x%x Operation:%s Data:0x%p", address, (rw==1) ? "READ":"WRITE", data)};
+        return {super.convert2string(),$sformatf("Address:0x%x Operation:%s Data:0x%p", address, (rw==0) ? "READ":"WRITE", data)};
     endfunction
 
     function bit compare(wb_transaction rhs);

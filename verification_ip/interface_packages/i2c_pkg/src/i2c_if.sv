@@ -77,6 +77,7 @@ task wait_for_i2c_transfer
 	begin
 		while(check_stop==1 || check_start==1); // Wait to check if the next instruction is a repeated start/ stop / Data
 	
+$display("I2C_TRANSACTION check Start done ");
 		// Fetch Address for Repeated Start
 		if(start_byte_transfer==1 && stop_byte_transfer==0) 
 		begin
@@ -87,6 +88,7 @@ task wait_for_i2c_transfer
 				slave_addr[ADDR_WIDTH-1-bit_count]=sda;	
 			end
 
+$display("I2C_TRANSACTION get address ");
 			@(posedge scl);
 			op=sda;
 			rw =op;
@@ -99,6 +101,8 @@ task wait_for_i2c_transfer
 			@(negedge scl);
 			sda_o=1;		
 		end
+
+$display("try once get address ");
 
 		if(op==1) return;
 	

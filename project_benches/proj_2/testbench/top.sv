@@ -51,6 +51,7 @@ wb_bus (
   // System sigals
   .clk_i(clk),
   .rst_i(rst),
+  .irq_i(irq),
   // Master signals
   .cyc_o(cyc),
   .stb_o(stb),
@@ -135,9 +136,9 @@ initial test_flow1: begin
 	ncsu_config_db#(virtual wb_if #(.ADDR_WIDTH(WB_ADDR_WIDTH), .DATA_WIDTH(WB_DATA_WIDTH)))::set("tst.env.wb_p0_agent", wb_bus);
     	ncsu_config_db#(virtual i2c_if)::set("tst.env.i2c_p1_agent", i2c_bus);
     	tst = new("tst",null);
-    	wait ( rst == 1);
+    	//wait ( rst == 1);
     	tst.run();
-    	#100000 $finish();
+    	#2ms	 $finish();
 end
 /*
 // ****************************************************************************

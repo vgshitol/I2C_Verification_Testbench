@@ -36,11 +36,11 @@ class i2cmb_environment extends ncsu_component#(.T(wb_transaction));
     //    i2c_p1_agent.connect_subscriber(scbd);
     endfunction
 
-    function ncsu_component#(.T(wb_transaction)) get_wb_p0_agent();
+    function wb_agent get_wb_p0_agent();
         return wb_p0_agent;
     endfunction
 
-    function ncsu_component#(.T(i2c_transaction))  get_i2c_p1_agent();
+    function i2c_agent get_i2c_p1_agent();
         return i2c_p1_agent;
     endfunction
 
