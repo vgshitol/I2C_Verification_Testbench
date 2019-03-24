@@ -24,25 +24,26 @@ class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
         $display({get_full_name()," ",trans.convert2string()});
         case(state1)
             GET_DATA : begin
-                if((trans.address== 2'b10 ) && (trans.data[0:2]==3'b101)) state1=STOP;
-                else if((trans.address== 2'b10 ) && (trans.data[0:2]==3'b100)) state1=GET_ADDRESS;
+                if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b101)) begin
+                    scoreboard.nb_transport(i2c_trans, transport_trans);
+                    state1=CHECK_START;
+                end
+                else if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b100)) state1=GET_ADDRESS;
                 else begin
                     i2c_trans.monitor_data = { i2c_trans.monitor_data, trans.data};
                 end
             end
             GET_ADDRESS : begin
-                if((trans.address== 2'b10 ) && (trans.data[0:2]==3'b101)) state1=STOP;
-                else begin
-                    i2c_trans.monitor_address = trans.data;
+                    i2c_trans.monitor_address = trans.data[7:1];
                     state1=GET_DATA;
-                end
+
             end
             CHECK_START : begin
-                if((trans.address== 2'b10 ) && (trans.data[0:2]==3'b100)) state1=GET_ADDRESS;
+                if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b100)) state1=GET_ADDRESS;
             end
             STOP : begin
-                        scoreboard.nb_transport(i2c_trans, transport_trans);
-                state1=CHECK_START;
+
+
             end
             default: begin
 
