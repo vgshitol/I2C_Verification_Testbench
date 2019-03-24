@@ -3,7 +3,7 @@ class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
     ncsu_component#(.T(i2c_transaction)) scoreboard;
     i2c_transaction transport_trans;
     i2cmb_env_configuration configuration;
-        i2c_transaction i2c_trans;
+    i2c_transaction i2c_trans;
     typedef enum {CHECK_START,GET_ADDRESS,GET_DATA,STOP} stage_t;
     stage_t state1 = CHECK_START;
 
@@ -26,50 +26,46 @@ class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
 	//$display({get_full_name()," ",trans.convert2string()});
         case(state1)
             GET_DATA : begin
-                if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b101)) begin
+		//	$display("PREDICTOR : GET_DATA --> GET_DATA");             
+		if(trans.address==2'b01) begin	
+		//	$display("ES\LSE PREDICTOR : GET_DATA --> GET_DATA");
+			this.i2c_trans.monitor_data ={this.i2c_trans.monitor_data, trans.data};
+		end
+                else if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b101)) begin
                 //	$display("PREDICTOR : GET_DATA --> NB _TRANSPORT");
     			scoreboard.nb_transport(i2c_trans, transport_trans);
-		    this.i2c_trans=new("name");
-                    state1=CHECK_START;
-		//	$display("PREDICTOR : GET_DATA --> CHECK START");
+			$cast(this.i2c_trans,ncsu_object_factory::create("i2c_transaction"));
+                    	state1=CHECK_START;
+			$display("PREDICTOR : GET_DATA --> CHECK START");
 
                 end
-                else if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b100)) 
+                else if((trans.address==2'b10) && (trans.data[2:0]==3'b100)) 
 		begin
-		//	$display("PREDICTOR : GET_DATA --> GET_ADDRESS");
+			scoreboard.nb_transport(i2c_trans, transport_trans);
+			$cast(this.i2c_trans,ncsu_object_factory::create("i2c_transaction"));
+			$display("PREDICTOR : GET_DATA --> GET_ADDRESS");
 			state1=GET_ADDRESS;
-		end
-                else begin
-                     if(trans.address==2'b01) begin	
-
-		//	$display("ES\LSE PREDICTOR : GET_DATA --> GET_DATA");
-			i2c_trans.monitor_data ={i2c_trans.monitor_data, trans.data};
-			end
-		//	$display("PREDICTOR : GET_DATA --> GET_DATA");
-                end
-				
+		end		
             end
             GET_ADDRESS : begin
-	    if(trans.address==2'b01) begin	 //   $display("ADDRESS %x", trans.data);
-                    i2c_trans.monitor_op = trans.data[0];
-	            i2c_trans.monitor_address = trans.data >> 1;
+	    	if(trans.address==2'b01) 
+		begin	 
+		   $display("ADDRESS %x", trans.data);
+                    this.i2c_trans.monitor_op = trans.data[0];
+	            this.i2c_trans.monitor_address = trans.data >> 1;
 		    	
                     state1=GET_DATA;
 		//$display("PREDICTOR : GET_ADDRESS --> GET_DATA");
-			end
+		end
 		//else $display("PREDICTOR : GET_ADDRESS");
             end
             CHECK_START : begin
                 if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b100)) begin
 			state1=GET_ADDRESS;
-		//	$display("PREDICTOR : CHECK_START --> GET_ADDRESS");
 		end
-		//else $display("PREDICTOR : CHECK_START");
-            
 	    end
-            default: begin
-	//	$display("PREDICTOR : DEFAULT");
-            
+            default: begin            
+		state1 = CHECK_START;
             end
         endcase
 

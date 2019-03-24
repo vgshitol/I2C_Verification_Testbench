@@ -51,7 +51,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                          if(i<31) this.slave_data_transfer(i, 1);
                          else this.slave_data_transfer(i, 1, 1);
                     end
-
+/*
 //Alternate Read and Write
                     for(byte i = 0; i < 32; i++) begin
                         //Start
@@ -67,7 +67,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                         //Read Data
                         this.slave_data_transfer(i,1,1);
                     end
-
+*/
                     //Stop
                     this.stop_transfer();
 
