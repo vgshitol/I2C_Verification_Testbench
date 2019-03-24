@@ -14,9 +14,9 @@ class i2c_driver extends ncsu_component#(.T(i2c_transaction));
 
     virtual task bl_put(T trans);
   //      $display({get_full_name()," ",trans.convert2string()});
-	$display("I2C_DRIVER BEFORE ");
+//	$display("I2C_DRIVER BEFORE ");
         bus.wait_for_i2c_transfer(trans.op, trans.write_data);
-	$display("I2C_DRIVER HAPPENS ");
+	//$display("I2C_DRIVER HAPPENS ");
         if(trans.op == 1) begin
             bus.provide_read_data(trans.read_data);
         end

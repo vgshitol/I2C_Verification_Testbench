@@ -1,8 +1,8 @@
 // class generator #(type GEN_TRANS)  extends ncsu_component#(.T(abc_transaction_base));
 class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
 
-    wb_transaction wb_transaction[107];
-    i2c_transaction i2c_tr[107];
+    wb_transaction wb_transaction[205];
+    i2c_transaction i2c_tr[205];
 
     int wb_transaction_num;
     int i2c_tr_num;
@@ -26,7 +26,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
     virtual task run();
         fork
             begin
-                if(this.wb_transaction_num < 14)
+                //if(this.wb_transaction_num < 14)
                     begin
 
                         this.initialise();
@@ -34,13 +34,24 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                         this.start_transfer();
                         // Address
                         this.slave_address(8'h44);
-                        //Data
+                        //Write Data
                         for(byte i = 0; i < 32; i++) begin
-                            this.slave_data_transfer(i);
+                            this.slave_data_transfer(i, 0);
                         end
-
                         //Stop
                         this.stop_transfer();
+
+                        //Start
+                        this.start_transfer();
+                        // Address
+                        this.slave_address(8'h44);
+                        //Read Data
+                        for(byte i = 0; i < 32; i++) begin
+                            this.slave_data_transfer(i, 1);
+                        end
+                        //Stop
+                        this.stop_transfer();
+
                     end
             end
 
@@ -71,10 +82,17 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
     endtask
 
-    task slave_data_transfer(bit [7:0] data);
-        this.set_wb_transaction(2'b01,data,1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0',
-        this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute s instruction and wait for interrupt
-        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+    task slave_data_transfer(bit [7:0] data, bit op=1'b0);
+        if(op==0) begin
+            this.set_wb_transaction(2'b01,data, 1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0',
+            this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute s instruction and wait for interrupt
+            this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+        end
+        else if(op==1) begin
+            this.set_wb_transaction(2'b10,8'bxxxxx010,1'b0,1'b1);
+            this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1);
+            this.set_wb_transaction(2'b01,8'bxxxxxxxx,1'b1);
+        end
     endtask
 
     task stop_transfer();
@@ -97,8 +115,8 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         this.wb_transaction[this.wb_transaction_num].rw = rw;
         this.wb_transaction[this.wb_transaction_num].intr = intr;
         this.wb_p0_agent.bl_put(this.wb_transaction[this.wb_transaction_num]);
-      //  $display({get_full_name()," ",this.wb_transaction[this.wb_transaction_num].convert2string()});
-           $display("THIS WB EXECUTED %d\n", wb_transaction_num);
+        //  $display({get_full_name()," ",this.wb_transaction[this.wb_transaction_num].convert2string()});
+        $display("THIS WB EXECUTED %d\n", wb_transaction_num);
         this.wb_transaction_num = this.wb_transaction_num + 1;
     endtask
 
@@ -106,8 +124,8 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         $cast(this.i2c_tr[this.i2c_tr_num],ncsu_object_factory::create("i2c_transaction"));
         //this.i2c_transaction[this.i2c_tr_num].read_data = {8'hxx};
         this.i2c_p1_agent.bl_put(this.i2c_tr[this.i2c_tr_num]);
-    //    $display({get_full_name()," ",this.i2c_tr[this.i2c_tr_num].convert2string()});
-           $display("THIS I2C EXECUTED %d\n", i2c_tr_num);
+        //    $display({get_full_name()," ",this.i2c_tr[this.i2c_tr_num].convert2string()});
+        $display("THIS I2C EXECUTED %d\n", i2c_tr_num);
         this.i2c_tr_num = this.i2c_tr_num + 1;
     endtask
 

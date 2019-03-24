@@ -15,7 +15,7 @@ class wb_driver extends ncsu_component#(.T(wb_transaction));
     virtual task bl_put(T trans);
      //   $display({get_full_name()," ",trans.convert2string()});
       	bus.wait_for_reset();
-	 $display(" \nWB DRIVER Address%x Data%x Operation %d INTERRUPT\t%d\n",trans.address,trans.data, trans.rw, trans.intr);
+	// $display(" \nWB DRIVER Address%x Data%x Operation %d INTERRUPT\t%d\n",trans.address,trans.data, trans.rw, trans.intr);
 	
 	if(trans.rw == 0) begin 
 		bus.master_write(trans.address, trans.data);
