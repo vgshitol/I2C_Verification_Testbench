@@ -44,7 +44,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                     this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute s instruction and wait for interrupt
                     this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
                     //Stop
-                    this.set_wb_transaction(2'b10,8'bxxxxx101,1'b0,1'b1); // execute start instruction and wait for interrupt
+                    this.set_wb_transaction(2'b10,8'bxxxxx101,1'b0,1'b1); // execute stop instruction and wait for interrupt
                     this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
                 end
             end
