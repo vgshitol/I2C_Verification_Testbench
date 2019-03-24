@@ -1,7 +1,7 @@
 // class generator #(type GEN_TRANS)  extends ncsu_component#(.T(abc_transaction_base));
 class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
 
-    wb_transaction wb_transaction[750];
+    wb_transaction wb_transaction;
     i2c_transaction i2c_tr;
 
     int wb_transaction_num;
@@ -26,8 +26,9 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
     virtual task run();
         fork
             begin
-                //if(this.wb_transaction_num < 14)
-                begin
+  	 $cast(this.wb_transaction,ncsu_object_factory::create(this.trans_name));
+     
+ // Write 
                     this.initialise();
                     //Start
                     this.start_transfer();
@@ -39,7 +40,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                     end
                     //Stop
                     this.stop_transfer();
-
+//Read
                     //Start
                     this.start_transfer();
                     // Address
@@ -49,9 +50,8 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                          if(i<31) this.slave_data_transfer(i, 1);
                          else this.slave_data_transfer(i, 1, 1);
                     end
-                    //Stop
-                  //  this.stop_transfer();
 
+//Alternate Read and Write
                     for(byte i = 0; i < 32; i++) begin
                         //Start
                         this.start_transfer();
@@ -69,7 +69,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                     //Stop
                     this.stop_transfer();
                 end
-            end
+            
 
             begin
                 forever begin
@@ -129,12 +129,11 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
     endfunction
 
     task set_wb_transaction(bit [1:0] address, bit [7:0] data, bit rw, bit intr = 1'b0);
-        $cast(this.wb_transaction[this.wb_transaction_num],ncsu_object_factory::create(this.trans_name));
-        this.wb_transaction[this.wb_transaction_num].address = address;
-        this.wb_transaction[this.wb_transaction_num].data = data;
-        this.wb_transaction[this.wb_transaction_num].rw = rw;
-        this.wb_transaction[this.wb_transaction_num].intr = intr;
-        this.wb_p0_agent.bl_put(this.wb_transaction[this.wb_transaction_num]);
+        this.wb_transaction.address = address;
+        this.wb_transaction.data = data;
+        this.wb_transaction.rw = rw;
+        this.wb_transaction.intr = intr;
+        this.wb_p0_agent.bl_put(this.wb_transaction);
         //  $display({get_full_name()," ",this.wb_transaction[this.wb_transaction_num].convert2string()});
         $display("THIS WB EXECUTED %d", wb_transaction_num);
         this.wb_transaction_num = this.wb_transaction_num + 1;
