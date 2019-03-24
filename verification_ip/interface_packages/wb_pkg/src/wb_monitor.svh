@@ -22,6 +22,7 @@ class wb_monitor extends ncsu_component#(.T(wb_transaction));
     endfunction
 
     virtual task run ();
+	bus.wait_for_reset();
         forever begin
             monitored_trans = new("monitored_trans");
             bus.master_monitor(monitored_trans.address,

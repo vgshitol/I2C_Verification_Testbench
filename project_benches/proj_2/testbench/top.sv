@@ -136,6 +136,7 @@ module top();
         ncsu_config_db#(virtual wb_if #(.ADDR_WIDTH(WB_ADDR_WIDTH), .DATA_WIDTH(WB_DATA_WIDTH)))::set("tst.env.wb_p0_agent", wb_bus);
         ncsu_config_db#(virtual i2c_if)::set("tst.env.i2c_p1_agent", i2c_bus);
         tst = new("tst",null);
+	wait (rst==1);
         tst.run();
         #25ms	 $finish();
     end
