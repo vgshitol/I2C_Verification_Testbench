@@ -20,18 +20,18 @@ class i2c_monitor extends ncsu_component#(.T(i2c_transaction));
 
     virtual task run ();
         forever begin
-           #10 monitored_trans = new("monitored_trans");
+           #1 monitored_trans = new("monitored_trans");
             bus.monitor(
                 monitored_trans.monitor_address,
                 monitored_trans.monitor_op,
                 monitored_trans.monitor_data
             );
-           /* $display("%s i2c_monitor::run() Address: 0x%x Data: 0x%p Operation: 0x%x",
+            $display("%s i2c_monitor::run() Address: 0x%x Data: 0x%p Operation: 0x%x",
                 get_full_name(),
                 monitored_trans.monitor_address,
                 monitored_trans.monitor_data,
                 monitored_trans.monitor_op
-                );*/
+                );
             agent.nb_put(monitored_trans);
         end
     endtask

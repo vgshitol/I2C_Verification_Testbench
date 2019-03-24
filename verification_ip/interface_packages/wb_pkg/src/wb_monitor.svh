@@ -34,7 +34,6 @@ class wb_monitor extends ncsu_component#(.T(wb_transaction));
                 monitored_trans.data,
                 monitored_trans.rw
                 );
-           // $display(" \nOperation %d\n", monitored_trans.rw);
             agent.nb_put(monitored_trans);
         end
     endtask

@@ -1,3 +1,5 @@
+`timescale 1ns / 10ps
+
 interface i2c_if #(
       int ADDR_WIDTH = 7,                                
       int DATA_WIDTH = 8                                
@@ -178,7 +180,9 @@ task monitor
 		output bit op, 
 		output bit [DATA_WIDTH-1:0] data []
 	);
-
+	
+	while(!(addr_rcvd==1 || is_write_monitor==1 || is_read_monitor==1 )) begin #1; 	end 
+ 
 	if(addr_rcvd==1)
 	begin
 		addr=slave_addr;
@@ -196,6 +200,7 @@ task monitor
 		is_write_monitor=0;
 		is_read_monitor=0;
     	end
+	
    
 endtask
 
