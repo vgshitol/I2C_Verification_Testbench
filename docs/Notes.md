@@ -14,3 +14,6 @@
 
 ### 5.
 `Modify wb_if : irq_i`: the irq_i needs to be passed to wb_if in top.sv .
+
+### 6. 
+`Read bit carefully set to one` : 0x44 is the write address. 0x45 is the read address
