@@ -137,7 +137,7 @@ initial test_flow1: begin
     	ncsu_config_db#(virtual i2c_if)::set("tst.env.i2c_p1_agent", i2c_bus);
     	tst = new("tst",null);
     	tst.run();
-    	#10ms	 $finish();
+    	#20ms	 $finish();
 end
 /*
 // ****************************************************************************
