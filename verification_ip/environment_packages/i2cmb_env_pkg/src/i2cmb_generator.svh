@@ -1,7 +1,7 @@
 // class generator #(type GEN_TRANS)  extends ncsu_component#(.T(abc_transaction_base));
 class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
 
-    wb_transaction wb_transaction[500];
+    wb_transaction wb_transaction[600];
     i2c_transaction i2c_tr;
 
     int wb_transaction_num;
@@ -46,10 +46,11 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                     this.slave_address(8'h45);
                     //Read Data
                     for(byte i = 0; i < 32; i++) begin
-                        this.slave_data_transfer(i, 1);
+                         if(i<31) this.slave_data_transfer(i, 1);
+                         else this.slave_data_transfer(i, 1, 1);
                     end
                     //Stop
-                    this.stop_transfer();
+                  //  this.stop_transfer();
 
                     for(byte i = 0; i < 32; i++) begin
                         //Start

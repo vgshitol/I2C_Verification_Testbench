@@ -26,7 +26,7 @@ class i2c_driver extends ncsu_component#(.T(i2c_transaction));
         bus.wait_for_i2c_transfer(trans.op, trans.write_data);
 	//$display("I2C_DRIVER HAPPENS ");
         if(trans.op == 1) begin
-            trans.read_data = read_data_i2c2;
+            trans.read_data = read_data_i2c;
             bus.provide_read_data(trans.read_data);
         end
     endtask
