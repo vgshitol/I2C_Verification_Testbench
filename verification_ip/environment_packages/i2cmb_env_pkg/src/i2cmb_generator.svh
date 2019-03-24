@@ -28,24 +28,18 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
             begin
                 if(this.wb_transaction_num < 14) begin
 
-                    this.set_wb_transaction(2'b0,8'b11xxxxxx,1'b0);
-                    this.set_wb_transaction(2'b01,8'h01,1'b0); //Write byte 0x05 to the DPR. This is the ID of desired I 2 C bus.
-                    this.set_wb_transaction(2'b10,8'bxxxxx110,1'b0,1'b1); // execute instruction and wait for interrupt
-                    this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // execute instruction and wait for interrupt
+                    this.initialise();
                     //Start
-                    this.set_wb_transaction(2'b10,8'bxxxxx100,1'b0,1'b1); // execute start instruction and wait for interrupt
-                    this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+                    this.start_transfer();
                     // Address
-                    this.set_wb_transaction(2'b01,8'h44,1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0',
-                    this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute start instruction and wait for interrupt
-                    this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+                    this.slave_address(8'h44);
                     //Data
-                    this.set_wb_transaction(2'b01,8'h01,1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0', 
-                    this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute s instruction and wait for interrupt
-                    this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+                    for(byte i = 0; i < 32; i++) begin
+                        this.slave_data_transfer(i);
+                    end
+
                     //Stop
-                    this.set_wb_transaction(2'b10,8'bxxxxx101,1'b0,1'b1); // execute stop instruction and wait for interrupt
-                    this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+                    this.stop_transfer();
                 end
             end
 
@@ -58,7 +52,36 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         join_none
     endtask
 
-    function void set_wb_agent(wb_agent agent);
+    task initialise();
+        this.set_wb_transaction(2'b0,8'b11xxxxxx,1'b0);
+        this.set_wb_transaction(2'b01,8'h01,1'b0); //Write byte 0x05 to the DPR. This is the ID of desired I 2 C bus.
+        this.set_wb_transaction(2'b10,8'bxxxxx110,1'b0,1'b1); // execute instruction and wait for interrupt
+        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // execute instruction and wait for interrupt
+    endtask
+
+    task start_transfer();
+        this.set_wb_transaction(2'b10,8'bxxxxx100,1'b0,1'b1); // execute start instruction and wait for interrupt
+        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+    endtask
+
+    task slave_address(bit [7:0] address);
+        this.set_wb_transaction(2'b01,address,1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0',
+        this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute start instruction and wait for interrupt
+        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+    endtask
+
+    task slave_data_transfer(bit [7:0] data);
+        this.set_wb_transaction(2'b01,data,1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0',
+        this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute s instruction and wait for interrupt
+        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+    endtask
+
+    task stop_transfer();
+        this.set_wb_transaction(2'b10,8'bxxxxx101,1'b0,1'b1); // execute stop instruction and wait for interrupt
+        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+    endtask
+
+        function void set_wb_agent(wb_agent agent);
         this.wb_p0_agent = agent;
     endfunction
 
