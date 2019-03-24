@@ -72,7 +72,7 @@ task wait_for_i2c_transfer
 	
 	// Check Start Logic 
 	check_start = 1;
-	while(start_byte_transfer == 0); // Wait till Start Instruction is not received from Master
+	while(start_byte_transfer == 0) begin #1; end  // Wait till Start Instruction is not received from Master
 	
 	// Loop for continuous transfer of data is not stopped or error is not shown ( NACK - by master) 
 	while(!stop_byte_transfer && !error) 
