@@ -13,13 +13,14 @@ class i2c_transaction extends ncsu_transaction;
     endfunction
 
     virtual function string convert2string();
-        return {super.convert2string(),$sformatf("Address:0x%x Operation:%s Data:0x%p", monitor_address
-        , (monitor_op==0) ? "READ":"WRITE", monitor_data)};
+        return {super.convert2string(),$sformatf("Address:0x%x Operation:0x%x Data:0x%p", monitor_address
+        , monitor_op, monitor_data)};
     endfunction
 
     function bit compare(i2c_transaction rhs);
         return ((this.monitor_address  == rhs.monitor_address ) &&
             (this.monitor_data == rhs.monitor_data) &&
-            (this.monitor_op == rhs.monitor_op));
+            (this.monitor_op == rhs.monitor_op)
+);
     endfunction
 endclass

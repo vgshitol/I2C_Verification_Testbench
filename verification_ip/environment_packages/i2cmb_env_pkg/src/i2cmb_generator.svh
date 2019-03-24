@@ -40,6 +40,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                     end
                     //Stop
                     this.stop_transfer();
+
 //Read
                     //Start
                     this.start_transfer();
@@ -66,8 +67,10 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
                         //Read Data
                         this.slave_data_transfer(i,1,1);
                     end
+
                     //Stop
                     this.stop_transfer();
+
                 end
             
 

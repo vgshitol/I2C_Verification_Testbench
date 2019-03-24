@@ -31,8 +31,11 @@ bit error=0;
 bit addr_rcvd;
 bit is_read_monitor;
 bit is_write_monitor;
-bit [DATA_WIDTH-1:0] monitor_read_data;
-bit [DATA_WIDTH-1:0] monitor_write_data;
+bit write_data_in_monitor = 0;
+bit read_data_in_monitor = 0;
+bit [DATA_WIDTH-1:0] monitor_data [];
+bit [DATA_WIDTH-1:0] monitor_read_data [];
+bit [DATA_WIDTH-1:0] monitor_write_data [];
 
 always @(posedge sda )
 begin
@@ -43,14 +46,35 @@ begin
 		check_stop=0;
 		check_start=0;
 		$display("STOP!!!!!");
+		
+	if(write_data_in_monitor==1) begin
+		is_write_monitor=1;
+		end
+
+	if(read_data_in_monitor==1) begin
+		is_read_monitor=1;
+				
 	end
+		
+	end
+
 end
 
 always @(negedge sda)
 begin
 	if (scl == 1 && (check_start==1 || check_stop==1))
 	begin
-		if(check_stop==1) $display("RESTART!!!!!");
+		if(check_stop==1) begin
+			 $display("RESTART!!!!!");
+			if(write_data_in_monitor==1) begin
+		is_write_monitor=1;
+		end
+
+	if(read_data_in_monitor==1) begin
+		is_read_monitor=1;
+				
+	end
+		end
 		else $display("START!!!!!");
 	
 		start_byte_transfer=1;
@@ -79,7 +103,7 @@ task wait_for_i2c_transfer
 	begin
 		while(check_stop==1 || check_start==1); // Wait to check if the next instruction is a repeated start/ stop / Data
 	
-$display("I2C_TRANSACTION check Start done ");
+//$display("I2C_TRANSACTION check Start done ");
 		// Fetch Address for Repeated Start
 		if(start_byte_transfer==1 && stop_byte_transfer==0) 
 		begin
@@ -90,7 +114,7 @@ $display("I2C_TRANSACTION check Start done ");
 				slave_addr[ADDR_WIDTH-1-bit_count]=sda;	
 			end
 
-$display("I2C_TRANSACTION get address ");
+//$display("I2C_TRANSACTION get address ");
 			@(posedge scl);
 			op=sda;
 			rw =op;
@@ -104,7 +128,7 @@ $display("I2C_TRANSACTION get address ");
 			sda_o=1;		
 		end
 
-$display("try once get address ");
+//$display("try once get address ");
 
 		if(op==1) return;
 	
@@ -120,8 +144,9 @@ $display("try once get address ");
 				write_data[size][7-bit_count]=sda;	
 			end
 			
-			monitor_write_data=write_data[size]; 
-			is_write_monitor=1;
+			//={monitor_write_data, write_data[size]};
+			monitor_data = {monitor_data, write_data[size]}; 
+			write_data_in_monitor=1;
 
 			check_stop=1;
 			check_start=1;
@@ -132,7 +157,8 @@ $display("try once get address ");
 			@(negedge scl);
 			sda_o=1;		
 		end
-	end		
+	end
+	
 endtask
 
 /**************************************************PROVIDE_READ_DATA**************************************************************************************************/
@@ -146,7 +172,7 @@ task provide_read_data
 	while(!stop_byte_transfer && !error && read_byte<size)
 	begin
 		is_read_monitor=0;	
-		monitor_read_data = read_data[read_byte];
+		monitor_data = {monitor_data,read_data[read_byte]};
 		// post the read 8 bits onto sda  
 		for( bit_count=0;bit_count<8;bit_count++)
 		begin
@@ -162,14 +188,14 @@ task provide_read_data
 		
 		@(posedge scl);	 // Allow master to Send Ack or Nack
 		sda_o = 1;
-		is_read_monitor=1;
-
+		read_data_in_monitor=1;
+		
 		@(negedge scl);	  // Receive Ack or Nack		
 		if(sda==1) error=1;
 			
 		if(error) $display( "READ WTIH NACK ");
 		else $display( "READ WITH ACK");
-	end
+	end	
 
 endtask
 
@@ -180,27 +206,36 @@ task monitor
 		output bit op, 
 		output bit [DATA_WIDTH-1:0] data []
 	);
-	
-	while(!(addr_rcvd==1 || is_write_monitor==1 || is_read_monitor==1 )) begin #1; 	end 
- 
+//	$display("DEBUG MONITOR 0");
+	while(!(is_write_monitor==1 || is_read_monitor==1 )) begin #1; 	end 
+ //	$display("DEBUG MONITOR 1"); 
 	if(addr_rcvd==1)
 	begin
+//$display("DEBUG MONITOR 2"); 
 		addr=slave_addr;
 		op = rw;
-		$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s",addr,(op==1) ? "READ":"WRITE");
+//		$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s",addr,(op==1) ? "READ":"WRITE");
 		addr_rcvd=0;
 	end
 	
-	if(is_write_monitor==1 || is_read_monitor==1)
+	if((is_write_monitor==1 || is_read_monitor==1))
   	begin   
-        	size = data.size();
-        	data=new[size + 1](data);
-                data[size] = (op==0) ? monitor_write_data : monitor_read_data;
-        	$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s | Data:%d", addr, (op==1) ? "READ":"WRITE" , data[size]);
+//		$display("DEBUG MONITOR 3"); 
+		data = monitor_data;		
+		/*if(op==0)begin
+			data = {data,monitor_write_data};
+		end
+		else begin
+                data = {data,monitor_read_data};
+		end*/
+  //      	$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s | Data:0x%p", addr, (op==1) ? "READ":"WRITE" , data);
 		is_write_monitor=0;
 		is_read_monitor=0;
-    	end
-	
+    		write_data_in_monitor = 0;
+		read_data_in_monitor=0;
+		monitor_data.delete();
+        end
+	//$display("DEBUG MONITOR 4"); 
    
 endtask
 
