@@ -9,8 +9,8 @@ class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
 
     function new(string name = "", ncsu_component_base parent = null);
         super.new(name,parent);
-	this.i2c_trans = new("name");
-	transport_trans = new("name1");
+        this.i2c_trans = new("name");
+        transport_trans = new("name1");
     endfunction
 
     function void set_configuration(i2cmb_env_configuration cfg);
@@ -22,50 +22,50 @@ class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
     endfunction
 
     virtual function void nb_put(T trans);
-        
-	//$display({get_full_name()," ",trans.convert2string()});
+
+        //$display({get_full_name()," ",trans.convert2string()});
         case(state1)
             GET_DATA : begin
-		//	$display("PREDICTOR : GET_DATA --> GET_DATA");             
-		if(trans.address==2'b01) begin	
-		//	$display("ES\LSE PREDICTOR : GET_DATA --> GET_DATA");
-			this.i2c_trans.monitor_data ={this.i2c_trans.monitor_data, trans.data};
-		end
+                //	$display("PREDICTOR : GET_DATA --> GET_DATA");
+                if(trans.address==2'b01) begin
+                    //	$display("ES\LSE PREDICTOR : GET_DATA --> GET_DATA");
+                    this.i2c_trans.monitor_data ={this.i2c_trans.monitor_data, trans.data};
+                end
                 else if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b101)) begin
-                //	$display("PREDICTOR : GET_DATA --> NB _TRANSPORT");
-    			scoreboard.nb_transport(i2c_trans, transport_trans);
-			$cast(this.i2c_trans,ncsu_object_factory::create("i2c_transaction"));
-                    	state1=CHECK_START;
-			$display("PREDICTOR : GET_DATA --> CHECK START");
+                    //	$display("PREDICTOR : GET_DATA --> NB _TRANSPORT");
+                    scoreboard.nb_transport(i2c_trans, transport_trans);
+                    $cast(this.i2c_trans,ncsu_object_factory::create("i2c_transaction"));
+                    state1=CHECK_START;
+                    $display("PREDICTOR : GET_DATA --> CHECK START");
 
                 end
-                else if((trans.address==2'b10) && (trans.data[2:0]==3'b100)) 
-		begin
-			scoreboard.nb_transport(i2c_trans, transport_trans);
-			$cast(this.i2c_trans,ncsu_object_factory::create("i2c_transaction"));
-			$display("PREDICTOR : GET_DATA --> GET_ADDRESS");
-			state1=GET_ADDRESS;
-		end		
+                else if((trans.address==2'b10) && (trans.data[2:0]==3'b100))
+                    begin
+                        scoreboard.nb_transport(i2c_trans, transport_trans);
+                        $cast(this.i2c_trans,ncsu_object_factory::create("i2c_transaction"));
+                        $display("PREDICTOR : GET_DATA --> GET_ADDRESS");
+                        state1=GET_ADDRESS;
+                    end
             end
             GET_ADDRESS : begin
-	    	if(trans.address==2'b01) 
-		begin	 
-		   $display("ADDRESS %x", trans.data);
-                    this.i2c_trans.monitor_op = trans.data[0];
-	            this.i2c_trans.monitor_address = trans.data >> 1;
-		    	
-                    state1=GET_DATA;
-		//$display("PREDICTOR : GET_ADDRESS --> GET_DATA");
-		end
-		//else $display("PREDICTOR : GET_ADDRESS");
+                if(trans.address==2'b01)
+                    begin
+                        $display("ADDRESS %x", trans.data);
+                        this.i2c_trans.monitor_op = trans.data[0];
+                        this.i2c_trans.monitor_address = trans.data >> 1;
+
+                        state1=GET_DATA;
+                        //$display("PREDICTOR : GET_ADDRESS --> GET_DATA");
+                    end
+                //else $display("PREDICTOR : GET_ADDRESS");
             end
             CHECK_START : begin
                 if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b100)) begin
-			state1=GET_ADDRESS;
-		end
-	    end
-            default: begin            
-		state1 = CHECK_START;
+                    state1=GET_ADDRESS;
+                end
+            end
+            default: begin
+                state1 = CHECK_START;
             end
         endcase
 

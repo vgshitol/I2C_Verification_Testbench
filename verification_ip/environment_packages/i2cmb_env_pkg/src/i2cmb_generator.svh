@@ -26,53 +26,53 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
     virtual task run();
         fork
             begin
-  	 $cast(this.wb_transaction,ncsu_object_factory::create(this.trans_name));
-     
- // Write 
-                    this.initialise();
-                    //Start
-                    this.start_transfer();
-                    // Address
-                    this.slave_address(8'h44);
-                    //Write Data
-                    for(byte i = 0; i < 32; i++) begin
-                        this.slave_data_transfer(i, 0);
-                    end
-                    //Stop
-                    this.stop_transfer();
+                $cast(this.wb_transaction,ncsu_object_factory::create(this.trans_name));
+
+                // Write
+                this.initialise();
+                //Start
+                this.start_transfer();
+                // Address
+                this.slave_address(8'h44);
+                //Write Data
+                for(byte i = 0; i < 32; i++) begin
+                    this.slave_data_transfer(i, 0);
+                end
+                //Stop
+                this.stop_transfer();
 
 //Read
-                    //Start
-                    this.start_transfer();
-                    // Address
-                    this.slave_address(8'h45);
-                    //Read Data
-                    for(byte i = 0; i < 32; i++) begin
-                         if(i<31) this.slave_data_transfer(i, 1);
-                         else this.slave_data_transfer(i, 1, 1);
-                    end
-/*
-//Alternate Read and Write
-                    for(byte i = 0; i < 32; i++) begin
-                        //Start
-                        this.start_transfer();
-                        // Address
-                        this.slave_address(8'h88);
-                        //Read Data
-                        this.slave_data_transfer(i, 0);
-                        //Start
-                        this.start_transfer();
-                        // Address
-                        this.slave_address(8'h89);
-                        //Read Data
-                        this.slave_data_transfer(i,1,1);
-                    end
-*/
-                    //Stop
-                    this.stop_transfer();
-
+                //Start
+                this.start_transfer();
+                // Address
+                this.slave_address(8'h45);
+                //Read Data
+                for(byte i = 0; i < 32; i++) begin
+                    if(i<31) this.slave_data_transfer(i, 1);
+                    else this.slave_data_transfer(i, 1, 1);
                 end
-            
+                /*
+                //Alternate Read and Write
+                                    for(byte i = 0; i < 32; i++) begin
+                                        //Start
+                                        this.start_transfer();
+                                        // Address
+                                        this.slave_address(8'h88);
+                                        //Read Data
+                                        this.slave_data_transfer(i, 0);
+                                        //Start
+                                        this.start_transfer();
+                                        // Address
+                                        this.slave_address(8'h89);
+                                        //Read Data
+                                        this.slave_data_transfer(i,1,1);
+                                    end
+                */
+                //Stop
+                this.stop_transfer();
+
+            end
+
 
             begin
                 forever begin

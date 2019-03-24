@@ -18,19 +18,19 @@ class i2c_transaction extends ncsu_transaction;
     endfunction
 
     function bit compare(i2c_transaction rhs);
-	 $display("RHS Address: 0x%x Operation: 0x%x Data: 0x%p",
-                rhs.monitor_address,
-                rhs.monitor_op,
-                rhs.monitor_data
-                );
-$display("THIS  Address: 0x%x Operation: 0x%x Data: 0x%p",
-                this.monitor_address,
-                this.monitor_op,
-                this.monitor_data
-                );
+        $display("RHS Address: 0x%x Operation: 0x%x Data: 0x%p",
+            rhs.monitor_address,
+            rhs.monitor_op,
+            rhs.monitor_data
+            );
+        $display("THIS  Address: 0x%x Operation: 0x%x Data: 0x%p",
+            this.monitor_address,
+            this.monitor_op,
+            this.monitor_data
+            );
         return ((this.monitor_address  == rhs.monitor_address ) &&
             (this.monitor_data == rhs.monitor_data) &&
             (this.monitor_op == rhs.monitor_op)
-);
+            );
     endfunction
 endclass
