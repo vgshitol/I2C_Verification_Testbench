@@ -13,6 +13,15 @@ class i2c_driver extends ncsu_component#(.T(i2c_transaction));
     endfunction
 
     virtual task bl_put(T trans);
+        bit [7:0] read_data_i2c [64];
+        bit [7:0] read_data_i2c2 [32];
+        foreach(read_data_i2c2[i])begin
+                read_data_i2c2[i] = i+100;
+                $display( "Read DATA ::::" , read_data_i2c2[i]);
+            end
+            read_data_i2c = {read_data_i2c2, read_data_i2c2};
+        end
+    trans.read_data = read_data_i2c2;
   //      $display({get_full_name()," ",trans.convert2string()});
 //	$display("I2C_DRIVER BEFORE ");
         bus.wait_for_i2c_transfer(trans.op, trans.write_data);
