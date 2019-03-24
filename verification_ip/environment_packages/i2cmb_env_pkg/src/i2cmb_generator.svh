@@ -116,7 +116,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         this.wb_transaction[this.wb_transaction_num].intr = intr;
         this.wb_p0_agent.bl_put(this.wb_transaction[this.wb_transaction_num]);
         //  $display({get_full_name()," ",this.wb_transaction[this.wb_transaction_num].convert2string()});
-        $display("THIS WB EXECUTED %d\n", wb_transaction_num);
+        $display("THIS WB EXECUTED %d", wb_transaction_num);
         this.wb_transaction_num = this.wb_transaction_num + 1;
     endtask
 
@@ -125,7 +125,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         //this.i2c_transaction[this.i2c_tr_num].read_data = {8'hxx};
         this.i2c_p1_agent.bl_put(this.i2c_tr[this.i2c_tr_num]);
         //    $display({get_full_name()," ",this.i2c_tr[this.i2c_tr_num].convert2string()});
-        $display("THIS I2C EXECUTED %d\n", i2c_tr_num);
+        $display("THIS I2C EXECUTED %d", i2c_tr_num);
         this.i2c_tr_num = this.i2c_tr_num + 1;
     endtask
 
