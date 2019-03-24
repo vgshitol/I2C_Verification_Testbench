@@ -22,7 +22,7 @@ class i2cmb_predictor extends ncsu_component#(.T(wb_transaction));
 
     virtual function void nb_put(T trans);
         
-	$display({get_full_name()," ",trans.convert2string()});
+	//$display({get_full_name()," ",trans.convert2string()});
         case(state1)
             GET_DATA : begin
                 if((trans.address== 2'b10 ) && (trans.data[2:0]==3'b101)) begin

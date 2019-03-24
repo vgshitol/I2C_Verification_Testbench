@@ -1,8 +1,8 @@
 // class generator #(type GEN_TRANS)  extends ncsu_component#(.T(abc_transaction_base));
 class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
 
-    wb_transaction wb_transaction[14];
-    i2c_transaction i2c_tr[14];
+    wb_transaction wb_transaction[107];
+    i2c_transaction i2c_tr[107];
 
     int wb_transaction_num;
     int i2c_tr_num;
@@ -26,21 +26,22 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
     virtual task run();
         fork
             begin
-                if(this.wb_transaction_num < 14) begin
+                if(this.wb_transaction_num < 14)
+                    begin
 
-                    this.initialise();
-                    //Start
-                    this.start_transfer();
-                    // Address
-                    this.slave_address(8'h44);
-                    //Data
-                    for(byte i = 0; i < 32; i++) begin
-                        this.slave_data_transfer(i);
+                        this.initialise();
+                        //Start
+                        this.start_transfer();
+                        // Address
+                        this.slave_address(8'h44);
+                        //Data
+                        for(byte i = 0; i < 32; i++) begin
+                            this.slave_data_transfer(i);
+                        end
+
+                        //Stop
+                        this.stop_transfer();
                     end
-
-                    //Stop
-                    this.stop_transfer();
-                end
             end
 
             begin
@@ -81,7 +82,7 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
     endtask
 
-        function void set_wb_agent(wb_agent agent);
+    function void set_wb_agent(wb_agent agent);
         this.wb_p0_agent = agent;
     endfunction
 
@@ -96,8 +97,8 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         this.wb_transaction[this.wb_transaction_num].rw = rw;
         this.wb_transaction[this.wb_transaction_num].intr = intr;
         this.wb_p0_agent.bl_put(this.wb_transaction[this.wb_transaction_num]);
-        $display({get_full_name()," ",this.wb_transaction[this.wb_transaction_num].convert2string()});
-     //   $display("THIS EXECUTED %d\n", wb_transaction_num);
+      //  $display({get_full_name()," ",this.wb_transaction[this.wb_transaction_num].convert2string()});
+           $display("THIS WB EXECUTED %d\n", wb_transaction_num);
         this.wb_transaction_num = this.wb_transaction_num + 1;
     endtask
 
@@ -105,8 +106,8 @@ class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
         $cast(this.i2c_tr[this.i2c_tr_num],ncsu_object_factory::create("i2c_transaction"));
         //this.i2c_transaction[this.i2c_tr_num].read_data = {8'hxx};
         this.i2c_p1_agent.bl_put(this.i2c_tr[this.i2c_tr_num]);
-        $display({get_full_name()," ",this.i2c_tr[this.i2c_tr_num].convert2string()});
-        $display("THIS I2C EXECUTED %d\n", i2c_tr_num);
+    //    $display({get_full_name()," ",this.i2c_tr[this.i2c_tr_num].convert2string()});
+           $display("THIS I2C EXECUTED %d\n", i2c_tr_num);
         this.i2c_tr_num = this.i2c_tr_num + 1;
     endtask
 

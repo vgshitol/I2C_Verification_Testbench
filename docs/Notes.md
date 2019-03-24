@@ -11,3 +11,6 @@
 
 ### 4. 
 `infinite monitor` : added a small delay #1 to the forever begin block to resolve the error 
+
+### 5.
+`Modify wb_if : irq_i`: the irq_i needs to be passed to wb_if in top.sv .

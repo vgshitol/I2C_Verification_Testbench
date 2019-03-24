@@ -22,7 +22,7 @@ class i2cmb_coverage extends ncsu_component#(.T(wb_transaction));
     endfunction
 
     virtual function void nb_put(T trans);
-        $display({get_full_name()," ",trans.convert2string()});
+     //   $display({get_full_name()," ",trans.convert2string()});
         loopback    = configuration.loopback;
         invert      = configuration.invert;
         coverage_cg.sample();
