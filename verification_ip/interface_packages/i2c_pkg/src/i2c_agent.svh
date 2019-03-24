@@ -31,7 +31,7 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction));
     endfunction
 
     virtual function void nb_put(T trans);
-        foreach (subscribers[i]) subscribers[i].nb_put(trans);
+//        foreach (subscribers[i]) subscribers[i].nb_put(trans);
     endfunction
 
     virtual task bl_put(T trans);
