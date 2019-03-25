@@ -1,243 +1,303 @@
-`timescale 1ns / 10ps
-
-interface i2c_if #(
-	int ADDR_WIDTH = 7,
-	int DATA_WIDTH = 8
+interface i2c_if  #( int I2C_ADDR_WIDTH = 7,
+	int I2C_DATA_WIDTH = 8
 )
 	(
-		input scl,
-		inout sda
+		input tri scl_i2c,
+		inout tri sda_i2c
 	);
 
-// Start and Stop Detection Variables
-	bit start_byte_transfer=0;
-	bit stop_byte_transfer=0;
-	bit check_stop=0;
-	bit check_start=0;
+	// enum declarations here
+	import i2c_pkg::*;
+	bit sda_o = 1'b1;
+	assign sda_i2c = sda_o? 'bz:'b0;
 
-	/**SDA_O = 1 High Impedance; 0 pulls it down to start writing data to master**/
-	bit sda_o=1;
-	bit [ADDR_WIDTH-1:0] slave_addr;
-	bit rw;
 
-	integer size=0;
 
-	integer bit_count;
-	integer read_byte=0;
+	bit start_flag;
+	bit stop_flag;
+	bit repeated_start_flag;
 
-	bit error=0;
+// ****************************************************************************
+	task wait_for_i2c_transfer ( output i2c_op_t op,
+		output bit [I2C_DATA_WIDTH-1:0] write_data []
+	);
 
-	/**Variables Required for Monitoring**/
-	bit addr_rcvd;
-	bit is_read_monitor;
-	bit is_write_monitor;
-	bit write_data_in_monitor = 0;
-	bit read_data_in_monitor = 0;
-	bit [DATA_WIDTH-1:0] monitor_data [];
-	bit [DATA_WIDTH-1:0] monitor_read_data [];
-	bit [DATA_WIDTH-1:0] monitor_write_data [];
+		bit [I2C_ADDR_WIDTH-1:0] adr;
+		bit [I2C_DATA_WIDTH-1:0] dat;
+		integer address_length;
+		integer data_length;
 
-	always @(posedge sda )
-		begin
-			if (scl == 1 && check_stop==1)
-				begin
-					stop_byte_transfer=1;
-					start_byte_transfer=0;
-					check_stop=0;
-					check_start=0;
-					$display("STOP!!!!!");
+		address_length = I2C_ADDR_WIDTH-1;
+		data_length = I2C_DATA_WIDTH-1;
 
-					if(write_data_in_monitor==1) begin
-						is_write_monitor=1;
-					end
-
-					if(read_data_in_monitor==1) begin
-						is_read_monitor=1;
-
-					end
-
-				end
-
-		end
-
-	always @(negedge sda)
-		begin
-			if (scl == 1 && (check_start==1 || check_stop==1))
-				begin
-					if(check_stop==1) begin
-						$display("RESTART!!!!!");
-						if(write_data_in_monitor==1) begin
-							is_write_monitor=1;
-						end
-
-						if(read_data_in_monitor==1) begin
-							is_read_monitor=1;
-
-						end
-					end
-					else $display("START!!!!!");
-
-					start_byte_transfer=1;
-					stop_byte_transfer=0;
-					error=0;
-					check_start=0;
-					check_stop=0;
-				end
-		end
-
-	assign sda = sda_o?1'bz:1'b0;
-
-	/*************************************************WAIT FOR I2C TRANSFER***********************************************************************************************/
-	task wait_for_i2c_transfer
-		(
-			output bit op,
-			output bit [DATA_WIDTH-1:0] write_data []
-		);
-
-		// Check Start Logic
-		check_start = 1;
-		while(start_byte_transfer == 0) begin #1; end  // Wait till Start Instruction is not received from Master
-
-		// Loop for continuous transfer of data is not stopped or error is not shown ( NACK - by master)
-		while(!stop_byte_transfer && !error)
+		//wait for start_flag
+		if(!repeated_start_flag)
 			begin
-				while(check_stop==1 || check_start==1); // Wait to check if the next instruction is a repeated start/ stop / Data
-
-//$display("I2C_TRANSACTION check Start done ");
-				// Fetch Address for Repeated Start
-				if(start_byte_transfer==1 && stop_byte_transfer==0)
+				do
 					begin
-						start_byte_transfer=0; // Indicating that it is inside start
-						for( bit_count=0;bit_count<ADDR_WIDTH;bit_count++)
-							begin
-								@(posedge scl);
-								slave_addr[ADDR_WIDTH-1-bit_count]=sda;
-							end
-
-//$display("I2C_TRANSACTION get address ");
-						@(posedge scl);
-						op=sda;
-						rw =op;
-
-						addr_rcvd=1;
-
-						@(negedge scl);
-						sda_o=0;
-
-						@(negedge scl);
-						sda_o=1;
+						@(negedge sda_i2c);
 					end
+				while(!scl_i2c);
+			end
 
-//$display("try once get address ");
+		repeated_start_flag = 0;
 
-				if(op==1) return;
-
-				if (start_byte_transfer==0 && stop_byte_transfer==0 && op == 0)
+		repeat(I2C_ADDR_WIDTH)
+			begin
+				@(posedge scl_i2c)
 					begin
-						size = write_data.size();
-						write_data=new[size + 1](write_data);
+						adr[address_length] = sda_i2c;
+						address_length--;
+					end
+			end
 
-						for(bit_count=0;bit_count<DATA_WIDTH;bit_count++)
+		@(posedge scl_i2c)
+			begin
+				op = sda_i2c ? READ : WRITE;
+			end
+
+		@(negedge scl_i2c)
+			begin
+				sda_o = 1'b0;
+			end
+
+		if(op == WRITE)
+			begin
+
+				forever
+					begin
+						@ (negedge scl_i2c);
+						sda_o = 'b1;
+
+						@(posedge scl_i2c);
+						@(sda_i2c or negedge scl_i2c);
+
+						if(!scl_i2c)
 							begin
-								@(posedge scl or stop_byte_transfer or start_byte_transfer);
-								if(start_byte_transfer==1 || stop_byte_transfer==1) return;
-								write_data[size][7-bit_count]=sda;
+								dat = {dat, sda_i2c};
+								for( int k=I2C_DATA_WIDTH-2;k>=0;k--)
+									begin
+										@(posedge scl_i2c);
+										dat = {dat, sda_i2c};
+									end
+
+								write_data = {write_data, dat};
+
+								@( negedge scl_i2c);
+								sda_o = 1'b0;
+
+
 							end
 
-						//={monitor_write_data, write_data[size]};
-						monitor_data = {monitor_data, write_data[size]};
-						write_data_in_monitor=1;
-
-						check_stop=1;
-						check_start=1;
-
-						@(negedge scl);
-						sda_o=0;
-
-						@(negedge scl);
-						sda_o=1;
+						else if (sda_i2c)
+							begin
+								//$display ("**************STOP detected****************");
+								stop_flag = 'b1;
+								return;
+							end
+						else if  (!sda_i2c)                          // START condition detection
+							begin
+								//$display ("**************R_START detected****************");
+								repeated_start_flag = 'b1;
+								return;
+							end
 					end
 			end
 
 	endtask
 
-	/**************************************************PROVIDE_READ_DATA**************************************************************************************************/
-	task provide_read_data
-		(
-			input bit [DATA_WIDTH-1:0] read_data []
-		);
 
-		size = read_data.size();
+	task provide_read_data ( input bit [I2C_DATA_WIDTH-1:0] read_data []
+	);
 
-		while(!stop_byte_transfer && !error && read_byte<size)
+		int i;
+		int read_data_size;
+		int count;
+		read_data_size = read_data.size();
+		i=0;count=0;
+		forever
 			begin
-				is_read_monitor=0;
-				monitor_data = {monitor_data,read_data[read_byte]};
-				// post the read 8 bits onto sda
-				for( bit_count=0;bit_count<8;bit_count++)
+				@(posedge scl_i2c);
+				@(sda_i2c or negedge scl_i2c);
+
+				if(!scl_i2c)
 					begin
+						sda_o = read_data [i] [7];
+						for(int j=I2C_DATA_WIDTH-2; j>=0;j--)
+							begin
+								@(negedge scl_i2c);
+								sda_o = read_data [i] [j];
 
-						sda_o=monitor_read_data[bit_count];
-						@(negedge scl or error or stop_byte_transfer);
-						if(error || stop_byte_transfer) return;
+							end//end for repeat
+						i++;
+
+						if(i<read_data_size)
+							begin
+								@(negedge scl_i2c);
+								sda_o =0;
+							end
+						else
+							begin
+								@(negedge scl_i2c);
+								sda_o =1;
+								@(posedge scl_i2c);
+							end
 					end
-				read_byte++;
 
-				check_stop=1;
-				check_start=1;
+				else if (sda_i2c)
+					begin
+						//$display ("STOP detected*");
+						stop_flag = 'b1;
+						return;
+					end
 
-				@(posedge scl);	 // Allow master to Send Ack or Nack
-				sda_o = 1;
-				read_data_in_monitor=1;
-
-				@(negedge scl);	  // Receive Ack or Nack
-				if(sda==1) error=1;
-
-				if(error) $display( "READ WTIH NACK ");
-				else $display( "READ WITH ACK");
+				else if  (!sda_i2c)                          // START condition detection
+					begin
+						//$display ("R_START detected");
+						repeated_start_flag = 'b1;
+						return;
+					end
 			end
 
 	endtask
 
-	/**************************************************MONITOR************************************************************************************************************/
-	task monitor
-		(
-			output bit [ADDR_WIDTH-1:0] addr,
-			output bit op,
-			output bit [DATA_WIDTH-1:0] data []
-		);
-//	$display("DEBUG MONITOR 0");
-		while(!(is_write_monitor==1 || is_read_monitor==1 )) begin #1; 	end
-		//	$display("DEBUG MONITOR 1");
-		if(addr_rcvd==1)
+
+	task monitor ( output bit [I2C_ADDR_WIDTH-1:0] addr,
+		output i2c_op_t op,
+		output bit [I2C_DATA_WIDTH-1:0] data []
+	);
+
+		bit [I2C_DATA_WIDTH-1:0] dat;
+		integer address_length;
+		integer data_length;
+
+		int i;
+		int read_data_size;
+		int count;
+
+		address_length = I2C_ADDR_WIDTH-1;
+		data_length = I2C_DATA_WIDTH-1;
+		i=0;
+		read_data_size = 2;
+
+
+		//wait for start_flag
+		if(!repeated_start_flag)
 			begin
-//$display("DEBUG MONITOR 2"); 
-				addr=slave_addr;
-				op = rw;
-//		$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s",addr,(op==1) ? "READ":"WRITE");
-				addr_rcvd=0;
+				do
+					begin
+						@(negedge sda_i2c);
+					end
+				while(!scl_i2c);
 			end
 
-		if((is_write_monitor==1 || is_read_monitor==1))
+		repeated_start_flag = 0;
+		data.delete();
+
+		// $display("*** START detected in monitor_task ***\n");
+		repeat(I2C_ADDR_WIDTH)
 			begin
-//		$display("DEBUG MONITOR 3"); 
-				data = monitor_data;
-				/*if(op==0)begin
-                    data = {data,monitor_write_data};
-                end
-                else begin
-                        data = {data,monitor_read_data};
-                end*/
-				//      	$display("SLAVE ADDRESS: 0x%0x | OPERATION: %s | Data:0x%p", addr, (op==1) ? "READ":"WRITE" , data);
-				is_write_monitor=0;
-				is_read_monitor=0;
-				write_data_in_monitor = 0;
-				read_data_in_monitor=0;
-				monitor_data.delete();
+				@(posedge scl_i2c)
+					begin
+						addr[address_length] = sda_i2c;
+						address_length--;
+					end
 			end
-		//$display("DEBUG MONITOR 4");
+
+		@ (posedge scl_i2c)
+			begin
+				op = sda_i2c ? READ : WRITE;
+			end
+
+		@ (negedge scl_i2c)
+			begin
+
+			end
+
+		if(op == WRITE)
+			begin
+				forever
+					begin
+						@ (negedge scl_i2c);
+
+
+						@(posedge scl_i2c);
+						@(sda_i2c or negedge scl_i2c);
+
+						if(!scl_i2c)
+							begin
+								dat = {dat, sda_i2c};
+								for( int k=I2C_DATA_WIDTH-2;k>=0;k--)
+									begin
+										@(posedge scl_i2c);
+										dat = {dat, sda_i2c};
+									end
+
+								data = {data, dat};
+								//$display("*** WRITE DATA HERE(monitor_task):%p ***\n ", data);
+
+								@ (negedge scl_i2c);
+
+							end
+
+						else if (sda_i2c)
+							begin
+								//$display ("*** STOP detected ***");
+								stop_flag = 'b1;
+								return;
+							end
+						else if  (!sda_i2c)
+							begin
+								//$display ("*** R_START detected***");
+								repeated_start_flag = 'b1;
+								return;
+							end
+					end
+
+			end
+
+		else if(op == READ)
+			begin
+				forever
+					begin
+						@ (negedge scl_i2c);
+
+						@(posedge scl_i2c);
+						@(sda_i2c or negedge scl_i2c);
+
+						if(!scl_i2c)
+							begin
+								dat = {dat, sda_i2c};
+								for( int k=I2C_DATA_WIDTH-2;k>=0;k--)
+									begin
+										@(posedge scl_i2c);
+										dat = {dat, sda_i2c};
+									end
+
+								data = {data, dat};
+
+								@ (negedge scl_i2c);
+
+
+							end
+
+						else if (sda_i2c)
+							begin
+								//$display ("*** STOP detected*****");
+								stop_flag = 'b1;
+								return;
+							end
+
+						else if  (!sda_i2c)
+							begin
+								//$display ("*** R_START detected ***\n");
+								repeated_start_flag = 'b1;
+								return;
+							end
+					end
+
+			end
 
 	endtask
 
 endinterface
-
