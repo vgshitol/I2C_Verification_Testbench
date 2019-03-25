@@ -3,6 +3,7 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction));
     i2c_configuration configuration;
     i2c_driver        driver;
     i2c_monitor       monitor;
+    //i2c_coverage      coverage;
     ncsu_component #(T) subscribers[$];
     virtual i2c_if    bus;
 
@@ -19,10 +20,17 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction));
     endfunction
 
     virtual function void build();
+        $display("in i2c agent build");
         driver = new("driver",this);
         driver.set_configuration(configuration);
         driver.build();
         driver.bus = this.bus;
+        /*if ( configuration.collect_coverage) begin
+          coverage = new("coverage",this);
+          coverage.set_configuration(configuration);
+          coverage.build();
+          connect_subscriber(coverage);
+        end*/
         monitor = new("monitor",this);
         monitor.set_configuration(configuration);
         monitor.set_agent(this);
@@ -34,7 +42,7 @@ class i2c_agent extends ncsu_component#(.T(i2c_transaction));
         foreach (subscribers[i]) subscribers[i].nb_put(trans);
     endfunction
 
-    virtual task bl_put(T trans);
+    virtual task bl_put(T trans);;
         driver.bl_put(trans);
     endtask
 

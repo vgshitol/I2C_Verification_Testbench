@@ -6,7 +6,7 @@ class i2c_monitor extends ncsu_component#(.T(i2c_transaction));
     T monitored_trans;
     ncsu_component #(T) agent;
 
-    function new(string name = "", ncsu_component_base parent = null);
+    function new(string name = "", ncsu_component #(T) parent = null);
         super.new(name,parent);
     endfunction
 
@@ -19,19 +19,21 @@ class i2c_monitor extends ncsu_component#(.T(i2c_transaction));
     endfunction
 
     virtual task run ();
+        //bus.wait_for_reset();
         forever begin
-            monitored_trans = new("monitor_trans");
-            bus.monitor(
-                monitored_trans.monitor_address,
-                monitored_trans.monitor_op,
-                monitored_trans.monitor_data
+            monitored_trans = new("monitored_trans");
+            bus.monitor(monitored_trans.i2c_address,monitored_trans.op,monitored_trans.i2c_data
                 );
-            $display("%s i2c_monitor::run() Address: 0x%x Operation: 0x%x Data: 0x%p",
-                get_full_name(),
-                monitored_trans.monitor_address,
-                monitored_trans.monitor_op,
-                monitored_trans.monitor_data
-                );
+            if(monitored_trans.op == 1)
+                $display("%s I2C MONITOR::run() I2C DATA %p | I2C ADDRESS:  0x%x |  OPERATION: READ  ",
+                    get_full_name(),
+                    monitored_trans.i2c_data,monitored_trans.i2c_address
+                    );
+            else
+                $display("%sI2C MONITOR::run() I2C DATA %p | I2C ADDRESS:  0x%x | OPERATION: WRITE ",
+                    get_full_name(),
+                    monitored_trans.i2c_data,monitored_trans.i2c_address
+                    );
             agent.nb_put(monitored_trans);
         end
     endtask

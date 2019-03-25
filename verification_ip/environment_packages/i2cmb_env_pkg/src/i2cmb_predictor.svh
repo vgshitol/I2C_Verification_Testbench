@@ -1,7 +1,7 @@
 class predictor extends ncsu_component#(.T(wb_transaction));
 
     i2cmb_env_configuration configuration;
-    ncsu_component #(i2c_transaction) scoreboard;
+    ncsu_component #(i2c_transaction) scorebrd;
     i2c_transaction transport_trans;
     i2c_transaction i2c_trans;
 
@@ -18,13 +18,13 @@ class predictor extends ncsu_component#(.T(wb_transaction));
     endfunction
 
     virtual function void set_scoreboard(ncsu_component #(i2c_transaction) scoreboard);
-        this.scoreboard = scoreboard;
+        this.scorebrd = scoreboard;
     endfunction
 
     virtual function void nb_put(T trans);
 
         /******************************** Detect Start or repeated start******************************/
-        if(trans.address==2'b10 && trans.data==8'b100)
+        if(trans.addr==2'b10 && trans.data==8'b100)
             begin
 
                 if(r_start_check==1)
@@ -37,7 +37,7 @@ class predictor extends ncsu_component#(.T(wb_transaction));
             end
 
         /******************************** Detect Stop******************************/
-        if(trans.address==2'b10 && trans.data==8'b101)
+        if(trans.addr==2'b10 && trans.data==8'b101)
             begin
                 stop_detected=1;
                 start_detected=0;
@@ -47,20 +47,20 @@ class predictor extends ncsu_component#(.T(wb_transaction));
                 //$display("**********Predictor STOP*********");
             end
         /******************************** Address Calculation ******************************/
-        if((start_detected ==1 || repeated_start==1) && trans.address==2'b01)
+        if((start_detected ==1 || repeated_start==1) && trans.addr==2'b01)
             begin
                 address_calculated=1;
                 if(trans.data[0]==0)
-                    i2c_trans.monitor_op=WRITE;
+                    i2c_trans.op=WRITE;
                 else
-                    i2c_trans.monitor_op=READ;
+                    i2c_trans.op=READ;
                 trans.data=trans.data>>1;
                 i2c_trans.i2c_address=trans.data[6:0];
                 repeated_start=0;
                 start_detected=0;
             end
             /******************************** Data Calculation ******************************/
-        else if(address_calculated==1 && stop_detected==0 && trans.address==2'b01)
+        else if(address_calculated==1 && stop_detected==0 && trans.addr==2'b01)
             begin
 
                 i2c_trans.i2c_data={i2c_trans.i2c_data,trans.data};
@@ -72,7 +72,7 @@ class predictor extends ncsu_component#(.T(wb_transaction));
 
         if((stop_detected==1 || repeated_start==1))
             begin
-                scoreboard.nb_transport(i2c_trans, transport_trans);
+                scorebrd.nb_transport(i2c_trans, transport_trans);
                 i2c_trans=new("name");
             end
     endfunction

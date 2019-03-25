@@ -1,13 +1,13 @@
-class i2cmb_environment extends ncsu_component#(.T(wb_transaction));
+class i2cmb_environment extends ncsu_component#(.T(ncsu_transaction));
 
     i2cmb_env_configuration configuration;
-    wb_agent         	    wb_p0_agent;
-    i2c_agent         	    i2c_p1_agent;
-    i2cmb_predictor         pred;
-    i2cmb_scoreboard        scbd;
-    i2cmb_coverage          coverage;
+    wb_agent         WBagent;
+    i2c_agent	   I2Cagent;
+    predictor        pred;
+    scoreboard       scbd;
+    //coverage         coverage;
 
-    function new(string name = "", ncsu_component_base parent = null);
+    function new(string name = "", ncsu_component_base  parent = null);
         super.new(name,parent);
     endfunction
 
@@ -16,37 +16,37 @@ class i2cmb_environment extends ncsu_component#(.T(wb_transaction));
     endfunction
 
     virtual function void build();
-        wb_p0_agent = new("wb_p0_agent",this);
-        wb_p0_agent.set_configuration(configuration.wb_p0_agent_config);
-        wb_p0_agent.build();
-        i2c_p1_agent = new("i2c_p1_agent",this);
-        i2c_p1_agent.set_configuration(configuration.i2c_p1_agent_config);
-        i2c_p1_agent.build();
-        pred  = new("pred", this);
+        WBagent = new("WBagent",this);
+        WBagent.set_configuration(configuration.WB_agent_config);
+        WBagent.build();
+        I2Cagent = new("I2Cagent",this);
+        I2Cagent.set_configuration(configuration.I2C_agent_config);
+        I2Cagent.build();
+        pred  = new("Predictor", this);
         pred.set_configuration(configuration);
         pred.build();
-        scbd  = new("scbd", this);
+        scbd  = new("Scoreboard", this);
         scbd.build();
-        coverage = new("coverage", this);
-        coverage.set_configuration(configuration);
-        coverage.build();
-        wb_p0_agent.connect_subscriber(coverage);
-        wb_p0_agent.connect_subscriber(pred);
+        //coverage = new("coverage", this);
+        //coverage.set_configuration(configuration);
+        //coverage.build();
+        //WBagent.connect_subscriber(coverage);
+        WBagent.connect_subscriber(pred);
         pred.set_scoreboard(scbd);
-        i2c_p1_agent.connect_subscriber(scbd);
+        I2Cagent.connect_subscriber(scbd);
     endfunction
 
-    function wb_agent get_wb_p0_agent();
-        return wb_p0_agent;
+    function ncsu_component#(wb_transaction) get_WB_agent();
+        return WBagent;
     endfunction
 
-    function i2c_agent get_i2c_p1_agent();
-        return i2c_p1_agent;
+    function ncsu_component#(i2c_transaction) get_I2C_agent();
+        return I2Cagent;
     endfunction
 
     virtual task run();
-        wb_p0_agent.run();
-        i2c_p1_agent.run();
+        WBagent.run();
+        I2Cagent.run();
     endtask
 
 endclass

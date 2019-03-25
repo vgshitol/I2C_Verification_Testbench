@@ -1,155 +1,211 @@
-// class generator #(type GEN_TRANS)  extends ncsu_component#(.T(abc_transaction_base));
-class i2cmb_generator extends ncsu_component#(.T(ncsu_component_base));
 
-    wb_transaction wb_transaction;
-    i2c_transaction i2c_tr;
+class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
 
-    int wb_transaction_num;
-    int i2c_tr_num;
+    wb_transaction wb_setup[5],wb_start[3],wb_address[4],wb_write[4],wb_stop[3],wb_readWAck[4],wb_readWNAck[4],wb_address_read[4];
+    i2c_transaction I2C_t;
+    static int data_select;bit alt;bit [7:0] read_data_i2c[32];bit [7:0] read_alt_data[];
+    int data=63;
 
-    wb_agent wb_p0_agent;
-    i2c_agent i2c_p1_agent;
+    ncsu_component #(i2c_transaction) agentI2C;
+    ncsu_component #(wb_transaction) agentWB;
+    string wb_trans_name;
+    string i2c_trans_name = "i2c_transaction";
 
-    string trans_name;
-
-    function new(string name = "", ncsu_component_base parent = null);
+    function new(string name = "", ncsu_component_base  parent = null);
         super.new(name,parent);
-        this.wb_transaction_num = 0;
-        this.i2c_tr_num = 0;
-        if ( !$value$plusargs("GEN_TRANS_TYPE=%s", trans_name)) begin
+        if ( !$value$plusargs("GEN_TRANS_TYPE=%s", wb_trans_name)) begin
             $display("FATAL: +GEN_TRANS_TYPE plusarg not found on command line");
             $fatal;
         end
-        $display("%m found +GEN_TRANS_TYPE=%s", trans_name);
+        $display("%m found +GEN_TRANS_TYPE=%s", wb_trans_name);
     endfunction
 
     virtual task run();
         fork
             begin
-                $cast(this.wb_transaction,ncsu_object_factory::create(this.trans_name));
-
-                // Write
-                this.initialise();
-                //Start
-                this.start_transfer();
-                // Address
-                this.slave_address(8'h44);
-                //Write Data
-                for(byte i = 0; i < 32; i++) begin
-                    this.slave_data_transfer(i, 0);
-                end
-                //Stop
-                this.stop_transfer();
-
-//Read
-                //Start
-                this.start_transfer();
-                // Address
-                this.slave_address(8'h45);
-                //Read Data
-                for(byte i = 0; i < 32; i++) begin
-                    if(i<31) this.slave_data_transfer(i, 1);
-                    else this.slave_data_transfer(i, 1, 1);
-                end
-                /*
-                //Alternate Read and Write
-                                    for(byte i = 0; i < 32; i++) begin
-                                        //Start
-                                        this.start_transfer();
-                                        // Address
-                                        this.slave_address(8'h88);
-                                        //Read Data
-                                        this.slave_data_transfer(i, 0);
-                                        //Start
-                                        this.start_transfer();
-                                        // Address
-                                        this.slave_address(8'h89);
-                                        //Read Data
-                                        this.slave_data_transfer(i,1,1);
-                                    end
-                */
-                //Stop
-                this.stop_transfer();
-
+                runWB();												// Send WB transactions to WB driver
             end
-
-
             begin
-                forever begin
-                    this.set_i2c_transaction();
-                end
+                runI2C();												// Create I2C transactions and send to I2C driver
             end
-
         join_none
+
     endtask
-
-    task initialise();
-        this.set_wb_transaction(2'b0,8'b11xxxxxx,1'b0);
-        this.set_wb_transaction(2'b01,8'h01,1'b0); //Write byte 0x05 to the DPR. This is the ID of desired I 2 C bus.
-        this.set_wb_transaction(2'b10,8'bxxxxx110,1'b0,1'b1); // execute instruction and wait for interrupt
-        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // execute instruction and wait for interrupt
-    endtask
-
-    task start_transfer();
-        this.set_wb_transaction(2'b10,8'bxxxxx100,1'b0,1'b1); // execute start instruction and wait for interrupt
-        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
-    endtask
-
-    task slave_address(bit [7:0] address);
-        this.set_wb_transaction(2'b01,address,1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0',
-        this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute start instruction and wait for interrupt
-        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
-    endtask
-
-    task slave_data_transfer(bit [7:0] data, bit op=1'b0, bit r_nak = 1'b0);
-        byte read_cmd = 8'bxxxxx010; // Read with ack
-
-        if(r_nak==1'b1) read_cmd = 8'bxxxxx011;
-
-        if(op==0) begin
-            this.set_wb_transaction(2'b01,data, 1'b0); //Write byte 0x44 to the DPR. This is the slave address 0x22 shifted 1 bit to the left +rightmost bit = '0',
-            this.set_wb_transaction(2'b10,8'bxxxxx001,1'b0,1'b1); // execute s instruction and wait for interrupt
-            this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
+    /*********************************************/
+    task runWB();
+        setup();
+        $display("");
+        $display("***************** Write 32(0->31) values to the I2C bus ********************");
+        $display("");
+        $display("START");
+        start();
+        address_calculation();
+        for(byte i=0;i<32;i++) begin
+            write(i);
         end
-        else if(op==1) begin
-            this.set_wb_transaction(2'b10,read_cmd,1'b0,1'b1);
-            this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1);
-            this.set_wb_transaction(2'b01,8'bxxxxxxxx,1'b1);
+        stop();
+        $display("STOP");
+        $display("");
+        $display("***************** Read 32 values(100->131) from I2C bus **********************");
+        $display("");
+        start();
+        $display("START");
+        address_calculation_read();
+        for(byte i=0; i<31;i++)begin
+            read_with_ack();
         end
+        read_with_nack();
+        stop();
+        $display("STOP");
+        $display("");
+        $display("************ Alternate 64 writes(64->127)/Reads(63->0) values from I2C bus ***********");
+        $display("");
+        for(byte alt=0;alt<64;alt++)begin
+            start();
+            if(alt==0)
+                $display("START");
+            else
+                $display("RESTART");
+            address_calculation();
+            write(alt+64);
+            //stop();
+            start();
+            $display("RESTART");
+            address_calculation_read();
+            read_with_nack();
+        end
+        stop();
+        $display("STOP");
+
+    endtask : runWB
+    /***********************************************************************/
+    task runI2C();
+        forever
+            begin
+                $cast(I2C_t,ncsu_object_factory::create(i2c_trans_name));
+                if(data_select==0)begin
+                    foreach(read_data_i2c[i])begin
+                        read_data_i2c[i] = i+100;
+                    end
+                    I2C_t.read_data = read_data_i2c;
+                    agentI2C.bl_put(I2C_t);
+                    if(I2C_t.op==READ)
+                        data_select++;
+                end
+                else if(data_select>0)begin
+                    //$cast(I2C_t,ncsu_object_factory::create(i2c_trans_name));
+                    read_alt_data=new[1];
+                    read_alt_data[0] = data;
+                    I2C_t.read_data = read_alt_data;
+                    agentI2C.bl_put(I2C_t);
+                    if(I2C_t.op==READ)
+                        begin
+                            data_select++;
+                            data--;
+                        end
+                end
+
+
+                //$display({get_full_name()," ",I2C_t[i].convert2string()});
+            end
     endtask
 
-    task stop_transfer();
-        this.set_wb_transaction(2'b10,8'bxxxxx101,1'b0,1'b1); // execute stop instruction and wait for interrupt
-        this.set_wb_transaction(2'b10,8'bxxxxxxxx,1'b1); // Read CMDR
-    endtask
+    /***********************************  UTILITY FUNCTIONS ***********************************/
+    task setup();
+        foreach (wb_setup[i]) begin
+            $cast(wb_setup[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
 
-    function void set_wb_agent(wb_agent agent);
-        this.wb_p0_agent = agent;
+        wb_setup[0].addr=2'b00;wb_setup[0].data=8'b11xxxxxx;wb_setup[0].ifIRQ=0;wb_setup[0].op_RorW=1;agentWB.bl_put(wb_setup[0]);
+        wb_setup[1].addr=2'b01;wb_setup[1].data=8'bxxxxxx01;wb_setup[1].ifIRQ=0;wb_setup[1].op_RorW=1;agentWB.bl_put(wb_setup[1]);
+        wb_setup[2].addr=2'b10;wb_setup[2].data=8'bxxxxx110;wb_setup[2].ifIRQ=0;wb_setup[2].op_RorW=1;agentWB.bl_put(wb_setup[2]);
+        wb_setup[3].addr=2'b00;wb_setup[3].data=8'bxxxxxx00;wb_setup[3].ifIRQ=1;agentWB.bl_put(wb_setup[3]);
+        wb_setup[4].addr=2'b10;wb_setup[4].data=8'bxxxxxxxx;wb_setup[4].ifIRQ=0;wb_setup[4].op_RorW=0;agentWB.bl_put(wb_setup[4]);
+    endtask : setup
+
+    task start();
+        foreach (wb_start[i]) begin
+            $cast(wb_start[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
+        wb_start[0].addr=2'b10;wb_start[0].data=8'bxxxxx100;wb_start[0].ifIRQ=0;wb_start[0].op_RorW=1;agentWB.bl_put(wb_start[0]);
+        wb_start[1].addr=2'b00;wb_start[1].data=8'bxxxxxx00;wb_start[1].ifIRQ=1;agentWB.bl_put(wb_start[1]);
+        wb_start[2].addr=2'b10;wb_start[2].data=8'bxxxxxxxx;wb_start[2].ifIRQ=0;wb_start[2].op_RorW=0;agentWB.bl_put(wb_start[2]);
+    endtask : start
+
+//START
+    task address_calculation();
+        foreach (wb_address[i]) begin
+            $cast(wb_address[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
+        wb_address[0].addr=2'b01;wb_address[0].data=8'h00000044;wb_address[0].ifIRQ=0;wb_address[0].op_RorW=1;agentWB.bl_put(wb_address[0]);
+        wb_address[1].addr=2'b10;wb_address[1].data=8'bxxxxx001;wb_address[1].ifIRQ=0;wb_address[1].op_RorW=1;agentWB.bl_put(wb_address[1]);
+        wb_address[2].addr=2'b00;wb_address[2].data=8'bxxxxxx00;wb_address[2].ifIRQ=1;agentWB.bl_put(wb_address[2]);
+        wb_address[3].addr=2'b10;wb_address[3].data=8'bxxxxxxxx;wb_address[3].ifIRQ=0;wb_address[3].op_RorW=0;agentWB.bl_put(wb_address[3]);
+    endtask : address_calculation
+
+    task address_calculation_read();
+        foreach (wb_address_read[i]) begin
+            $cast(wb_address_read[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
+        wb_address_read[0].addr=2'b01;wb_address_read[0].data=8'h00000045;wb_address_read[0].ifIRQ=0;wb_address_read[0].op_RorW=1;agentWB.bl_put(wb_address_read[0]);
+        wb_address_read[1].addr=2'b10;wb_address_read[1].data=8'bxxxxx001;wb_address_read[1].ifIRQ=0;wb_address_read[1].op_RorW=1;agentWB.bl_put(wb_address_read[1]);
+        wb_address_read[2].addr=2'b00;wb_address_read[2].data=8'bxxxxxx00;wb_address_read[2].ifIRQ=1;agentWB.bl_put(wb_address_read[2]);
+        wb_address_read[3].addr=2'b10;wb_address_read[3].data=8'bxxxxxxxx;wb_address_read[3].ifIRQ=0;wb_address_read[3].op_RorW=0;agentWB.bl_put(wb_address_read[3]);
+    endtask : address_calculation_read
+
+    task write(int write_value);
+        //$display("in write task");
+        foreach (wb_write[i]) begin
+            $cast(wb_write[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
+        wb_write[0].addr=2'b01;wb_write[0].data=write_value;wb_write[0].ifIRQ=0;wb_write[0].op_RorW=1;agentWB.bl_put(wb_write[0]);
+        wb_write[1].addr=2'b10;wb_write[1].data=8'bxxxxx001;wb_write[1].ifIRQ=0;wb_write[1].op_RorW=1;agentWB.bl_put(wb_write[1]);
+        wb_write[2].addr=2'b00;wb_write[2].data=8'bxxxxxx00;wb_write[2].ifIRQ=1;agentWB.bl_put(wb_write[2]);
+        wb_write[3].addr=2'b10;wb_write[3].data=8'bxxxxxxxx;wb_write[3].ifIRQ=0;wb_write[3].op_RorW=0;agentWB.bl_put(wb_write[3]);
+    endtask : write
+
+    task stop();
+        foreach (wb_stop[i]) begin
+            $cast(wb_stop[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
+        wb_stop[0].addr=2'b10;wb_stop[0].data=8'bxxxxx101;wb_stop[0].ifIRQ=0;wb_stop[0].op_RorW=1;agentWB.bl_put(wb_stop[0]);
+        wb_stop[1].addr=2'b00;wb_stop[1].data=8'bxxxxxx00;wb_stop[1].ifIRQ=1;agentWB.bl_put(wb_stop[1]);
+        wb_stop[2].addr=2'b10;wb_stop[2].data=8'bxxxxxxxx;wb_stop[2].ifIRQ=0;wb_stop[2].op_RorW=0;agentWB.bl_put(wb_stop[2]);
+    endtask : stop
+//STOP
+
+    task read_with_ack();
+        foreach (wb_readWAck[i]) begin
+            $cast(wb_readWAck[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
+        wb_readWAck[0].addr=2'b10;wb_readWAck[0].data=8'bxxxxx010;wb_readWAck[0].ifIRQ=0;wb_readWAck[0].op_RorW=1;agentWB.bl_put(wb_readWAck[0]);
+        wb_readWAck[1].addr=2'b00;wb_readWAck[1].data=8'bxxxxxx00;wb_readWAck[1].ifIRQ=1;agentWB.bl_put(wb_readWAck[1]);
+        wb_readWAck[2].addr=2'b10;wb_readWAck[2].data=8'bxxxxxxxx;wb_readWAck[2].ifIRQ=0;wb_readWAck[2].op_RorW=0;agentWB.bl_put(wb_readWAck[2]);
+        wb_readWAck[3].addr=2'b01;wb_readWAck[3].data=8'bxxxxxxxx;wb_readWAck[3].ifIRQ=0;wb_readWAck[3].op_RorW=0;agentWB.bl_put(wb_readWAck[3]);
+    endtask : read_with_ack
+
+    task read_with_nack();
+        //$display("in read with nack");
+        foreach (wb_readWNAck[i]) begin
+            $cast(wb_readWNAck[i],ncsu_object_factory::create(wb_trans_name));  // Create WB transactions
+        end
+        wb_readWNAck[0].addr=2'b10;wb_readWNAck[0].data=8'bxxxxx011;wb_readWNAck[0].ifIRQ=0;wb_readWNAck[0].op_RorW=1;agentWB.bl_put(wb_readWNAck[0]);
+        wb_readWNAck[1].addr=2'b00;wb_readWNAck[1].data=8'bxxxxxx00;wb_readWNAck[1].ifIRQ=1;agentWB.bl_put(wb_readWNAck[1]);
+        wb_readWNAck[2].addr=2'b10;wb_readWNAck[2].data=8'bxxxxxxxx;wb_readWNAck[2].ifIRQ=0;wb_readWNAck[2].op_RorW=0;agentWB.bl_put(wb_readWNAck[2]);
+        wb_readWNAck[3].addr=2'b01;wb_readWNAck[3].data=8'bxxxxxxxx;wb_readWNAck[3].ifIRQ=0;wb_readWNAck[3].op_RorW=0;agentWB.bl_put(wb_readWNAck[3]);
+    endtask : read_with_nack
+
+    /********************************************  END UTILITY FUCNTIONS ************************************/
+
+
+    function void set_i2c_agent(ncsu_component #(i2c_transaction) agent);
+        this.agentI2C = agent;
     endfunction
 
-    function void set_i2c_agent(i2c_agent agent);
-        this.i2c_p1_agent = agent;
+
+    function void set_wb_agent(ncsu_component #(wb_transaction) agent);
+        this.agentWB = agent;
     endfunction
 
-    task set_wb_transaction(bit [1:0] address, bit [7:0] data, bit rw, bit intr = 1'b0);
-        this.wb_transaction.address = address;
-        this.wb_transaction.data = data;
-        this.wb_transaction.rw = rw;
-        this.wb_transaction.intr = intr;
-        this.wb_p0_agent.bl_put(this.wb_transaction);
-        //  $display({get_full_name()," ",this.wb_transaction[this.wb_transaction_num].convert2string()});
-        $display("THIS WB EXECUTED %d", wb_transaction_num);
-        this.wb_transaction_num = this.wb_transaction_num + 1;
-    endtask
-
-    task set_i2c_transaction();
-        $cast(this.i2c_tr,ncsu_object_factory::create("i2c_transaction"));
-        //this.i2c_tr.read_data = {8'hxx};
-        this.i2c_p1_agent.bl_put(this.i2c_tr);
-        //    $display({get_full_name()," ",this.i2c_tr.convert2string()});
-        $display("THIS I2C EXECUTED %d", i2c_tr_num);
-        this.i2c_tr_num = this.i2c_tr_num + 1;
-    endtask
 
 endclass
-
