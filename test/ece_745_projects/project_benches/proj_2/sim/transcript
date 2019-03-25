@@ -1,0 +1,1964 @@
+# //  ModelSim SE-64 10.7c Aug 17 2018Linux 3.10.0-957.10.1.el7.x86_64
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -i -classdebug -msgmode both -do "set NoQuitOnFinish 1; do wave.do ;" "+GEN_TRANS_TYPE=wb_transaction" optimized_debug_top_tb 
+# Start time: 22:13:25 on Mar 24,2019
+# Loading sv_std.std
+# Loading work.i2c_if(fast)
+# Loading work.ncsu_pkg(fast)
+# Loading work.i2c_pkg(fast)
+# Loading work.wb_if(fast)
+# Loading work.wb_pkg(fast)
+# Loading work.i2cmb_env_pkg(fast)
+# Loading work.top(fast)
+# Loading work.wb_if(fast)
+# Loading work.i2c_if(fast)
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.iicmb_m_wb(str)#1
+# Loading work.wishbone(rtl)#1
+# Loading ieee.numeric_std(body)
+# Loading work.iicmb_pkg(body)
+# Loading work.regblock(rtl)#1
+# Loading work.iicmb_int_pkg(body)
+# Loading work.iicmb_m(str)#1
+# Loading work.mbyte(rtl)#1
+# Loading work.mbit(rtl)#1
+# Loading work.conditioner_mux(str)#1
+# Loading work.conditioner(str)#1
+# Loading work.filter(rtl)#1
+# Loading work.bus_state(rtl)#1
+# set NoQuitOnFinish 1
+# 1
+#  do wave.do 
+# 
+run -all
+# ----------------------------------------------------------------
+# //  NCSU Package 
+# //  Version 1.0a
+# ----------------------------------------------------------------
+# 
+# 
+# NCSU_INFO:Time                    0:ncsu_component::build():  of tst.env.WBagent.driver called
+# NCSU_INFO:Time                    0:ncsu_component::build():  of tst.env.WBagent.monitor called
+# in i2c agent build
+# NCSU_INFO:Time                    0:ncsu_component::build():  of tst.env.I2Cagent.driver called
+# NCSU_INFO:Time                    0:ncsu_component::build():  of tst.env.I2Cagent.monitor called
+# NCSU_INFO:Time                    0:ncsu_component::build():  of tst.env.Predictor called
+# NCSU_INFO:Time                    0:ncsu_component::build():  of tst.env.Scoreboard called
+# i2cmb_env_pkg.i2cmb_generator.new found +GEN_TRANS_TYPE=wb_transaction
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x0 | WB DATA:  0xc0 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x06 | WB ENABLE: 1
+# 
+# ***************** Write 32(0->31) values to the I2C bus ********************
+# 
+# START
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x16 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x00 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x05 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x06 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x07 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x08 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x09 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0a | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0b | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0c | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0d | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0e | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0f | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x10 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x11 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x12 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x13 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x14 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x15 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x16 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x17 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x18 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x19 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1a | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1b | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1c | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1d | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1e | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1f | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x05 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# STOP
+# 
+# ***************** Read 32 values(100->131) from I2C bus **********************
+# 
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x85 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# START
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x64 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x65 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x66 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x67 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x68 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x69 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6a | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6b | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6c | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6d | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6e | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6f | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x70 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x71 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x72 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x73 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x74 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x75 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x76 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x77 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x78 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x79 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7a | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7b | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7c | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7d | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7e | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7f | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x80 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x02 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x82 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x05 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# STOP
+# 
+# ************ Alternate 64 writes(64->127)/Reads(63->0) values from I2C bus ***********
+# 
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x85 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# START
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x40 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{64}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{64} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{64}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x3f | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{63}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{63} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{63}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x41 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{65}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{65} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{65}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x3e | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{62}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{62} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{62}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x42 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{66}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{66} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{66}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x3d | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{61}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{61} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{61}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x43 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{67}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{67} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{67}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x3c | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{60}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{60} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{60}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{68}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{68} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{68}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x3b | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{59}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{59} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{59}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{69}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{69} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{69}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x3a | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{58}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{58} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{58}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x46 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{70}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{70} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{70}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x39 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{57}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{57} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{57}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x47 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{71}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{71} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{71}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x38 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{56}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{56} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{56}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x48 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{72}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{72} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{72}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x37 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{55}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{55} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{55}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x49 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{73}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{73} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{73}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x36 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{54}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{54} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{54}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x4a | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{74}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{74} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{74}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x35 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{53}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{53} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{53}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x4b | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{75}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{75} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{75}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x34 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{52}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{52} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{52}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x4c | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{76}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{76} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{76}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x33 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{51}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{51} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{51}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x4d | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{77}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{77} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{77}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x32 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{50}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{50} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{50}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x4e | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{78}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{78} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{78}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x31 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{49}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{49} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{49}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x4f | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{79}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{79} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{79}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x30 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{48}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{48} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{48}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x50 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{80}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{80} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{80}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x2f | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{47}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{47} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{47}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x51 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{81}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{81} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{81}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x2e | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{46}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{46} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{46}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x52 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{82}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{82} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{82}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x2d | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{45}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{45} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{45}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x53 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{83}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{83} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{83}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x2c | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{44}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{44} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{44}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x54 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{84}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{84} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{84}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x2b | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{43}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{43} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{43}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x55 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{85}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{85} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{85}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x2a | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{42}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{42} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{42}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x56 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{86}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{86} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{86}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x29 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{41}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{41} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{41}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x57 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{87}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{87} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{87}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x28 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{40}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{40} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{40}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x58 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{88}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{88} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{88}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x27 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{39}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{39} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{39}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x59 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{89}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{89} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{89}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x26 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{38}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{38} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{38}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x5a | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{90}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{90} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{90}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x25 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{37}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{37} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{37}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x5b | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{91}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{91} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{91}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x24 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{36}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{36} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{36}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x5c | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{92}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{92} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{92}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x23 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{35}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{35} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{35}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x5d | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{93}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{93} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{93}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x22 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{34}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{34} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{34}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x5e | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{94}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{94} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{94}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x21 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{33}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{33} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{33}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x5f | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{95}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{95} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{95}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x20 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{32}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{32} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{32}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x60 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{96}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{96} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{96}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1f | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{31}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{31} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{31}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x61 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{97}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{97} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{97}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1e | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{30}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{30} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{30}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x62 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{98}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{98} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{98}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1d | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{29}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{29} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{29}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x63 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{99}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{99} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{99}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1c | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{28}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{28} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{28}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x64 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{100}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{100} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{100}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1b | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{27}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{27} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{27}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x65 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{101}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{101} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{101}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x1a | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{26}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{26} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{26}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x66 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{102}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{102} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{102}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x19 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{25}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{25} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{25}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x67 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{103}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{103} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{103}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x18 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{24}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{24} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{24}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x68 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{104}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{104} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{104}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x17 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{23}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{23} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{23}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x69 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{105}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{105} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{105}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x16 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{22}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{22} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{22}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6a | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{106}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{106} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{106}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x15 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{21}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{21} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{21}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6b | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{107}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{107} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{107}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x14 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{20}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{20} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{20}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6c | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{108}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{108} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{108}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x13 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{19}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{19} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{19}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6d | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{109}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{109} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{109}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x12 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{18}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{18} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{18}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6e | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{110}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{110} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{110}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x11 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{17}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{17} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{17}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x6f | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{111}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{111} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{111}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x10 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{16}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{16} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{16}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x70 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{112}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{112} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{112}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0f | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{15}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{15} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{15}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x71 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{113}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{113} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{113}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0e | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{14}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{14} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{14}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x72 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{114}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{114} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{114}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0d | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{13}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{13} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{13}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x73 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{115}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{115} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{115}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0c | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{12}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{12} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{12}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x74 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{116}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{116} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{116}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0b | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{11}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{11} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{11}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x75 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{117}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{117} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{117}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x0a | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{10}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{10} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{10}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x76 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{118}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{118} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{118}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x09 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{9}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{9} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{9}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x77 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{119}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{119} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{119}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x08 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{8}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{8} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{8}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x78 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{120}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{120} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{120}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x07 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{7}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{7} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{7}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x79 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{121}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{121} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{121}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x06 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{6}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{6} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{6}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7a | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{122}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{122} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{122}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x05 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{5}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{5} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{5}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7b | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{123}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{123} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{123}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x04 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{4}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{4} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{4}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7c | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{124}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{124} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{124}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x03 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{3}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{3} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{3}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7d | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{125}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{125} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{125}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x02 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{2}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{2} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{2}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7e | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{126}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{126} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{126}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x01 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{1}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{1} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{1}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x44 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x7f | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x04 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{127}   I2C_ADDRESS:0x22   OP:  WRITE
+# tst.env.I2Cagent.monitorI2C MONITOR::run() I2C DATA '{127} | I2C ADDRESS:  0x22 | OPERATION: WRITE 
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{127}   I2C_ADDRESS:0x22   OP:  WRITE
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# RESTART
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x84 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x45 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x01 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x81 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x03 | WB ENABLE: 1
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x83 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x1 | WB DATA:  0x00 | WB ENABLE: 0
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x05 | WB ENABLE: 1
+# tst.env.Scoreboardnb_transport:EXPECTED TRANSACTION I2C_DATA:'{0}   I2C_ADDRESS:0x22   OP:  READ
+# tst.env.I2Cagent.monitor I2C MONITOR::run() I2C DATA '{0} | I2C ADDRESS:  0x22 |  OPERATION: READ  
+# tst.env.Scoreboard nb_put:       ACTUAL TRANSACTION I2C_DATA:'{0}   I2C_ADDRESS:0x22   OP:  READ
+#  !!!!!!!!!!!!!!!!!!!MATCH in SCOREBOARD!!!!!!!!!!!!!!!!!!!
+# STOP
+# tst.env.WBagent.monitor WISHBONE_MONITOR::run()WB ADDR: 0x2 | WB DATA:  0x85 | WB ENABLE: 0
+# ** Note: $finish    : ../testbench/top.sv(126)
+#    Time: 50 ms  Iteration: 0  Instance: /top
+# 1
+# Break in NamedBeginStat test_flow at ../testbench/top.sv line 126
+# End time: 22:13:38 on Mar 24,2019, Elapsed time: 0:00:13
+# Errors: 0, Warnings: 0
