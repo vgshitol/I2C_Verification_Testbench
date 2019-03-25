@@ -1,13 +1,13 @@
 export ECE745_PROJECT_HOME ?= $(PWD)/../../..
-export ECE745_COMMON_HOME ?= $(PWD)/../../../verification_ip/interface_packages
-GEN_TRANS_TYPE ?= wb_transaction
+export ECE745_COMMON_HOME ?= $(PWD)/../../../../../common/project_2_provided_files
 
-include $(ECE745_PROJECT_HOME)/verification_ip/interface_packages/ncsu_pkg/Makefile
+include $(ECE745_COMMON_HOME)/ncsu_pkg/Makefile
 include $(ECE745_PROJECT_HOME)/verification_ip/interface_packages/wb_pkg/Makefile
 include $(ECE745_PROJECT_HOME)/verification_ip/interface_packages/i2c_pkg/Makefile
 include $(ECE745_PROJECT_HOME)/verification_ip/environment_packages/i2cmb_env_pkg/Makefile
+GEN_TRANS_TYPE ?= wb_transaction
 
-clean: 
+clean:
 	rm -rf work *.wlf transcript
 
 comp_I2C_MB:
@@ -34,6 +34,6 @@ optimize:
 compile: comp_I2C_MB comp_bench optimize
 
 simulate:
-	vsim  -i -classdebug -msgmode both -do "set NoQuitOnFinish 1; do wave.do" +GEN_TRANS_TYPE=$(GEN_TRANS_TYPE)  optimized_debug_top_tb
+	vsim  -i -classdebug -msgmode both -do "set NoQuitOnFinish 1; do wave.do ;" +GEN_TRANS_TYPE=$(GEN_TRANS_TYPE) optimized_debug_top_tb
 
 debug: clean compile simulate

@@ -1,3 +1,5 @@
+export ECE745_PROJECT_HOME ?= $(PWD)/../../..
+export ECE745_COMMON_HOME ?= $(PWD)/../../../../../common/project_2_provided_files
 
 comp_wb_pkg:
 
