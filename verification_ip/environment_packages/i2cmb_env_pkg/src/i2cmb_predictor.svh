@@ -51,9 +51,9 @@ class predictor extends ncsu_component#(.T(wb_transaction));
             begin
                 address_calculated=1;
                 if(trans.data[0]==0)
-                    i2c_trans.op=WRITE;
+                    i2c_trans.monitor_op=WRITE;
                 else
-                    i2c_trans.op=READ;
+                    i2c_trans.monitor_op=READ;
                 trans.data=trans.data>>1;
                 i2c_trans.i2c_address=trans.data[6:0];
                 repeated_start=0;
