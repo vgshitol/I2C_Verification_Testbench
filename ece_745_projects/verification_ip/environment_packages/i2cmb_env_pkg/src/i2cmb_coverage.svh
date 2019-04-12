@@ -1,7 +1,7 @@
 class i2cmb_coverage extends ncsu_component#(.T(wb_transaction));
 
-    i2cmb_env_configuration     configuration;
-    i2c_transaction  coverage_transaction;
+    i2cmb_env_configuration configuration;
+    i2c_transaction coverage_transaction;
     bit                   loopback;
     bit                   invert;
 
@@ -22,7 +22,7 @@ class i2cmb_coverage extends ncsu_component#(.T(wb_transaction));
     endfunction
 
     virtual function void nb_put(T trans);
-     //   $display({get_full_name()," ",trans.convert2string()});
+        $display({get_full_name()," ",trans.convert2string()});
         loopback    = configuration.loopback;
         invert      = configuration.invert;
         coverage_cg.sample();
