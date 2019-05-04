@@ -179,7 +179,10 @@ interface i2c_if #(
 
 						sda_o=monitor_read_data[bit_count];
 						@(negedge scl or error or stop_byte_transfer);
-						if(error || stop_byte_transfer) return;
+						if(error || stop_byte_transfer) begin
+							read_byte = 0;
+							return;
+						end
 					end
 				read_byte++;
 

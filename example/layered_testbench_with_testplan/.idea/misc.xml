@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="SVCompilerDirectivesDefines">
+    <option name="argumentDefaultText">
+      <map>
+        <entry key="NCSU_LETTER_VERSION">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="NCSU_MAJOR_VERSION">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="NCSU_MINOR_VERSION">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="ncsu_register_object">
+          <value>
+            <list>
+              <option value="" />
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="argumentNames">
+      <map>
+        <entry key="NCSU_LETTER_VERSION">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="NCSU_MAJOR_VERSION">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="NCSU_MINOR_VERSION">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="ncsu_register_object">
+          <value>
+            <list>
+              <option value="T" />
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="body">
+      <map>
+        <entry key="NCSU_LETTER_VERSION" value="&quot;a&quot;" />
+        <entry key="NCSU_MAJOR_VERSION" value="1" />
+        <entry key="NCSU_MINOR_VERSION" value="0" />
+        <entry key="ncsu_register_object" value="&#10;  typedef ncsu_object_registry #(T,`&quot;T`&quot;) type_id;" />
+      </map>
+    </option>
+    <option name="dependencies">
+      <map>
+        <entry key="NCSU_LETTER_VERSION">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="NCSU_MAJOR_VERSION">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="NCSU_MINOR_VERSION">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="ncsu_register_object">
+          <value>
+            <set>
+              <option value="abc_transaction_base.svh" />
+              <option value="abc_random_statistics_transaction.svh" />
+              <option value="abc_randseq_statistics_transaction.svh" />
+              <option value="abc_random_transaction.svh" />
+              <option value="abc_randseq_transaction.svh" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="offset">
+      <map>
+        <entry key="NCSU_LETTER_VERSION" value="66" />
+        <entry key="NCSU_MAJOR_VERSION" value="8" />
+        <entry key="NCSU_MINOR_VERSION" value="37" />
+        <entry key="ncsu_register_object" value="8" />
+      </map>
+    </option>
+    <option name="source">
+      <map>
+        <entry key="NCSU_LETTER_VERSION" value="ncsu_pkg_version.svh" />
+        <entry key="NCSU_MAJOR_VERSION" value="ncsu_pkg_version.svh" />
+        <entry key="NCSU_MINOR_VERSION" value="ncsu_pkg_version.svh" />
+        <entry key="ncsu_register_object" value="ncsu_macros.svh" />
+      </map>
+    </option>
+  </component>
+</project>

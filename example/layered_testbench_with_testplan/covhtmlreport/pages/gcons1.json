@@ -1,0 +1,6 @@
+var g_db_data = [
+{dummy:0},
+{name:'abc_configuration_cg',f:1,type:6,id:40,tb:'130',h:'3',m:'127',hp:'2.30%',cov:['17.70%','R'],g:'100.00%',gp:['17.70%','R'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/abc_pkg/abc_configuration',parent:'39'},
+{name:'env_configuration_cg',f:1,type:6,id:65,tb:'20',h:'3',m:'17',hp:'15.00%',cov:['35.41%','R'],g:'100.00%',gp:['35.41%','R'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/first_project_pkg/env_configuration',parent:'64'},
+{name:'coverage_cg',f:1,type:6,id:75,tb:'24',h:'5',m:'19',hp:'20.83%',cov:['30.00%','R'],g:'100.00%',gp:['30.00%','R'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/first_project_pkg/coverage',parent:'74'}];
+processConsCovergroupsData(g_db_data);

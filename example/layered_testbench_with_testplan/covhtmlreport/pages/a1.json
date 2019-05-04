@@ -1,0 +1,24 @@
+var g_data = {
+a15:{
+scopes:[{s:'11',b:'0',val:'top'},{link:'z.htm?f=0&s=15',val:'p0_bus'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'assert__abc_eop_follows_sop',fc:'Gr',pc:'Gr',h0:'0',h1:'8'}
+],
+},
+a17:{
+scopes:[{s:'11',b:'1',val:'top'},{link:'z.htm?f=0&s=17',val:'p1_bus'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'assert__abc_eop_follows_sop',fc:'Gr',pc:'Gr',h0:'0',h1:'8'}
+],
+},
+a92:{
+scopes:[{s:'63',b:'1',val:'first_project_pkg'},{val:'generator'},{val:'run'},{val:'#anonblk#27589815#18#2#'},{link:'z.htm?f=0&s=92',val:'#ublk#27589815#18'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'immed__20',fc:'Gr',pc:'Gr',h0:'0',h1:'7'}
+],
+},
+a5:{
+scopes:[{link:'z.htm?f=0&s=5',val:'work.abc_if'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'assert__abc_eop_follows_sop',fc:'Gr',pc:'Gr',h0:'0',h1:'16'}
+],
+},
+dummyEnd:0
+};
+processAssertionsData(g_data,1);
