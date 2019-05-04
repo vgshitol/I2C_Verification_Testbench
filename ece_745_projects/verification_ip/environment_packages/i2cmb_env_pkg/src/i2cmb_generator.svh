@@ -1,27 +1,21 @@
 
 class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
 
-
-
     ncsu_component #(wb_transaction) wb_p0_agent;
     ncsu_component #(i2c_transaction) i2c_p1_agent;
+
     string wb_trans_name;
     string i2c_trans_name = "i2c_transaction";
 
     i2c_transaction I2C_t;
 
-    bit [7:0] read_data_i2c[32];bit [7:0] read_alt_data[];
-    static int data_select;bit alt;
+    bit [7:0] read_data_i2c[32];
+    bit [7:0] read_alt_data[];
+    static int data_select;
+    bit alt;
     int data=63;
 
-    wb_transaction wb_init[5];
-    wb_transaction wb_start[3];
-    wb_transaction wb_address[4];
-    wb_transaction wb_write[4];
-    wb_transaction wb_stop[3];
-    wb_transaction wb_read_with_ack[4];
-    wb_transaction wb_read_with_nak[4];
-    wb_transaction wb_read_addr[4];
+    wb_transaction wishbone_transaction;
 
     function new(string name = "", ncsu_component_base  parent = null);
         super.new(name,parent);
@@ -35,15 +29,15 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
     virtual task run();
         fork
             begin
-                wishbone();												
+                wishbone();
             end
             begin
-                i2c();												
+                i2c();
             end
         join_none
 
     endtask
-    
+
     task i2c();
         forever
             begin
@@ -57,7 +51,7 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
                     if(I2C_t.op==READ)
                         data_select++;
                 end
-                else if(data_select>0)begin
+                else if(data_select>0) begin
                     read_alt_data=new[1];
                     read_alt_data[0] = data;
                     I2C_t.read_data = read_alt_data;
@@ -68,9 +62,9 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
                             data--;
                         end
                 end
-	    end
+            end
     endtask
-	
+
     task wishbone();
         initialise_core();
         $display("\n WRITE TO I2C --> START ");
@@ -97,11 +91,11 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
                 $display("START!");
             else
                 $display("RESTART!");
-            
-		address_calculation();
+
+            address_calculation();
             write(alt+64);
-            
-		start();
+
+            start();
             $display("RESTART!");
             address_calculation_read();
             read_with_nack();
@@ -110,174 +104,70 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
         $display("STOP!!!");
 
     endtask
-   
-    
-    task initialise_core(); // setting up the core of i2cmb
-        foreach (wb_init[i]) begin
-            $cast(wb_init[i],ncsu_object_factory::create(wb_trans_name)); 
-        end
 
-        wb_init[0].addr=2'b00;
-	wb_init[0].data=8'b11xxxxxx;
-	wb_init[0].irq_c=0;
-	wb_init[0].type_op=1;
-	wb_p0_agent.bl_put(wb_init[0]);
-        wb_init[1].addr=2'b01;
-	wb_init[1].data=8'bxxxxxx01;
-	wb_init[1].irq_c=0;
-	wb_init[1].type_op=1;
-	wb_p0_agent.bl_put(wb_init[1]);
-        wb_init[2].addr=2'b10;
-	wb_init[2].data=8'bxxxxx110;
-	wb_init[2].irq_c=0;
-	wb_init[2].type_op=1;
-	wb_p0_agent.bl_put(wb_init[2]);
-        wb_init[3].addr=2'b00;
-	wb_init[3].data=8'bxxxxxx00;
-	wb_init[3].irq_c=1;
-	wb_p0_agent.bl_put(wb_init[3]);
-        wb_init[4].addr=2'b10;
-	wb_init[4].data=8'bxxxxxxxx;
-	wb_init[4].irq_c=0;
-	wb_init[4].type_op=0;
-	wb_p0_agent.bl_put(wb_init[4]);
+
+    task make_transaction( bit [1:0] addr, bit [7:0] data, bit irq_c, bit type_op);
+        $cast(wishbone_transaction,ncsu_object_factory::create(wb_trans_name));
+        wishbone_transaction.addr=addr;
+        wishbone_transaction.data=data;
+        wishbone_transaction.irq_c=irq_c;
+        wishbone_transaction.type_op=type_op;
+        wb_p0_agent.bl_put(wishbone_transaction);
     endtask
 
-    task start(); // start the i2c 
-        foreach (wb_start[i]) begin
-            $cast(wb_start[i],ncsu_object_factory::create(wb_trans_name));  
-        end
-        wb_start[0].addr=2'b10;
-	wb_start[0].data=8'bxxxxx100;
-	wb_start[0].irq_c=0;
-	wb_start[0].type_op=1;
-	wb_p0_agent.bl_put(wb_start[0]);
-        wb_start[1].addr=2'b00;
-	wb_start[1].data=8'bxxxxxx00;
-	wb_start[1].irq_c=1;
-	wb_p0_agent.bl_put(wb_start[1]);
-        wb_start[2].addr=2'b10;
-	wb_start[2].data=8'bxxxxxxxx;
-	wb_start[2].irq_c=0;
-	wb_start[2].type_op=0;
-	wb_p0_agent.bl_put(wb_start[2]);
-    endtask 
+    task initialise_core(); // setting up the core of i2cmb
+        make_transaction(2'b00,8'b11xxxxxx,0,1);
+        make_transaction(2'b01,8'bxxxxxx01,0,1);
+        make_transaction(2'b10,8'bxxxxx110,0,1);
+        make_transaction(2'b00,8'bxxxxxx00,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
+    endtask
+
+    task start(); // start the i2c
+        make_transaction(2'b10,8'bxxxxx100,0,1);
+        make_transaction(2'b00,8'bxxxxxx00,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
+    endtask
 
     task address_calculation(); // specify the address of i2c slave
-        foreach (wb_address[i]) begin
-            $cast(wb_address[i],ncsu_object_factory::create(wb_trans_name));  
-        end
-        wb_address[0].addr=2'b01;
-	wb_address[0].data=8'h00000044;
-	wb_address[0].irq_c=0;
-	wb_address[0].type_op=1;
-	wb_p0_agent.bl_put(wb_address[0]);
-        wb_address[1].addr=2'b10;
-	wb_address[1].data=8'bxxxxx001;
-	wb_address[1].irq_c=0;
-	wb_address[1].type_op=1;
-	wb_p0_agent.bl_put(wb_address[1]);
-        wb_address[2].addr=2'b00;
-	wb_address[2].data=8'bxxxxxx00;
-	wb_address[2].irq_c=1;
-	wb_p0_agent.bl_put(wb_address[2]);
-        wb_address[3].addr=2'b10;
-	wb_address[3].data=8'bxxxxxxxx;
-	wb_address[3].irq_c=0;
-	wb_address[3].type_op=0;
-	wb_p0_agent.bl_put(wb_address[3]);
+        make_transaction(2'b01,8'h00000044,0,1);
+        make_transaction(2'b10,8'bxxxxx001,0,1);
+        make_transaction(2'b00,8'bxxxxxx00,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
 
-    task address_calculation_read(); // specify read address of i2c slave 
-        foreach (wb_read_addr[i]) begin
-            $cast(wb_read_addr[i],ncsu_object_factory::create(wb_trans_name));  
-        end
-        wb_read_addr[0].addr=2'b01;
-	wb_read_addr[0].data=8'h00000045;
-	wb_read_addr[0].irq_c=0;
-	wb_read_addr[0].type_op=1;
-	wb_p0_agent.bl_put(wb_read_addr[0]);
-        wb_read_addr[1].addr=2'b10;
-	wb_read_addr[1].data=8'bxxxxx001;
-	wb_read_addr[1].irq_c=0;
-	wb_read_addr[1].type_op=1;
-	wb_p0_agent.bl_put(wb_read_addr[1]);
-        wb_read_addr[2].addr=2'b00;
-	wb_read_addr[2].data=8'bxxxxxx00;
-	wb_read_addr[2].irq_c=1;
-	wb_p0_agent.bl_put(wb_read_addr[2]);
-        wb_read_addr[3].addr=2'b10;
-	wb_read_addr[3].data=8'bxxxxxxxx;
-	wb_read_addr[3].irq_c=0;
-	wb_read_addr[3].type_op=0;
-	wb_p0_agent.bl_put(wb_read_addr[3]);
+    task address_calculation_read(); // specify read address of i2c slave
+        make_transaction(2'b01,8'h00000045,0,1);
+        make_transaction(2'b10,8'bxxxxx001,0,1);
+        make_transaction(2'b00,8'bxxxxxx00,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
 
     task read_with_ack(); // read with acknowledgement
-        foreach (wb_read_with_ack[i]) begin
-            $cast(wb_read_with_ack[i],ncsu_object_factory::create(wb_trans_name)); 
-        end
-        wb_read_with_ack[0].addr=2'b10;wb_read_with_ack[0].data=8'bxxxxx010;
-	wb_read_with_ack[0].irq_c=0;wb_read_with_ack[0].type_op=1;wb_p0_agent.bl_put(wb_read_with_ack[0]);
-        wb_read_with_ack[1].addr=2'b00;wb_read_with_ack[1].data=8'bxxxxxx00;
-	wb_read_with_ack[1].irq_c=1;wb_p0_agent.bl_put(wb_read_with_ack[1]);
-        wb_read_with_ack[2].addr=2'b10;wb_read_with_ack[2].data=8'bxxxxxxxx;
-	wb_read_with_ack[2].irq_c=0;wb_read_with_ack[2].type_op=0;wb_p0_agent.bl_put(wb_read_with_ack[2]);
-        wb_read_with_ack[3].addr=2'b01;wb_read_with_ack[3].data=8'bxxxxxxxx;
-	wb_read_with_ack[3].irq_c=0;wb_read_with_ack[3].type_op=0;wb_p0_agent.bl_put(wb_read_with_ack[3]);
+        make_transaction(2'b10,8'bxxxxx010,0,1);
+        make_transaction(2'b00,8'bxxxxxx00,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
+        make_transaction(2'b01,8'bxxxxxxxx,0,0);
     endtask
 
     task read_with_nack(); // read with NAK
-
-        foreach (wb_read_with_nak[i]) begin
-            $cast(wb_read_with_nak[i],ncsu_object_factory::create(wb_trans_name)); 
-        end
-        wb_read_with_nak[0].addr=2'b10;wb_read_with_nak[0].data=8'bxxxxx011;
-	wb_read_with_nak[0].irq_c=0;wb_read_with_nak[0].type_op=1;wb_p0_agent.bl_put(wb_read_with_nak[0]);
-        wb_read_with_nak[1].addr=2'b00;wb_read_with_nak[1].data=8'bxxxxxx00;
-	wb_read_with_nak[1].irq_c=1;wb_p0_agent.bl_put(wb_read_with_nak[1]);
-        wb_read_with_nak[2].addr=2'b10;wb_read_with_nak[2].data=8'bxxxxxxxx;
-	wb_read_with_nak[2].irq_c=0;wb_read_with_nak[2].type_op=0;wb_p0_agent.bl_put(wb_read_with_nak[2]);
-        wb_read_with_nak[3].addr=2'b01;wb_read_with_nak[3].data=8'bxxxxxxxx;
-	wb_read_with_nak[3].irq_c=0;wb_read_with_nak[3].type_op=0;wb_p0_agent.bl_put(wb_read_with_nak[3]);
+        make_transaction(2'b10,8'bxxxxx011,0,1);
+        make_transaction(2'b00,8'bxxxxxx00,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
+        make_transaction(2'b01,8'bxxxxxxxx,0,0);
     endtask
 
-    task write(int write_value); // write to i2c 
-
-        foreach (wb_write[i]) begin
-            $cast(wb_write[i],ncsu_object_factory::create(wb_trans_name));  
-        end
-        wb_write[0].addr=2'b01;wb_write[0].data=write_value;
-	wb_write[0].irq_c=0;wb_write[0].type_op=1;
-	wb_p0_agent.bl_put(wb_write[0]);
-	
-	wb_write[1].addr=2'b10;
-	wb_write[1].data=8'bxxxxx001;wb_write[1].irq_c=0;
-	wb_write[1].type_op=1;wb_p0_agent.bl_put(wb_write[1]);
-        
-	wb_write[2].addr=2'b00;wb_write[2].data=8'bxxxxxx00;
-	wb_write[2].irq_c=1;wb_p0_agent.bl_put(wb_write[2]);
-        
-	wb_write[3].addr=2'b10;	wb_write[3].data=8'bxxxxxxxx;
-	wb_write[3].irq_c=0;wb_write[3].type_op=0;
-	wb_p0_agent.bl_put(wb_write[3]);
+    task write(byte write_value); // write to i2c
+        make_transaction(2'b01,write_value,0,1);
+        make_transaction(2'b10,8'bxxxxx001,0,1);
+        make_transaction(2'b00,8'bxxxxx001,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
 
     task stop(); // stop the i2c
-        foreach (wb_stop[i]) begin
-            $cast(wb_stop[i],ncsu_object_factory::create(wb_trans_name));  
-        end
-        
-	wb_stop[0].addr=2'b10;wb_stop[0].data=8'bxxxxx101;
-	wb_stop[0].irq_c=0;wb_stop[0].type_op=1;
-	wb_p0_agent.bl_put(wb_stop[0]);
-
-        wb_stop[1].addr=2'b00;wb_stop[1].data=8'bxxxxxx00;
-	wb_stop[1].irq_c=1;wb_p0_agent.bl_put(wb_stop[1]);
-
-        wb_stop[2].addr=2'b10;wb_stop[2].data=8'bxxxxxxxx;
-	wb_stop[2].irq_c=0;wb_stop[2].type_op=0;
-	wb_p0_agent.bl_put(wb_stop[2]);
+        make_transaction(2'b10,8'bxxxxx101,0,1);
+        make_transaction(2'b00,8'bxxxxxx00,1,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
 
     function void set_i2c_agent(ncsu_component #(i2c_transaction) agent);
@@ -287,6 +177,10 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
     function void set_wb_agent(ncsu_component #(wb_transaction) agent);
         this.wb_p0_agent = agent;
     endfunction
+
+    task bitlevelfsm();
+
+    endtask
 
 
 endclass
