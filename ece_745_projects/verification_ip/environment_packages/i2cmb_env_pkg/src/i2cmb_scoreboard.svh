@@ -15,6 +15,8 @@ class scoreboard extends ncsu_component#(.T(i2c_transaction));
 
     virtual function void nb_put(T trans);
         $display({get_full_name()," nb_put RECEIVED FROM MONITOR",trans.convert2string()});
+        $display({get_full_name()," nb_put EXPECTED FROM MONITOR",this.trans_in.convert2string()});
+
         if ( this.trans_in.compare(trans) ) $display(" I2C MATCH");
         else                                $display(" I2C MISMATCH");
     endfunction

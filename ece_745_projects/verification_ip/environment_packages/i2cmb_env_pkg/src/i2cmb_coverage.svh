@@ -86,7 +86,9 @@ class i2cmb_coverage extends ncsu_component#(.T(wb_transaction));
             bins data_bin92 = (BIT_FSM_START_C => CMDR_RWNACK => BIT_FSM_RW_A);
         }
 
-        we_addr_data: cross we, addr, data; // Cross Data to cover Transitions
+        we_addr_data: cross we, addr, data{
+          //  bins idle_start = binsof(data.data_bin1) ;
+        } // Cross Data to cover Transitions
 
         we_Meta: coverpoint writeEnableBit_Meta{
             bins we_bin1_Meta = (WB_READ => WB_READ );
@@ -103,8 +105,8 @@ class i2cmb_coverage extends ncsu_component#(.T(wb_transaction));
             bins data_bin3_Meta =  (BIT_FSM_START_C  => BIT_FSM_START_C);  //START_B  => START_C
 
             bins data_bin4_Meta =  (BIT_FSM_RESTART_A  => BIT_FSM_RESTART_B);  //RESTART_A  => RESTART_C
-            bins data_bin5_Meta =  (BIT_FSM_RESTART_A  => BIT_FSM_RESTART_C);  //RESTART_B  => RESTART_C
-            bins data_bin6_Meta =  (BIT_FSM_RESTART_A  => BIT_FSM_START_A);   //RESTART_C  => START_A
+            bins data_bin5_Meta =  (BIT_FSM_RESTART_B  => BIT_FSM_RESTART_C);  //RESTART_B  => RESTART_C
+            bins data_bin6_Meta =  (BIT_FSM_RESTART_C  => BIT_FSM_START_A);   //RESTART_C  => START_A
 
             bins data_bin7_Meta =  (BIT_FSM_STOP_A  => BIT_FSM_STOP_B);  //STOP_A  => STOP_B)
             bins data_bin8_Meta =  (BIT_FSM_STOP_B  => BIT_FSM_STOP_C);  //STOP_B  => STOP_C
@@ -244,9 +246,9 @@ class i2cmb_coverage extends ncsu_component#(.T(wb_transaction));
 
         writeEnableBit = we_type_t'(trans.enable);
         addr = trans.addr;
+        addr_Meta = trans.addr;
         data = trans.data[3:0];
-
-
+        data_Meta = trans.data[3:0];
         ByteFSM_cg.sample();
         BitFSM_cg.sample();
     endfunction

@@ -23,20 +23,19 @@ class predictor extends ncsu_component#(.T(wb_transaction));
 
     virtual function void nb_put(T trans);
 
-       
-         if(trans.addr==2'b10 && trans.data==8'b101) // Stop Check Condition 
+        if(trans.addr==2'b10 && trans.data==8'b101) // Stop Check Condition
             begin
                 repeated_start=0; start_flagged=0; address_calculated=0; rep_start_status=0;
-	        stop_flagged=1; 
+                stop_flagged=1;
             end
-          if(trans.addr==2'b10 && trans.data==8'b100) // Start Check Condition
+        if(trans.addr==2'b10 && trans.data==8'b100) // Start Check Condition
             begin
-		stop_flagged=0; address_calculated=0;
+                stop_flagged=0; address_calculated=0;
                 if(rep_start_status!=0) repeated_start=1;
                 else start_flagged=1;
             end
 
-           if(trans.addr==2'b01 && (repeated_start==1 || start_flagged ==1 ) ) // get the address 
+        if(trans.addr==2'b01 && (repeated_start==1 || start_flagged ==1 ) ) // get the address
             begin
                 address_calculated=1;
                 if(trans.data[0]==0) i2c_trans.op=WRITE;
@@ -47,16 +46,16 @@ class predictor extends ncsu_component#(.T(wb_transaction));
                 repeated_start=0;
                 start_flagged=0;
             end
-           else if(trans.addr==2'b01 && address_calculated==1 && stop_flagged==0 ) // get the data
+        else if(trans.addr==2'b01 && address_calculated==1 && stop_flagged==0 ) // get the data
             begin
                 i2c_trans.i2c_data={i2c_trans.i2c_data,trans.data};
                 rep_start_status=1;
             end
-        
+
         if((repeated_start==1 || stop_flagged==1)) // putting expected prediction in scoreboard
             begin
                 scoreboard.nb_transport(i2c_trans, transport_trans);
-                i2c_trans=new("name");
+           //     i2c_trans=new("name");
             end
     endfunction
 
