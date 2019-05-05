@@ -19,15 +19,18 @@ class wb_driver extends ncsu_component#(.T(wb_transaction));
 
         else
             begin
-                if(trans.type_op==1)
+                if(trans.type_op==1) begin
+                    bus.wait_for_num_clocks(trans.delay);
                     bus.master_write(trans.addr,
                         trans.data
                         );
-
-                else
+                end
+                else begin
+                    bus.wait_for_num_clocks(trans.delay);
                     bus.master_read(trans.addr,
                         trans.data
                         );
+                end
             end
     endtask
 

@@ -27,7 +27,7 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
 
     virtual task run();
         fork
-         //   begin wishbone(); end
+//            begin wishbone(); end
             begin bitlevelfsm(); end
             begin i2c(); end
         join_none
@@ -81,12 +81,13 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
         $display("STOP!!!");
     endtask
 
-    task make_transaction( bit [1:0] addr, bit [7:0] data, bit irq_c, bit type_op);
+    task make_transaction( bit [1:0] addr, bit [7:0] data, bit irq_c, bit type_op, int delay = 0);
         $cast(wb_trans,ncsu_object_factory::create(wb_trans_name));
         wb_trans.addr=addr;
         wb_trans.data=data;
         wb_trans.irq_c=irq_c;
         wb_trans.type_op=type_op;
+        wb_trans.delay=delay;
         wb_p0_agent.bl_put(wb_trans);
     endtask
 
@@ -101,9 +102,9 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
     task start(bit fsm_monitor = 0); // start the i2c
         if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx100,0,1);
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #300000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #500000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
+        if(fsm_monitor==1)  make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1)  make_transaction(2'b11,8'bxxxxxxxx,0,0, 300); // fsm Read
+        if(fsm_monitor==1)  make_transaction(2'b11,8'bxxxxxxxx,0,0, 500); // fsm Read
         make_transaction(2'b00,8'bxxxxxx00,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
@@ -111,10 +112,10 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
     task restart(bit fsm_monitor = 0); // start the i2c
         if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx100,0,1);
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #280000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #4000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #4000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
+        if(fsm_monitor==1)  make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1)  make_transaction(2'b11,8'bxxxxxxxx,0,0, 280); // fsm Read
+        if(fsm_monitor==1)  make_transaction(2'b11,8'bxxxxxxxx,0,0, 4); // fsm Read
+        if(fsm_monitor==1)  make_transaction(2'b11,8'bxxxxxxxx,0,0, 4); // fsm Read
         make_transaction(2'b00,8'bxxxxxx00,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
@@ -123,11 +124,11 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
         make_transaction(2'b01,address,0,1);
         if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx001,0,1);
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #270000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #100000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #400000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #72000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 270); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 100); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 400); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 68); // fsm Read
         make_transaction(2'b00,8'bxxxxxx00,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
@@ -136,11 +137,11 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
         make_transaction(2'b01,address,0,1);
         if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx001,0,1);
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #270000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #100000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #400000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #72000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 270); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 100); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 400); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 68); // fsm Read
         make_transaction(2'b00,8'bxxxxxx00,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
@@ -148,18 +149,24 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
     task read_with_ack(bit fsm_monitor = 0); // read with acknowledgement
         if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx010,0,1);
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #270000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #100000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #400000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #72000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 270); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 100); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 400); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 68); // fsm Read
         make_transaction(2'b00,8'bxxxxxx00,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
         make_transaction(2'b01,8'bxxxxxxxx,0,0);
     endtask
 
-    task read_with_nack(); // read with NAK
+    task read_with_nack(bit fsm_monitor = 0); // read with NAK
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx011,0,1);
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 270); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 100); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 400); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 68); // fsm Read
         make_transaction(2'b00,8'bxxxxxx00,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
         make_transaction(2'b01,8'bxxxxxxxx,0,0);
@@ -169,11 +176,11 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
         make_transaction(2'b01,write_value,0,1);
         if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx001,0,1);
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #270000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #100000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #400000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #72000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 270); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 100); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 400); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 68); // fsm Read
         make_transaction(2'b00,8'bxxxxx001,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
@@ -181,10 +188,10 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
     task stop(bit fsm_monitor = 0); // stop the i2c
         if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
         make_transaction(2'b10,8'bxxxxx101,0,1);
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #270000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #150000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
-        if(fsm_monitor==1) #400000 make_transaction(2'b11,8'bxxxxxxxx,0,0); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0,150); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 270); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 150); // fsm Read
+        if(fsm_monitor==1) make_transaction(2'b11,8'bxxxxxxxx,0,0, 400); // fsm Read
         make_transaction(2'b00,8'bxxxxxx00,1,0);
         make_transaction(2'b10,8'bxxxxxxxx,0,0);
     endtask
@@ -206,21 +213,29 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
         address_calculation(8'h00000044, 1);
         $display("Write Below" );
         write(11,1);
+        write(12,1);
+        write(13,1);
         $display("Stop Below" );
         stop(1);
         $display("Start Below" );
         start(1);
         $display("Address Calc Below" );
-        address_calculation_read(8'h00000045, 1);
+        address_calculation(8'h00000044, 1);
         $display("Read with Ack Below" );
+        write(22,1);
+        write(25,1);
+        $display("Stop Below" );
+        //stop(1);
+        $display("Start Below" );
+        //start(1);
+        restart(1);
+        $display("Address Calc Below" );
+        address_calculation_read(8'h00000045,1);
+        $display("Read With Ack  Below" );
         read_with_ack(1);
         $display("Stop Below" );
-        stop(1);
-        // $display("Address Calc Below" );
-       // address_calculation_read();
-//        $display("Read With Ack  Below" );
-//        read_with_ack(1);
-//      //  $display("Write Below" );
+        #10ms stop(1);
+//        //  $display("Write Below" );
       //  write(11,1);
 //        $display("Start Below" );
 //        restart(1);

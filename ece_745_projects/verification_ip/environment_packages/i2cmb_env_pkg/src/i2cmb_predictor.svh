@@ -25,12 +25,17 @@ class predictor extends ncsu_component#(.T(wb_transaction));
 
         if(trans.addr==2'b10 && trans.data==8'b101) // Stop Check Condition
             begin
-                repeated_start=0; start_flagged=0; address_calculated=0; rep_start_status=0;
+                repeated_start=0;
+                start_flagged=0;
+                address_calculated=0;
+                rep_start_status=0;
                 stop_flagged=1;
             end
         if(trans.addr==2'b10 && trans.data==8'b100) // Start Check Condition
             begin
-                stop_flagged=0; address_calculated=0;
+                stop_flagged=0;
+                address_calculated=0;
+
                 if(rep_start_status!=0) repeated_start=1;
                 else start_flagged=1;
             end
@@ -54,8 +59,11 @@ class predictor extends ncsu_component#(.T(wb_transaction));
 
         if((repeated_start==1 || stop_flagged==1)) // putting expected prediction in scoreboard
             begin
+                if(repeated_start == 1) repeated_start = 0;
+                if(stop_flagged == 1) stop_flagged = 0;
+
                 scoreboard.nb_transport(i2c_trans, transport_trans);
-           //     i2c_trans=new("name");
+                i2c_trans=new("name");
             end
     endfunction
 
