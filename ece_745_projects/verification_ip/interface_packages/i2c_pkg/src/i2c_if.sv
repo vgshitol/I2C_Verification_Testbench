@@ -208,7 +208,6 @@ interface i2c_if  #( int I2C_ADDR_WIDTH = 7,
 					begin
 						@ (negedge scl_i2c);
 
-
 						@(posedge scl_i2c);
 						@(sda_i2c or negedge scl_i2c);
 

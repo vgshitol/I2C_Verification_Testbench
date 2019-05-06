@@ -16,6 +16,7 @@ class scoreboard extends ncsu_component#(.T(i2c_transaction));
         output_trans = trans_out;
 
         $display ("Array SIZE : %d", trans_in.size());
+
         foreach(this.trans_in[i]) begin
             $display({get_full_name(),"I2C EXPECTED RESPONSE ARRAY",this.trans_in[i].convert2string()});
         end
