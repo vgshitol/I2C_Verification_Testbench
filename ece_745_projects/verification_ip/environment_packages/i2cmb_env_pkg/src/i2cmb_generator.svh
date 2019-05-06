@@ -31,7 +31,7 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
 
     virtual task run();
         fork
-            begin wishbone(); wait_idle_test(1); byteRandomSeq(); end
+            begin  wishbone(); registerTesting();  wait_idle_test(1); byteRandomSeq(); end
         //    begin bitlevelfsm(); end
             begin i2c(); end
           //  begin i2c2(); end
@@ -112,6 +112,53 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
         op_type = 1 - type_op; // WB Trans Type opposite to I2c trans Type
         wb_trans.delay=delay;
         wb_p0_agent.bl_put(wb_trans);
+    endtask
+
+    /*---------------Register Transactions Coverage----------------------------------*/
+
+    task registerTesting();
+        make_transaction(2'b00,8'bxxxxxxx0,0,1);
+        make_transaction(2'b00,8'bxxxxxxx0,0,1);
+        make_transaction(2'b00,8'bxxxxxxx0,0,0);
+        make_transaction(2'b00,8'bxxxxxxx0,0,1);
+        make_transaction(2'b01,8'bxxxxxxx0,0,0);
+        make_transaction(2'b00,8'bxxxxxxx0,0,1);
+        make_transaction(2'b10,8'bxxxxxxx0,0,0);
+        make_transaction(2'b00,8'bxxxxxxx0,0,1);
+        make_transaction(2'b11,8'bxxxxxxx0,0,0);
+        make_transaction(2'b00,8'b11000000,0,1);
+        make_transaction(2'b00,8'b11111111,0,1);
+        make_transaction(2'b01,8'b11111111,0,1);
+        make_transaction(2'b10,8'b11111111,0,1);
+        make_transaction(2'b11,8'b11111111,0,1);
+        make_transaction(2'b00,8'b11111111,0,0);
+        make_transaction(2'b01,8'b11111111,0,0);
+        make_transaction(2'b10,8'b11111111,0,0);
+        make_transaction(2'b11,8'b11111111,0,0);
+        make_transaction(2'b00,8'b11111111,0,0);
+        make_transaction(2'b00,8'b00111111,0,1);
+        make_transaction(2'b00,8'b00111111,0,0);
+        make_transaction(2'b00,8'b00111111,0,0);
+        make_transaction(2'b01,8'b00111111,0,0);
+        make_transaction(2'b01,8'b11111111,0,1);
+        make_transaction(2'b01,8'b11111111,0,0);
+        make_transaction(2'b10,8'bxxxxxxxx,0,0);
+        make_transaction(2'b10,8'b11111111,0,1);
+        make_transaction(2'b10,8'b10000111,0,1);
+        make_transaction(2'b11,8'bxxxxxxxx,0,0);
+        make_transaction(2'b11,8'b11111111,0,0);
+        make_transaction(2'b11,8'b00000000,0,0);
+        make_transaction(2'b00,8'b11000000,0,1);
+        make_transaction(2'b00,8'b11000000,0,0);
+        make_transaction(2'b00,8'bxxxxxxxx,0,0);
+        make_transaction(2'b01,8'b11111111,0,1);
+        make_transaction(2'b01,8'b11111111,0,0);
+        make_transaction(2'b01,8'b11111111,0,0);
+        make_transaction(2'b10,8'b11111111,0,0);
+        make_transaction(2'b10,8'b11111111,0,0);
+        make_transaction(2'b11,8'b11111111,0,0);
+        make_transaction(2'b11,8'b11111111,0,0);
+        make_transaction(2'b11,8'b00000000,0,0);
     endtask
 
     /*---------------Random Transactions for Byte Level Coverage----------------------------------*/

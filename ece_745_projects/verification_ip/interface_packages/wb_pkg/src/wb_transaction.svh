@@ -12,7 +12,7 @@ class wb_transaction extends ncsu_transaction;
     endfunction
 
     virtual function string convert2string();
-        return {super.convert2string(),$sformatf("Address:0x%x Operation:%d Data:0x%x Enable:%d Delay:0x%x", addr, type_op, data, enable, delay)};
+        return {super.convert2string(),$sformatf("Address:0x%x Operation:%d Data:0x%x Enable:%d Delay:%d", addr, type_op, data, enable, delay)};
     endfunction
 
     /*function bit compare(abc_transaction_base rhs);

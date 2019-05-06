@@ -702,8 +702,8 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">1.2.1.1</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">ResetValue</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">When the reset signal is detected, the value in CSR register should be '00000000'</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data&lt;CSR_RESET&gt;</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">100</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -738,8 +738,8 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">1.3.1</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">ResetValue</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">When the reset signal is detected, the value in DPR register should be '00000000'</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data&lt;DPR_RESET&gt;</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">100</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -774,8 +774,8 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">1.4.1.1</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">ResetValue</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">When the reset signal is detected, the value in CMDR register should be '10000000'</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data&lt;CMDR_RESET&gt;</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">100</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -822,8 +822,8 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">1.5.1.1</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">ResetValue</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">When the reset signal is detected, the value in FSMR register should be '00000000'</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data&lt;FSMR_RESET&gt;</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Register_cg::reset_data</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="Number">100</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -1396,8 +1396,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.3.1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">transition from start to bus is taken state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving done response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">ByteFSM_cg::byte_fsm_start_state&lt;done_s&gt;</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">ByteFSM_cg::byte_fsm_start_state</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -1408,8 +1408,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.3.2</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">transirions from start to idle state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving arbitration lost response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_start_state&lt;arblost_s&gt;</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_start_state</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell><Data ss:Type="String">vgshitol</Data></Cell>
@@ -1665,8 +1665,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.3.3</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Transitions from start to other states</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Verify if upon receiving any other responses/commands, fsm should not transition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_start_state&lt;invalid_s&gt;</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_start_state</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -1689,8 +1689,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.4.1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">transition from idle to wait state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving wait command, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_idle_state&lt;wait_i&gt;</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_idle_state</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell><Data ss:Type="String">vgshitol</Data></Cell>
@@ -1946,8 +1946,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.4.2</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">transition from idle to start is pending</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving start command, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_idle_state&lt;start_i&gt;</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_idle_state</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -1958,8 +1958,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.4.3</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Transitions from idle to other states</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Verify if upon receiving any other responses/commands, fsm should not transition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_idle_state&lt;invalid_i&gt; </Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_idle_state</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -2228,8 +2228,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.5.1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">transition from stop to idle state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving done response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_stop_state&lt;done_sp&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_stop_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -2240,8 +2240,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.5.2</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Transitions from stop to other states</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Verify if upon receiving any other responses/commands, fsm should not transition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_stop_state&lt;invalid_sp&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_stop_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -2510,8 +2510,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.6.1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">transition from wait to idle state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving done response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">ByteFSM_cg::byte_fsm_wait_state&lt;done_w&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">ByteFSM_cg::byte_fsm_wait_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -2522,8 +2522,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.6.2</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Transitions from wait to other states</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Verify if upon receiving any other responses/commands, fsm should not transition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_wait_state&lt;invalid_w&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_wait_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -2791,8 +2791,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.7.1</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Transition from Any state to  write byte state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving write command, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state&lt;write_bt&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -2803,8 +2803,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.7.2</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Transition from any state to  read byte state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving read command, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state&lt;read_bt&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -2815,8 +2815,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.7.3</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Transition from any state to  start state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving start command, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state&lt;start_bt&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3072,8 +3072,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.7.4</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Transition from any state to  stop state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving stop command, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state&lt;stop_bt&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3084,8 +3084,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.7.5</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Transitions from bus taken to other states</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Verify if upon receiving any other responses/commands, fsm should not transition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state&lt;invalid_bt&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_bus_taken_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3353,8 +3353,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.8.1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Transition from any state to  idle state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving error and arbitration lost response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_write_state&lt;errarblost_wb&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_write_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3365,8 +3365,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.8.2</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Transition from any state to  bus is taken state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving done and nack response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_write_state&lt;donenack_wb&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_write_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3377,8 +3377,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.8.3</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Transitions from write byte to other states</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Verify if upon receiving any other responses/commands, fsm should not transition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_write_state&lt;invalid_wb&gt;</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_write_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3647,8 +3647,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.9.1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Transition from any state to  idle state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving error and arbitration lost response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_read_state errarblost_rb</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_read_state</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3659,8 +3659,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.9.2</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Transition from any state to  bus is taken state</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Verify if upon receiving read with ack and read with nack lost response, state transitions correctly</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_read_state racknack_rb</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ByteFSM_cg::byte_fsm_read_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -3917,8 +3917,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.1.9.3</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Transitions from read byte to other states</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Verify if upon receiving any other responses/commands, fsm should not transition</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_read_state invalid_rb</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Bin</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ByteFSM_cg::byte_fsm_read_state</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
@@ -4961,7 +4961,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.2.3.1.1</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Start command in Idle state makes transition to StartA</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">When FSMR[3:0] = Idle, and Start Conition is detected- State should change to StartA</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">BitFSM_cg::we_addr_data we_bin1,addr_bin1,data_bin1</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">BitFSM_cg::we_addr_data</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Bin</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="Number">100</Data></Cell>
@@ -5805,13 +5805,40 @@
     <Cell ss:StyleID="s78"><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="13">
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">6</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">AssertionsTesting</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">vgshitol</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Bob Oden</Data></Cell>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="13">
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">6.1</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String" x:Ticked="1">Interrupt Check</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String" x:Ticked="1">check if irq is responding correctly</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">assert__irqTest</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Assertion</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Bob Oden</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="Number">3</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.5">
-    <Cell ss:StyleID="Default"/>
+   <Row ss:AutoFitHeight="0" ss:Height="13">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">6.2</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String" x:Ticked="1">Strobe Check</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String" x:Ticked="1">strobe check</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">assert__strobeTest</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Assertion</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">vgshitol</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Bob Oden</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -5886,12 +5913,12 @@
    </Print>
    <Zoom>125</Zoom>
    <Selected/>
-   <TopRowVisible>45</TopRowVisible>
+   <TopRowVisible>84</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>61</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>93</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

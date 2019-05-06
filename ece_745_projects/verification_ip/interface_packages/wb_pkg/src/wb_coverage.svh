@@ -33,7 +33,7 @@ class wb_coverage extends ncsu_component#(.T(wb_transaction));
 
     reg_type_x_we_type: cross reg_type, we_type //register access check
         {
-          illegal_bins FSMR_ACCESS = binsof(reg_type.FSMR) && binsof(we_type.WB_WRITE);
+       //   illegal_bins FSMR_ACCESS = binsof(reg_type.FSMR) && binsof(we_type.WB_WRITE);
         }
 
     address_validity: coverpoint address_validity

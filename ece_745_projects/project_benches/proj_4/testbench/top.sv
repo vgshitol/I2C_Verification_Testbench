@@ -116,15 +116,31 @@ i2c_bus (
     // ------------------------------------
   );
 
+
+
+  property irqTest;
+    @(posedge clk) disable iff (rst_n)
+        (adr == 2'b10) && (dat_wr_o == 8'b1xxxxxxx || dat_wr_o == 8'bx1xxxxxx || dat_wr_o == 8'bxx1xxxxx || dat_wr_o == 8'bxxx1xxxx) |=> irq;
+  endproperty
+
+  assert property(irqTest) else $fatal("irq signal failure");
+
+  property strobeTest;
+    @(posedge clk) disable iff (rst_n)
+        (!stb) || (stb && cyc);
+  endproperty
+
+  assert property(strobeTest) else $fatal("Strobe is High even when CYC is low");
+
 // ****************************************************************************
   initial begin : test_flow
     ncsu_config_db#(virtual wb_if)::set("tst.env.WBagent", wb_bus);
     ncsu_config_db#(virtual i2c_if)::set("tst.env.I2Cagent", i2c_bus);
-    //p0_bus.enable_driver = 1'b1;
     tst = new("tst",null);
     tst.run();
     #50000000ns $finish();
   end
+
 
 
 endmodule
