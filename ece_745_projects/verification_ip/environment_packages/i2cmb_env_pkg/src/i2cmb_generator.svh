@@ -319,7 +319,7 @@ class i2cmb_generator extends ncsu_component#(.T(i2c_transaction));
 
     task bitlevelfsm();
         $display("Init Below" );
-        initialise_core();
+     //   initialise_core();
         $display("Start Below" );
         start(1);
         $display("Address Calc Below" );

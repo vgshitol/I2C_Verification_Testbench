@@ -31,7 +31,6 @@ class predictor extends ncsu_component#(.T(wb_transaction));
 
         if(stop==1) // putting expected prediction in scoreboard
             begin
-                $display("Why Blank");
                 scoreboard.nb_transport(i2c_trans, transport_trans);
                 i2c_trans=new("name");
                 stop=0;

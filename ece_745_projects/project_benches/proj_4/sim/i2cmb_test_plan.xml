@@ -4961,7 +4961,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">2.2.3.1.1</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Start command in Idle state makes transition to StartA</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">When FSMR[3:0] = Idle, and Start Conition is detected- State should change to StartA</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">BitFSM_cg::we_addr_data</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">BitFSM_cg::data.data_bin1</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Bin</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="Number">100</Data></Cell>
@@ -5913,12 +5913,12 @@
    </Print>
    <Zoom>125</Zoom>
    <Selected/>
-   <TopRowVisible>84</TopRowVisible>
+   <TopRowVisible>52</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>93</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>61</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
